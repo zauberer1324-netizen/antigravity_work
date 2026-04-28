@@ -1,0 +1,7 @@
+yfinance
+finance-datareader
+pandas
+requests
+python-dotenv
+google-genai
+slack-sdk

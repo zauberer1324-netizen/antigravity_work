@@ -1,0 +1,39 @@
+name: Daily Stock Market Report
+
+on:
+  schedule:
+    # 매일 한국시간(KST) 오전 7시에 실행 (UTC 기준 전날 22시)
+    - cron: '0 22 * * *'
+  workflow_dispatch: # 수동으로 강제 실행할 수 있도록 하는 옵션
+
+jobs:
+  generate_and_send_report:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 저장소 코드 가져오기 (Checkout)
+      uses: actions/checkout@v4
+
+    - name: 파이썬(Python) 환경 설정
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12' 
+        
+    - name: 의존성 패키지 설치
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 시장 기초 데이터 수집 (fetch_market_data.py)
+      run: python execution/fetch_market_data.py
+
+    - name: Gemini API로 HTML 리포트 생성 (generate_report_llm.py)
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: python execution/generate_report_llm.py
+
+    - name: 슬랙(Slack)으로 HTML 리포트 전송 (send_to_slack.py)
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+      run: python execution/send_to_slack.py
