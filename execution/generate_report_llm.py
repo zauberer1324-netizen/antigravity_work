@@ -28,7 +28,7 @@ def get_time_range():
         
     return start_time, today_7am, is_monday
 
-def generate_with_retry(client, model, contents, config, retries=3):
+def generate_with_retry(client, model, contents, config, retries=5):
     for attempt in range(retries):
         try:
             return client.models.generate_content(
@@ -39,8 +39,9 @@ def generate_with_retry(client, model, contents, config, retries=3):
         except Exception as e:
             print(f"API 호출 에러 발생 (시도 {attempt+1}/{retries}): {e}")
             if attempt < retries - 1:
-                print("60초 대기 후 재시도합니다...")
-                time.sleep(60)
+                wait_time = 60 * (2 ** attempt)
+                print(f"{wait_time}초 대기 후 재시도합니다...")
+                time.sleep(wait_time)
             else:
                 raise
 
