@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import time
 from datetime import datetime, timedelta
 import yfinance as yf
 from google import genai
@@ -26,6 +27,22 @@ def get_time_range():
         start_time = today_7am - timedelta(days=1)
         
     return start_time, today_7am, is_monday
+
+def generate_with_retry(client, model, contents, config, retries=3):
+    for attempt in range(retries):
+        try:
+            return client.models.generate_content(
+                model=model,
+                contents=contents,
+                config=config
+            )
+        except Exception as e:
+            print(f"API 호출 에러 발생 (시도 {attempt+1}/{retries}): {e}")
+            if attempt < retries - 1:
+                print("60초 대기 후 재시도합니다...")
+                time.sleep(60)
+            else:
+                raise
 
 def get_yfinance_news():
     # 주요 지수의 최근 뉴스 수집 (외부 뉴스 API 연동 역할)
@@ -163,7 +180,8 @@ def main():
 }}
 """
 
-    response_1 = client.models.generate_content(
+    response_1 = generate_with_retry(
+        client=client,
         model='gemini-2.5-flash',
         contents=orchestrator_prompt,
         config=types.GenerateContentConfig(
@@ -217,10 +235,14 @@ def main():
             stock["verified_listed"] = False
             stock["reason"] = f"yfinance 티커({yf_ticker}) 조회 실패"
 
-        # LLM을 통한 2차 검증 프롬프트 (유사 회사명, 오타 등 방지)
+    # LLM을 통한 2차 검증 (배치 처리)
+    stocks_to_verify = [s for s in stocks if s.get("ticker")]
+    if stocks_to_verify:
+        print("LLM을 통한 2차 검증 진행 중 (배치 처리)...")
         verify_prompt = f"""
-다음 종목이 실제 상장사인지 검증하라.
-입력 종목 정보: {json.dumps(stock, ensure_ascii=False)}
+다음 종목들이 실제 상장사인지 검증하라.
+입력 종목 목록:
+{json.dumps(stocks_to_verify, ensure_ascii=False, indent=2)}
 
 검증 기준:
 1. 공식 종목명
@@ -234,20 +256,23 @@ def main():
 - 정확히 일치하는 상장사가 있으면 verified_listed = true
 - 이름이 비슷하지만 다른 회사이면 verified_listed = false
 - 검색 결과가 불충분하면 verified_listed = unknown
-- unknown 또는 false 종목은 추천 목록에 포함하지 않는다.
 
 절대 금지:
 - 이름이 비슷하다는 이유만으로 같은 회사로 판단
 - 비상장사, 자회사, 브랜드, 제품명을 상장사로 판단
 - 종목코드 없는 기업을 추천종목으로 사용
 
-결과를 아래 JSON으로 반환하라:
-{{
-  "verified_listed": true/false,
-  "reason": "사유"
-}}
+결과를 아래 JSON 배열로 반환하라.
+[
+  {{
+    "ticker": "입력받은 종목코드",
+    "verified_listed": true/false,
+    "reason": "사유"
+  }}
+]
 """
-        response_v = client.models.generate_content(
+        response_v = generate_with_retry(
+            client=client,
             model='gemini-2.5-flash',
             contents=verify_prompt,
             config=types.GenerateContentConfig(
@@ -257,12 +282,18 @@ def main():
             )
         )
         try:
-            v_data = json.loads(response_v.text)
-            if str(v_data.get("verified_listed")).lower() != "true":
-                stock["verified_listed"] = False
-                stock["reason"] = v_data.get("reason", "LLM 검증 실패")
-        except:
-            pass
+            v_data_list = json.loads(response_v.text)
+            v_data_map = {{item.get("ticker"): item for item in v_data_list if isinstance(item, dict)}}
+            
+            for stock in stocks:
+                ticker = stock.get("ticker")
+                if ticker and ticker in v_data_map:
+                    v_item = v_data_map[ticker]
+                    if str(v_item.get("verified_listed")).lower() != "true":
+                        stock["verified_listed"] = False
+                        stock["reason"] = v_item.get("reason", "LLM 검증 실패")
+        except Exception as e:
+            print("LLM 배치 검증 실패:", e)
 
     # 3. Gemini 정리 단계
     print("3단계: 보고서 정리 중...")
@@ -295,7 +326,8 @@ def main():
 - CSS를 활용해 시각적으로 유려하게 만들어야 하며, 마크다운 문법 대신 순수 HTML 태그만 반환하세요.
 - 출력에 ```html 등 코드블록을 넣지 마세요.
 """
-    response_3 = client.models.generate_content(
+    response_3 = generate_with_retry(
+        client=client,
         model='gemini-2.5-flash',
         contents=summary_prompt,
         config=types.GenerateContentConfig(
@@ -344,7 +376,8 @@ def main():
 - 출처 없는 현재가·시가총액·재무수치가 있으면 무조건 fail
 - 작성일이 없는 뉴스가 핵심 근거로 쓰이면 fail
 """
-    response_4 = client.models.generate_content(
+    response_4 = generate_with_retry(
+        client=client,
         model='gemini-2.5-flash',
         contents=review_prompt,
         config=types.GenerateContentConfig(
