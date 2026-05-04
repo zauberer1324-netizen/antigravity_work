@@ -32,8 +32,18 @@ jobs:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: python execution/generate_report_llm.py
 
-    - name: 슬랙(Slack)으로 HTML 리포트 전송 (send_to_slack.py)
+    - name: 슬랙(Slack)으로 HTML 리포트 URL 전송 (send_to_slack.py)
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
       run: python execution/send_to_slack.py
+      
+    - name: Rename report to index.html
+      run: mv .tmp/report.html .tmp/index.html
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./.tmp
+        keep_files: false

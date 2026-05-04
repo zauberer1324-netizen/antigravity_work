@@ -34,7 +34,10 @@ def fetch_market_data():
         "KOSPI": "^KS11",
         "KOSDAQ": "^KQ11",
         "VIX": "^VIX",
-        "USD_KRW": "KRW=X" # USD/KRW 환율
+        "USD_KRW": "KRW=X", # USD/KRW 환율
+        "WTI_CRUDE_OIL": "CL=F", # 서부텍사스산 원유
+        "GOLD": "GC=F", # 금
+        "US_10Y_TREASURY": "^TNX" # 미국 10년물 국채 금리
     }
 
     market_data = {}

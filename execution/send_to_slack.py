@@ -46,13 +46,11 @@ def main():
             # 폴백: 입력된 값을 그대로 시도 (직접 ID를 넣은 경우 대비)
             actual_channel_id = channel_name
             
-        result = client.files_upload_v2(
+        result = client.chat_postMessage(
             channel=actual_channel_id,
-            initial_comment="📈 *오늘의 주식 시장 심층 리포트가 도착했습니다!*\n첨부된 HTML 파일을 클릭하여 예쁜 화면으로 확인하세요.",
-            file=report_path,
-            title="일일 주식 시장 리포트"
+            text=f"📈 *오늘의 주식 시장 심층 리포트가 완성되었습니다!*\n아래 링크를 클릭하여 예쁜 화면으로 확인하세요.\n\n🔗 https://zauberer1324-netizen.github.io/antigravity_work/"
         )
-        print(f"슬랙 전송 성공! (File ID: {result.get('file', {}).get('id')})")
+        print(f"슬랙 전송 성공! (TS: {result.get('ts')})")
         
     except SlackApiError as e:
         print(f"슬랙 파일 업로드 에러: {e.response['error']}")

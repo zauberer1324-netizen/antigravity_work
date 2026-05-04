@@ -46,18 +46,30 @@ def generate_with_retry(client, model, contents, config, retries=5):
                 raise
 
 def get_yfinance_news():
-    # 주요 지수의 최근 뉴스 수집 (외부 뉴스 API 연동 역할)
+    # 주요 지수 및 거시경제/지정학적 리스크 관련 뉴스 수집
     news_items = []
     try:
-        tickers = ["^KS11", "^GSPC"]
+        # KOSPI, S&P500, 원유(WTI), 금, 미 10년물 국채
+        tickers = ["^KS11", "^GSPC", "CL=F", "GC=F", "^TNX"]
         for t in tickers:
             ticker = yf.Ticker(t)
             news = ticker.news
             if news:
                 for n in news[:3]: # 각 지수당 최신 3개 뉴스
+                    pub_time = n.get("providerPublishTime")
+                    if pub_time:
+                        pub_time_str = datetime.fromtimestamp(pub_time).strftime('%Y-%m-%d %H:%M')
+                    else:
+                        pub_time_str = ""
+                        
+                    provider = n.get("provider", "")
+                    if isinstance(provider, dict):
+                        provider = provider.get("displayName", "")
+                        
                     news_items.append({
                         "title": n.get("title", ""),
-                        "publisher": n.get("provider", {}).get("displayName", ""),
+                        "published_at": pub_time_str,
+                        "publisher": provider,
                         "link": n.get("link", n.get("providerContentUrl", ""))
                     })
     except Exception as e:
@@ -99,10 +111,10 @@ def main():
 
 다음 원칙을 반드시 따른다.
 1. 제공된 자료에 없는 사실은 절대 추론해서 만들지 않는다.
-2. 모든 시장 수치, 뉴스, 종목명, 재무 수치, 추천 근거에는 반드시 출처 URL과 작성일 또는 기준일이 있어야 한다.
-3. 출처가 없거나 날짜가 불명확한 정보는 사용하지 않는다.
+2. 모든 시장 수치, 뉴스, 종목명, 재무 수치, 추천 근거에는 반드시 실제 하이퍼링크가 가능한 출처 URL(`source_url`)과 정확한 작성시간(`published_at`, YYYY-MM-DD HH:MM 형식)이 있어야 한다.
+3. 출처가 없거나 시간이 불명확한 정보는 사용하지 않는다. (stock_1, news_1 같은 임의의 값 절대 금지)
 4. 종목 추천 전 반드시 해당 기업이 실제 상장사인지 확인한다.
-5. 상장 여부 확인에는 종목코드, 거래소, 공식 종목명, 국가, 시장 구분을 포함해야 한다.
+5. 구글 검색 도구를 사용할 때, 단순 종목 뉴스뿐만 아니라 '미국-이란 분쟁, 호르무즈 해협, 유가 변동' 등 거시경제(Macro) 및 지정학적 리스크 관련 최신 뉴스를 적극적으로 검색하여 포함한다.
 6. 실제 상장사로 확인되지 않은 기업은 추천종목에서 제외하고 “상장 여부 확인 실패”로 분류한다.
 7. 동일한 핵심 주장에 대해 가능하면 2개 이상의 독립 출처를 요구한다.
 8. 공식 출처를 최우선으로 사용한다. (거래소, 공시, 규제기관 우선)
@@ -114,16 +126,11 @@ def main():
 10. 불확실한 내용은 확정적으로 쓰지 말고 “확인 불가”, “자료 부족”, “추가 검증 필요”, “상장사로 확인되지 않아 제외”로 표시한다.
 11. 추천종목은 투자 권유가 아니라 분석 후보로 표현한다.
 12. 보고서 마지막에는 반드시 “엄격 검토” 섹션을 포함한다.
-13. 엄격 검토 섹션에는 출처 없는 주장, 기준일 불명확 수치, 상장여부 미확인 종목, 뉴스와 시장 해석 연결 과도 여부, 최종 신뢰도 등급을 포함한다.
-14. 모든 정보들에는 정보의 발단 시간(최초 뉴스보고 등)을 같이 적어준다.
 
 절대 금지:
-- 존재하지 않는 기업명 생성
-- 임의의 현재가, 시가총액, 매출액, 영업이익 생성
-- 출처 없는 “전망”, “수혜”, “급등 예상” 작성
-- “AI”, “반도체”, “친환경” 같은 테마만 보고 종목을 추천
-- 이름이 비슷한 회사를 같은 회사로 간주
-- 미확인 기업을 실제 상장사처럼 설명
+- 존재하지 않는 기업명 생성, 임의의 현재가, 시가총액, 매출액 생성
+- 가상의 URL(예: https://example.com) 생성. 반드시 구글 검색에서 얻은 실제 기사/자료의 링크만 사용.
+- “AI”, “반도체” 같은 테마만 보고 종목 추천. 반드시 재무 데이터를 기반으로 논리를 구성할 것.
 
 [수집 및 분석 요구사항]
 1. 시간 범위: {start_time.strftime('%Y-%m-%d %H:%M')} ~ {end_time.strftime('%Y-%m-%d %H:%M')}
@@ -134,6 +141,12 @@ def main():
 
 2. 2개의 테마(섹터)를 선정하고, 각 섹터별 3개의 추천 종목(총 6개 종목)을 발굴하라.
 섹터별 3개 종목 중 2개는 한국 국내 주식, 1개는 미국 주식으로 반드시 맞출 것.
+
+3. 뉴스는 다음 4가지 세부 카테고리로 분류하여 `news` 배열 안에 객체로 담아라:
+   - "거시경제 및 지정학적 리스크"
+   - "글로벌 증시 동향"
+   - "국내 증시 동향"
+   - "주요 산업 및 섹터 동향"
 
 반드시 아래의 JSON 형식으로만 응답하라 (다른 마크다운 텍스트 불가).
 {{
@@ -146,19 +159,17 @@ def main():
       "change_percent": 0.5,
       "date": "2026-04-28",
       "source_name": "KRX",
-      "source_url": "...",
-      "source_id": "market_001"
+      "source_url": "https://..."
     }}
   ],
   "news": [
     {{
+      "category": "거시경제 및 지정학적 리스크",
       "title": "뉴스 제목",
-      "published_at": "YYYY-MM-DDTHH:MM:SS",
-      "source_name": "출처",
-      "source_url": "...",
-      "summary": "...",
-      "related_sectors": ["반도체"],
-      "source_id": "news_001"
+      "published_at": "YYYY-MM-DD HH:MM",
+      "source_name": "출처 언론사명",
+      "source_url": "https://...",
+      "summary": "..."
     }}
   ],
   "stocks": [
@@ -169,13 +180,11 @@ def main():
       "exchange": "KRX/NASDAQ/NYSE 등",
       "country": "KR/US 등",
       "verified_listed": true,
-      "verification_source": "출처",
-      "verification_url": "...",
+      "source_name": "출처 언론사명/공시",
+      "source_url": "https://...",
       "price": 0,
-      "price_date": "...",
-      "reason": "추천 사유",
-      "risk": "리스크 요소",
-      "source_id": "stock_001"
+      "price_date": "YYYY-MM-DD",
+      "reason": "추천 사유 (재무제표 지표 기반으로 상세하게 작성)"
     }}
   ]
 }}
@@ -204,7 +213,7 @@ def main():
             return
 
     # 2. 검증 (Validation)
-    print("2단계: 외부 거래소 API(Yahoo Finance)를 통한 종목 상장 여부 검증 중...")
+    print("2단계: 외부 거래소 API(Yahoo Finance)를 통한 종목 상장 여부 및 재무제표 검증 중...")
     stocks = data.get("stocks", [])
     for stock in stocks:
         ticker = stock.get("ticker")
@@ -222,13 +231,25 @@ def main():
                 else:
                     yf_ticker += ".KS"
         
-        # yfinance 확인
+        # yfinance 확인 및 재무 데이터 수집
         try:
             info = yf.Ticker(yf_ticker).info
             if "shortName" in info or "longName" in info:
                 stock["verified_listed"] = True
                 if "currentPrice" in info:
                     stock["price"] = info["currentPrice"]
+                
+                # 재무제표 정보 수집
+                financials = {}
+                financials["market_cap"] = info.get("marketCap", "N/A")
+                financials["trailing_pe"] = info.get("trailingPE", "N/A")
+                financials["forward_pe"] = info.get("forwardPE", "N/A")
+                financials["roe"] = info.get("returnOnEquity", "N/A")
+                financials["revenue_growth"] = info.get("revenueGrowth", "N/A")
+                financials["operating_margin"] = info.get("operatingMargins", "N/A")
+                financials["debt_to_equity"] = info.get("debtToEquity", "N/A")
+                
+                stock["financials"] = financials
             else:
                 stock["verified_listed"] = False
                 stock["reason"] = f"yfinance에서 {yf_ticker}에 대한 이름 정보 없음"
@@ -306,24 +327,24 @@ def main():
 
 중요:
 - 제공된 입력 데이터에 없는 사실은 절대 생성하지 마라.
-- 모든 수치와 주장은 반드시 입력 데이터의 source_id를 인용하라.
-- source_id가 없는 정보는 사용하지 마라.
-- 날짜가 없는 정보는 최신 정보로 취급하지 마라.
+- 모든 수치와 주장에는 반드시 제공된 실제 출처 URL을 인용하라.
+- 뉴스 작성 시, 단순 텍스트 나열이 아닌 제공된 세부 카테고리별로 섹션을 나누어 작성하라.
 - 상장 여부가 verified_listed = true 인 종목만 분석 후보에 포함하라.
-- verified_listed = false 또는 unknown인 종목은 추천 후보에서 제외하라.
+- 추천 종목 작성 시, 제공된 재무제표 정보(PER, 시가총액, ROE, 마진율 등)를 테이블이나 강조 텍스트로 보여주고, 이를 바탕으로 한 재무적 추천 사유를 명시하라.
 
 보고서 구조:
 1. 작성 기준 (작성일, 시장 데이터 기준일, 뉴스 기준 기간, 사용한 주요 출처 수)
-2. 시장 요약 (국내/미국 지수, 환율, 금리/원자재 - 각 수치 기준일 및 출처 표시)
-3. 핵심 뉴스 (제목, 작성일, 출처, 시장 영향, 관련 섹터, 확실도)
-4. 수급 및 섹터 분석 (외국인/기관/개인 수급, 강세/약세 섹터, 출처 표시)
-5. 분석 후보 종목 (공식 종목명, 종목코드, 거래소, 상장 여부 출처, 현재가 기준일, 선정 근거, 리스크, 사용된 출처 목록)
+2. 시장 요약 (국내/미국 지수, 환율, 원자재/국채 금리 - 각 수치 기준일 및 출처 링크 표시)
+3. 카테고리별 핵심 뉴스 (거시경제/지정학적 리스크, 글로벌 증시, 국내 증시, 섹터 동향 등 - 각 뉴스마다 정확한 게시 시간과 원문 링크 포함)
+4. 수급 및 섹터 분석 (외국인/기관/개인 수급, 강세/약세 섹터, 출처 링크 표시)
+5. 분석 후보 종목 (공식 종목명, 종목코드, 거래소, 상세 재무 지표 테이블, 현재가 기준일, 재무 기반 선정 근거, 리스크, 사용된 출처 링크)
 6. 제외 종목 (상장 확인 실패, 출처 부족 등 사유 명시)
-7. 엄격 검토 (출처 없는 주장 여부, 기준일 없는 수치 여부, 상장 미확인 종목 포함 여부, 뉴스 연결 과도성, 최종 신뢰도 등급)
+7. 엄격 검토 (최종 신뢰도 등급 등)
 
 [디자인 요구사항]
 - 보고서 양식은 무조건 HTML 파일 형태로 작성되어야 합니다.
 - 내부에 `<style>` 태그를 사용하여 그라데이션 배경, 그림자 효과를 넣은 카드 UI 등 매우 예쁘고 모던한 프리미엄 디자인을 적용해 주세요.
+- 모든 출처 표기는 `[출처 확인]`이나 기사 제목을 텍스트로 하는 클릭 가능한 HTML `<a>` 태그(예: `<a href="https://..." target="_blank">기사 원문</a>`)로 작성해 주세요.
 - CSS를 활용해 시각적으로 유려하게 만들어야 하며, 마크다운 문법 대신 순수 HTML 태그만 반환하세요.
 - 출력에 ```html 등 코드블록을 넣지 마세요.
 """
@@ -352,14 +373,10 @@ def main():
 {html_report}
 
 다음 항목을 엄격히 확인하라.
-1. 모든 지수·환율·주가 수치에 기준일이 있는가?
-2. 모든 뉴스에 작성일과 URL이 있는가?
+1. 모든 뉴스에 YYYY-MM-DD HH:MM 형식의 정확한 작성시간과 `href="http..."` 형태의 실제 URL 링크가 포함되어 있는가?
+2. 추천종목의 상세 재무 지표(PER, 시가총액 등)가 포함되어 있는가?
 3. 추천종목이 모두 실제 상장사인가?
-4. 추천종목마다 종목코드와 거래소가 있는가?
-5. 출처 없는 재무 수치가 있는가?
-6. 존재하지 않는 회사명이나 가상의 회사명이 포함되었는가?
-7. 시장 해석이 뉴스 근거보다 과장되었는가?
-8. 투자 권유처럼 표현된 문장이 있는가?
+4. 미상장 종목이나 가상의 URL(예: example.com)이 포함되었는가?
 
 문제가 있으면 아래 형식으로 반환하라.
 
@@ -373,9 +390,10 @@ def main():
 }}
 
 통과 기준:
-- 미상장 또는 확인 불가 종목이 추천종목에 있으면 무조건 fail
-- 출처 없는 현재가·시가총액·재무수치가 있으면 무조건 fail
-- 작성일이 없는 뉴스가 핵심 근거로 쓰이면 fail
+- 미상장 종목 포함 시 fail
+- 출처 URL 링크(`<a>` 태그) 누락 시 fail
+- 뉴스에 구체적 시간(YYYY-MM-DD HH:MM) 누락 시 fail
+- 재무 지표 누락 시 fail
 """
     response_4 = generate_with_retry(
         client=client,
