@@ -1,8 +1,6 @@
 name: Daily Stock Market Report
 
 on:
-  push:
-    branches: [ "main" ]
   schedule:
     # 매일 한국시간(KST) 오전 7시에 실행 (UTC 기준 전날 22시)
     - cron: '0 22 * * *'
