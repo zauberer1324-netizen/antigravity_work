@@ -9,6 +9,8 @@ on:
 jobs:
   generate_and_send_report:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: 저장소 코드 가져오기 (Checkout)
