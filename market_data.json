@@ -1,56 +1,56 @@
 {
     "S&P500": {
-        "price": 7337.11,
-        "change": -28.01,
-        "change_percent": -0.38,
-        "date": "2026-05-07"
+        "price": 7398.93,
+        "change": 61.82,
+        "change_percent": 0.84,
+        "date": "2026-05-08"
     },
     "NASDAQ": {
-        "price": 25806.2,
-        "change": -32.74,
-        "change_percent": -0.13,
-        "date": "2026-05-07"
+        "price": 26247.08,
+        "change": 440.88,
+        "change_percent": 1.71,
+        "date": "2026-05-08"
     },
     "KOSPI": {
-        "price": 7397.94,
-        "change": -92.11,
-        "change_percent": -1.23,
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
         "date": "2026-05-08"
     },
     "KOSDAQ": {
-        "price": 1202.23,
-        "change": 3.05,
-        "change_percent": 0.25,
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
         "date": "2026-05-08"
     },
     "VIX": {
-        "price": 17.08,
-        "change": -0.31,
-        "change_percent": -1.78,
-        "date": "2026-05-07"
+        "price": 17.19,
+        "change": 0.11,
+        "change_percent": 0.64,
+        "date": "2026-05-08"
     },
     "USD_KRW": {
-        "price": 1463.11,
-        "change": 18.66,
-        "change_percent": 1.29,
+        "price": 1461.48,
+        "change": 17.03,
+        "change_percent": 1.18,
         "date": "2026-05-08"
     },
     "WTI_CRUDE_OIL": {
-        "price": 95.94,
-        "change": 0.86,
-        "change_percent": 0.9,
-        "date": "2026-05-07"
+        "price": 94.68,
+        "change": -0.13,
+        "change_percent": -0.14,
+        "date": "2026-05-08"
     },
     "GOLD": {
-        "price": 4727.2,
-        "change": 45.3,
-        "change_percent": 0.97,
-        "date": "2026-05-07"
+        "price": 4723.7,
+        "change": 23.9,
+        "change_percent": 0.51,
+        "date": "2026-05-08"
     },
     "US_10Y_TREASURY": {
-        "price": 4.39,
-        "change": 0.04,
-        "change_percent": 0.83,
-        "date": "2026-05-07"
+        "price": 4.36,
+        "change": -0.03,
+        "change_percent": -0.64,
+        "date": "2026-05-08"
     }
 }
