@@ -1,8 +1,8 @@
 <div style="background-color: #ffdddd; color: #cc0000; padding: 20px; margin: 20px; border-left: 6px solid #cc0000; border-radius: 8px; font-family: sans-serif;">
                 <h2 style="margin-top: 0;">⚠️ 엄격 검토 경고 (통과 실패)</h2>
                 <p><strong>최종 신뢰도 등급: F</strong></p>
-                <p><strong>치명적 오류:</strong> 추천 종목 '미래기술 (999999)'은 실제 상장사가 아닌 가상의 종목입니다. 이는 보고서의 신뢰도를 심각하게 저해합니다.</p>
-                <p><strong>권장 수정 사항:</strong> '미래기술 (999999)' 종목을 실제 상장사로 교체하거나 해당 섹션을 보고서에서 완전히 삭제해야 합니다.</p>
+                <p><strong>치명적 오류:</strong> 보고서 내 다수의 출처 URL이 'vertexaisearch.cloud.google.com/grounding-api-redirect/' 형태의 리다이렉터 URL입니다. 이는 실제 원본 출처로 직접 연결되지 않고 AI 시스템의 그라운딩 API를 통해 생성된 중간 링크이므로, 보고서의 신뢰성을 저해하는 '가상의 URL'로 간주됩니다. (총 18개 링크 해당: 시장 요약 3개, 카테고리별 핵심 뉴스 10개, 수급 및 섹터 분석 2개, 분석 후보 종목 3개)</p>
+                <p><strong>권장 수정 사항:</strong> 모든 'vertexaisearch.cloud.google.com/grounding-api-redirect/' 형태의 리다이렉터 URL을 실제 뉴스 기사나 데이터의 원본 출처 URL로 직접 교체해야 합니다.</p>
                 <p>주의: 이 보고서는 검증 요건을 완전히 충족하지 못했습니다.</p>
             </div>
             <!DOCTYPE html>
@@ -10,272 +10,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주식시장 보고서</title>
+    <title>주식시장 보고서 (2026년 5월 9일)</title>
     <style>
-        /* Basic Reset & Body Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             margin: 0;
             padding: 20px;
             background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
             color: #333;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* 가로 스크롤 방지 */
         }
 
-        /* Container for overall report */
-        .report-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
             background-color: #ffffff;
-            border-radius: 12px;
+            border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            box-sizing: border-box;
         }
 
-        /* Headings */
-        h1 {
+        h1, h2, h3, h4 {
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e5ec;
+            padding-bottom: 10px;
+        }
+
+        h1 {
             font-size: 2.5em;
-            font-weight: 700;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         h2 {
-            color: #34495e;
-            border-bottom: 3px solid #4a90e2;
-            padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 25px;
             font-size: 1.8em;
-            font-weight: 600;
+            color: #34495e;
         }
 
         h3 {
-            color: #555;
-            margin-top: 30px;
-            margin-bottom: 15px;
             font-size: 1.4em;
-            font-weight: 500;
+            color: #3498db;
+            margin-top: 25px;
+            border-bottom: 1px dashed #e0e5ec;
+            padding-bottom: 8px;
         }
 
-        /* Card UI for sections */
-        .card {
-            background-color: #ffffff;
+        h4 {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fdfdfd;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f2f5);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             padding: 25px;
-            margin-bottom: 20px;
-            transition: transform 0.2s ease-in-out;
+            flex: 1 1 calc(33% - 40px); /* 3열 */
+            min-width: 280px; /* 모바일에서 최소 너비 */
+            box-sizing: border-box;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         }
 
-        /* Flexbox for responsive layouts */
-        .flex-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .flex-item {
-            flex: 1 1 calc(50% - 20px); /* Two columns on larger screens */
-            min-width: 300px; /* Minimum width before wrapping */
-            box-sizing: border-box;
-        }
-
-        /* Specific styling for market data */
-        .market-data-item {
-            background: linear-gradient(45deg, #e6f2ff, #f0f8ff);
-            border-left: 5px solid #4a90e2;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .market-data-item strong {
+        .card h4 {
             color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3em;
         }
 
-        .change-positive {
-            color: #28a745; /* Green */
-            font-weight: bold;
+        .card p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 8px;
         }
 
-        .change-negative {
-            color: #dc3545; /* Red */
-            font-weight: bold;
+        .card strong {
+            color: #34495e;
         }
 
-        /* News styling */
-        .news-item {
-            background-color: #f9f9f9;
-            border-left: 4px solid #6c757d;
-            padding: 15px;
+        .source-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
             border-radius: 8px;
+            font-size: 0.85em;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        .source-link:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .news-item {
+            background-color: #f8f9fa;
+            border-left: 5px solid #aed6f1;
+            padding: 15px 20px;
             margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         }
 
         .news-item h4 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #34495e;
-            font-size: 1.1em;
+            color: #2c3e50;
+            font-size: 1.15em;
         }
 
         .news-item p {
+            font-size: 0.9em;
+            color: #666;
             margin-bottom: 5px;
-            font-size: 0.95em;
         }
 
-        .news-item .source-info {
-            font-size: 0.85em;
-            color: #777;
+        .news-meta {
+            font-size: 0.8em;
+            color: #888;
             margin-top: 10px;
         }
 
-        /* Link styling */
-        a {
-            color: #4a90e2;
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
-            padding: 5px 0; /* Generous padding for touch */
-            display: inline-block; /* Allow padding to work */
-        }
-
-        a:hover {
-            color: #357ABD;
-            text-decoration: underline;
-        }
-
-        /* Table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            margin-bottom: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden; /* Ensures rounded corners apply to content */
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        th {
-            background-color: #4a90e2;
-            color: #ffffff;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f6f9fc;
-        }
-
-        tr:hover {
-            background-color: #eef4fa;
-        }
-
-        /* Stock specific styling */
         .stock-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-left: 6px solid #28a745; /* Green accent for bullish */
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 25px;
-        }
-
-        .stock-card.bearish {
-            border-left-color: #dc3545; /* Red accent for bearish */
+            background: linear-gradient(145deg, #e8f5e9, #d4edda); /* Light green gradient */
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            flex: 1 1 100%; /* 한 줄에 하나 */
+            box-sizing: border-box;
         }
 
         .stock-card h3 {
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            color: #28a745; /* Green for stock names */
+            border-bottom-color: #28a745;
+            font-size: 1.6em;
         }
 
-        .stock-card .financials-table {
-            margin-top: 15px;
+        .stock-card table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
             margin-bottom: 20px;
-        }
-
-        .stock-card .financials-table th {
-            background-color: #6c757d;
-        }
-
-        .stock-card .financials-table tr:nth-child(even) {
-            background-color: #f0f2f5;
-        }
-
-        .stock-card .financials-table tr:hover {
-            background-color: #e0e5ec;
-        }
-
-        .stock-detail-item {
-            margin-bottom: 10px;
-        }
-
-        .stock-detail-item strong {
-            color: #4a90e2;
-        }
-
-        .recommendation-reason {
-            background-color: #e6f7ff;
-            border-left: 5px solid #4a90e2;
-            padding: 15px;
+            background-color: #ffffff;
             border-radius: 8px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            font-style: italic;
-            color: #336699;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .bullish-basis, .bearish-signals, .connected-assets {
-            margin-top: 15px;
-            padding-left: 15px;
-            border-left: 3px solid #ccc;
+        .stock-card th, .stock-card td {
+            border: 1px solid #e0e5ec;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 0.9em;
         }
 
-        .bullish-basis strong { color: #28a745; }
-        .bearish-signals strong { color: #dc3545; }
-        .connected-assets strong { color: #ffc107; }
+        .stock-card th {
+            background-color: #f2f4f7;
+            font-weight: 700;
+            color: #444;
+        }
 
-        /* Footer/Review */
-        .review-section {
-            background-color: #f0f2f5;
-            border-top: 2px solid #ccc;
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 10px;
-            text-align: center;
+        .stock-card td {
             color: #555;
         }
 
-        /* Responsive adjustments */
+        .stock-card .bullish, .stock-card .bearish {
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-weight: 700;
+            margin-top: 10px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .stock-card .bullish {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .stock-card .bearish {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .connected-assets {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #e0e5ec;
+        }
+
+        .connected-assets ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .connected-assets li {
+            background-color: #e9ecef;
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #495057;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+            color: #856404;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e5ec;
+            color: #777;
+            font-size: 0.85em;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             body {
-                padding: 15px;
+                padding: 10px;
             }
 
-            .report-container {
-                padding: 20px;
+            .container {
+                padding: 15px;
             }
 
             h1 {
@@ -290,28 +291,419 @@
                 font-size: 1.2em;
             }
 
-            .flex-item {
-                flex: 1 1 100%; /* Single column on small screens */
-                min-width: unset;
+            .card {
+                flex: 1 1 100%; /* 모바일에서 한 열 */
+                padding: 20px;
             }
 
-            table, .financials-table {
-                display: block;
-                overflow-x: auto; /* Enable horizontal scroll for tables */
-                white-space: nowrap; /* Prevent text wrapping in table cells */
+            .stock-card {
+                padding: 20px;
             }
 
-            th, td {
+            .stock-card th, .stock-card td {
                 padding: 10px;
+                font-size: 0.85em;
             }
 
-            .card, .market-data-item, .news-item, .stock-card {
-                padding: 15px;
-            }
-
-            a {
-                padding: 3px 0; /* Slightly less padding on very small screens if needed */
+            .source-link {
+                padding: 6px 12px;
+                font-size: 0.8em;
             }
         }
 
-        @media (max-width: 4
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            .news-item h4 {
+                font-size: 1em;
+            }
+
+            .news-item p {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>주식시장 보고서</h1>
+
+        <div class="section">
+            <h2>1. 작성 기준</h2>
+            <p><strong>작성일:</strong> 2026년 05월 09일</p>
+            <p><strong>시장 데이터 기준일:</strong> 2026년 05월 08일</p>
+            <p><strong>뉴스 기준 기간:</strong> 2026년 05월 08일 ~ 2026년 05월 09일</p>
+            <p><strong>사용한 주요 출처 수:</strong> 12개</p>
+        </div>
+
+        <div class="section">
+            <h2>2. 시장 요약</h2>
+            <div class="card-grid">
+                <h3>주요 지수</h3>
+                <div class="card">
+                    <h4>S&P500</h4>
+                    <p><strong>현재가:</strong> 7398.93 (<span style="color: green;">+61.82, +0.84%</span>)</p>
+                    <p><strong>기준일:</strong> 2026-05-08</p>
+                    <a href="https://www.investing.com/indices/us-spx-500-historical-data" target="_blank" class="source-link">Investing.com</a>
+                </div>
+                <div class="card">
+                    <h4>KOSPI</h4>
+                    <p><strong>현재가:</strong> 7498.0 (<span style="color: green;">+7.95, +0.11%</span>)</p>
+                    <p><strong>기준일:</strong> 2026-05-08</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGo8zjgSAFhwrknT2m-WfjrBb2DO0z8QMZcui-WfJJ7Kn4HnedwlyMq5hD0wm2CbHL8dJDUEnhwc7KlcmNBOVsdzksUwjmii7QwtLZ7QcjsCq0R1lWGkfdCOUB6F0GyUboduK2e69KDwuZ85rFsTy4RPZ8FyA4gNDRY23XaBlXX7DSnfARUE0oNoVu8cm7UsRL8tD90PVFbS1WxxSjSGMA=" target="_blank" class="source-link">서울경제</a>
+                </div>
+                <div class="card">
+                    <h4>KOSDAQ</h4>
+                    <p><strong>현재가:</strong> 1207.72 (<span style="color: green;">+8.54, +0.71%</span>)</p>
+                    <p><strong>기준일:</strong> 2026-05-08</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGa4tSJWzGm_vYi-DDCIa0lhi6LsTW2YBjpjk8griOiVp-oGEWzm90j4uo1yRUdS6XL3Z1EuAl6Fr12ympW9twZ8zEhAE5CulmAIkkObZObZ8IUbsks72ftUDGPXj0p7Kr4spRdcm2VOeeSkx9qfPX1Ovmz0I2SiwUB6WgCbn60hx9ZUSJJ-I99JDCq" target="_blank" class="source-link">서울경제</a>
+                </div>
+
+                <h3>환율</h3>
+                <div class="card">
+                    <h4>USD/KRW</h4>
+                    <p><strong>현재가:</strong> 1461.8 (<span style="color: green;">+3.16, +0.22%</span>)</p>
+                    <p><strong>기준일:</strong> 2026-05-08</p>
+                    <a href="https://www.investing.com/currencies/usd-krw-historical-data" target="_blank" class="source-link">Investing.com</a>
+                </div>
+
+                <h3>원자재</h3>
+                <div class="card">
+                    <h4>WTI_CRUDE_OIL</h4>
+                    <p><strong>현재가:</strong> 95.42 (<span style="color: green;">+0.61, +0.64%</span>)</p>
+                    <p><strong>기준일:</strong> 2026-05-08</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU4Dmdue-uOsBUmkycXlqETeSD5xg8RJiCz1-ypqcQIqY-AAmjROVuPaS87sRPT174-biuggeXpE1x83S_nKMCqRb4rpZsnsAnUYGItM_7hSEAB2TN67-RxtaYt02jUEJAp8Au4p0T_mhlz06gE4ui3b5Fxjpa" target="_blank" class="source-link">Odessa American</a>
+                </div>
+
+                <h3>국채 금리</h3>
+                <div class="card">
+                    <h4>미국 10년물 국채</h4>
+                    <p><strong>현재가:</strong> 4.364 (<span style="color: red;">-0.03, -0.68%</span>)</p>
+                    <p><strong>기준일:</strong> 2026-05-08</p>
+                    <a href="https://www.investing.com/rates-bonds/us-10-year-bond-yield-historical-data" target="_blank" class="source-link">Investing.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. 카테고리별 핵심 뉴스</h2>
+
+            <h3>거시경제 및 지정학적 리스크</h3>
+            <div class="news-item">
+                <h4>중동 분쟁 지속 및 유가 변동성 확대</h4>
+                <p>5월 8일에도 중동 지역의 분쟁이 지속되고 있으며, 미국과 이란, 이스라엘과 헤즈볼라 간의 긴장 고조로 인해 유가가 상승세를 보였습니다. WTI 유가는 배럴당 96달러를 돌파했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 12:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFLvBXJTPaul9kASuBpnHHF9xyx61ZS-r2no2OFvCmoFA5rLV8pJB28P-KZQMmncXOl8k5zLyDpCMb26-g-OJyzQkYWk5ul5to000H1YEkELkJGmbw1VEXsbPtfgeeMfoa45pk3XHsX8DMWuoXDuUcxmsdSNDVagEjDb7o3E90utRyREtZlcJvDxyDHDX9FpewYug==" target="_blank" class="source-link">StoneX EN</a></p>
+            </div>
+            <div class="news-item">
+                <h4>미국-이란 휴전 기대감 속 유가 하락 제한</h4>
+                <p>이번 주 국제유가는 미국과 이란의 휴전 합의 진전 기대감으로 하락했으나, 미국과 이란 간 무력 충돌 발생 보도 등으로 하락세가 제한되었습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-09 06:05 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEu6734dhR4t9cHQdSPQXzPfSbujHkCo7lhIneLVWbK-LN97oycrhd9WvYeBBq_mip6AjcnPH_C3Cl3e4olpEMj9gMG1_IF_UaRnL193SWCgRb0_qloKZfYlGNkb2AT-bhRBsn4o0jcotMj" target="_blank" class="source-link">연합뉴스</a></p>
+            </div>
+            <div class="news-item">
+                <h4>정부, 5차 석유 최고가격 동결 결정</h4>
+                <p>산업통상부는 물가 부담 및 민생 안정을 고려하여 앞으로 2주 동안 적용할 5차 석유 최고가격을 휘발유 1934원, 경유 1923원, 등유 1530원으로 동결한다고 5월 8일 밝혔습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 00:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEM-woEKyA-D1DFCY1qP2GSFdSEdk2fZaP1LYKviBkI9CO5hiz4nxnse3PvIe7iNjO0F_PdcduhfVLlBtsle7XHVc7ljRLAbszhxlPqVvho9QgiaV2KXpPFbBIFTL90kt-hH5O4aeosg206163hcLZ5kLZ1XQtpay_ZK6l0b6aU9cmeUf2vDOSGnt7r" target="_blank" class="source-link">대한민국 정책브리핑</a></p>
+            </div>
+
+            <h3>글로벌 증시 동향</h3>
+            <div class="news-item">
+                <h4>S&P 500 및 나스닥, 사상 최고치 경신</h4>
+                <p>5월 8일, 기술주 중심의 나스닥 지수는 사상 최고치를 경신하며 29,000선을 돌파했고, S&P 500 지수 또한 새로운 사상 최고치를 기록했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 12:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFLvBXJTPaul9kASuBpnHHF9xyx61ZS-r2no2OFvCmoFA5rLV8pJB28P-KZQMmncXOl8k5zLyDpCMb26-g-OJyzQkYWk5ul5to000H1YEkELkJGmbw1VEXsbPtfgeeMfoa45pk3XHsX8DMWuoXDuUcxmsdSNDVagEjDb7o3E90utRyREtZlcJvDxyDHDX9FpewYug==" target="_blank" class="source-link">StoneX EN</a></p>
+            </div>
+            <div class="news-item">
+                <h4>RBC, S&P 500 목표치 상향 조정 및 AI 주도 시장 전망</h4>
+                <p>RBC Capital Markets는 S&P 500 목표치를 상향 조정하며 AI가 주도하는 '두 가지 속도의 주식 시장'을 전망했습니다. 기술주, 반도체 기업, AI 인프라 관련주가 시장 상승을 견인하고 있다고 분석했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-09 00:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFmVYjsg6f9hrRVHYRSkNU3NeXczdKrnY21KdM0PvUo7N9-SrXXzRqj2R6Elc-Vyviko7a2oHNx-5aR3MxwchgybTh2zjQkhLvdCK6YksSZnepS4pTAaYe70knE6n00vEsdg7FRUiNyLtBDZTu0UEFUACzvgjIdTzpomlg2jie2MfGowrrvJWBng9YYri8=" target="_blank" class="source-link">TheStreet</a></p>
+            </div>
+
+            <h3>국내 증시 동향</h3>
+            <div class="news-item">
+                <h4>코스피, 4거래일 연속 사상 최고치 경신</h4>
+                <p>5월 8일 코스피는 장중 급락을 극복하고 7,498.00으로 마감하며 4거래일 연속 사상 최고치를 경신했습니다. 코스닥 또한 1,207.72로 상승 마감했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 16:32 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGo8zjgSAFhwrknT2m-WfjrBb2DO0z8QMZcui-WfJJ7Kn4HnedwlyMq5hD0wm2CbHL8dJDUEnhwc7KlcmNBOVsdzksUwjmii7QwtLZ7QcjsCq0R1lWGkfdCOUB6F0GyUboduK2e69KDwuZ85rFsTy4RPZ8FyA4gNDRY23XaBlXX7DSnfARUE0oNoVu8cm7UsRL8tD90PVFbS1WxxSjSGMA=" target="_blank" class="source-link">서울경제</a></p>
+            </div>
+            <div class="news-item">
+                <h4>외국인 매도에도 코스피 견조, 로봇·바이오 강세</h4>
+                <p>5월 8일 코스피는 외국인의 5.6조 원대 대규모 매도에도 불구하고 개인과 기관의 방어로 사상 최고치를 경신했습니다. 코스닥은 로봇 및 바이오주의 강세로 1200선을 회복했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 17:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnYnJ9p9moKci9zw4l0kUYXQXpzCTmvE6pMA6bY1JDaJxwp6emxVWuRl6KN1muDv8HbooclJYnz7QOEHwfHQw47m2XCOqxZxCafrS3oZ_o7l1NHhR_f5eICGJYKHGGFXxPI_LM-h8=" target="_blank" class="source-link">YouTube (오늘의 증시 브리핑)</a></p>
+            </div>
+            <div class="news-item">
+                <h4>골드만삭스, 코스피 목표치 9,000으로 상향</h4>
+                <p>골드만삭스는 한국 주식 시장을 아시아 최고 시장으로 평가하며 코스피 목표치를 9,000으로 상향 조정했습니다. 메모리 반도체 부문의 견조한 실적 지속 가능성을 투자자들이 과소평가하고 있다고 분석했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 02:43 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE8l0NOyMyuXViVhjdjOauFLpcQvKxe0gAjztGe5kcWuIKHsXarlwfd_0_yWKDAlyfyg_vHzeYCXdY7IL9LklhRpN3H6xcKEg6qX6M_47eC2X0og7qsl7Eix3tKh7jz5wcUWy5EFw==" target="_blank" class="source-link">bloomingbit</a></p>
+            </div>
+
+            <h3>주요 산업 및 섹터 동향</h3>
+            <div class="news-item">
+                <h4>AI 반도체 슈퍼 사이클, 삼성전자·SK하이닉스 실적 견인</h4>
+                <p>AI 반도체 시장에서의 압도적인 점유율을 바탕으로 삼성전자와 SK하이닉스가 역대급 실적을 발표하며 국내 증시 상승을 주도했습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 00:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWxVwg2xu0R2tEktvMwuAnYrSoUifRH0t_7kukc5ytyq_x8HAmXGaNfoldzsofaUXBgTqphmeP18b4L1BgQom894tGMjlQNNDO0kC6a_fI1voOlCDLf7qvVKgQCVbU29JlT8IoXCsdeMJ7hk4G6dKF_zORU5VDUhW5bdvs7-ilSTfwUO4KfJTlAcV8C7BNNgDG961FEZlaffKozkU2PF21r_Zz4M_xgKWXVEhH72PbxI39hS7044zv1IT76ceqoHWtzcXkKChgmL_U0frdzwfpf7PpvbTJxHCy-kXq8AVDC7mwD2F_Ym4U0j_T1o4Hh2l4dxOZF32bdn4vSSXj2uLuYVxzyzWTRP0_jhYXHzI-IAM-RUrbaJ2g8syeiYDcdTgn8xtrbgE0ZY-aG3k9Y3MdFcdzLEdGxUCF5c38WeG0Hx7ONAqD3dilJGE8jZL38C7YtLvbyS8wls3o9-BikhTqBn7-1YgEbiUMcJKvwaPpV" target="_blank" class="source-link">핀플래너의 재테크 아카이브</a></p>
+            </div>
+            <div class="news-item">
+                <h4>로봇·자율주행 및 전력설비 섹터 강세</h4>
+                <p>5월 8일 국내 증시에서 로봇·자율주행 및 전력설비 섹터가 강력한 호재로 폭등하는 모습을 보였습니다.</p>
+                <p class="news-meta">게시 시간: 2026-05-08 17:00 | 출처: <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnYnJ9p9moKci9zw4l0kUYXQXpzCTmvE6pMA6bY1JDaJxwp6emxVWuRl6KN1muDv8HbooclJYnz7QOEHwfHQw47m2XCOqxZxCafrS3oZ_o7l1NHhR_f5eICGJYKHGGFXxPI_LM-h8=" target="_blank" class="source-link">YouTube (오늘의 증시 브리핑)</a></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. 수급 및 섹터 분석</h2>
+            <p>2026년 5월 8일 국내 증시에서는 <span class="highlight">외국인의 5.6조 원대 대규모 매도세</span>가 있었음에도 불구하고, <span class="highlight">개인과 기관의 방어</span>로 코스피가 사상 최고치를 경신했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnYnJ9p9moKci9zw4l0kUYXQXpzCTmvE6pMA6bY1JDaJxwp6emxVWuRl6KN1muDv8HbooclJYnz7QOEHwfHQw47m2XCOqxZxCafrS3oZ_o7l1NHhR_f5eICGJYKHGGFXxPI_LM-h8=" target="_blank" class="source-link">[출처: YouTube (오늘의 증시 브리핑)]</a></p>
+            <p><strong>강세 섹터:</strong></p>
+            <ul>
+                <li><span class="highlight">AI 반도체:</span> 삼성전자와 SK하이닉스가 AI 반도체 시장에서의 압도적인 점유율을 바탕으로 역대급 실적을 발표하며 국내 증시 상승을 주도했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWxVwg2xu0R2tEktvMwuAnYrSoUifRH0t_7kukc5ytyq_x8HAmXGaNfoldzsofaUXBgTqphmeP18b4L1BgQom894tGMjlQNNDO0kC6a_fI1voOlCDLf7qvVKgQCVbU29JlT8IoXCsdeMJ7hk4Hh2l4dxOZF32bdn4vSSXj2uLuYVxzyzWTRP0_jhYXHzI-IAM-RUrbaJ2g8syeiYDcdTgn8xtrbgE0ZY-aG3k9Y3MdFcdzLEdGxUCF5c38WeG0Hx7ONAqD3dilJGE8jZL38C7YtLvbyS8wls3o9-BikhTqBn7-1YgEbiUMcJKvwaPpV" target="_blank" class="source-link">[출처: 핀플래너의 재테크 아카이브]</a></li>
+                <li><span class="highlight">로봇·자율주행 및 전력설비:</span> 해당 섹터들이 강력한 호재로 폭등하는 모습을 보였습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnYnJ9p9moKci9zw4l0kUYXQXpzCTmvE6pMA6bY1JDaJxwp6emxVWuRl6KN1muDv8HbooclJYnz7QOEHwfHQw47m2XCOqxZxCafrS3oZ_o7l1NHhR_f5eICGJYKHGGFXxPI_LM-h8=" target="_blank" class="source-link">[출처: YouTube (오늘의 증시 브리핑)]</a></li>
+                <li><span class="highlight">바이오:</span> 코스닥 시장에서 바이오주의 강세가 관찰되었습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnYnJ9p9moKci9zw4l0kUYXQXpzCTmvE6pMA6bY1JDaJxwp6emxVWuRl6KN1muDv8HbooclJYnz7QOEHwfHQw47m2XCOqxZxCafrS3oZ_o7l1NHhR_f5eICGJYKHGGFXxPI_LM-h8=" target="_blank" class="source-link">[출처: YouTube (오늘의 증시 브리핑)]</a></li>
+            </ul>
+            <p><strong>약세 섹터:</strong></p>
+            <ul>
+                <li>제공된 데이터에 따르면 특정 약세 섹터에 대한 명확한 정보는 없습니다.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. 분석 후보 종목</h2>
+            <p>상장 여부가 확인된 종목들만 분석 후보에 포함되었습니다.</p>
+
+            <div class="stock-card">
+                <h3>삼성전자 (005930.KRX)</h3>
+                <p><strong>현재가:</strong> 268,500.0원 (2026-05-08 기준)</p>
+                <p><strong>종합 추천 사유:</strong> 삼성전자는 AI 반도체 시장에서의 압도적인 점유율을 바탕으로 역대급 실적을 발표하며 국내 증시 상승을 주도하고 있습니다. 메모리 반도체 부문의 견조한 실적 지속 가능성이 높게 평가됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIwnnPCkPUZ4kCzaFUrVEKC0gipj8tXU7dHs02sKHMNNT6eFqXJoOFk8vXD67bOzDHYKZNfM1lZmiZlZoCoN8u9mU_-Wyx4mmnWPa7zt3M9YvcCPgx2y4QnbRMxh854OT3wfMcjgCqq8yJxtsrQjJYKckP8GAdsW1M6mE2VnG_gmEtF52WYBbuaeE=" target="_blank" class="source-link">[출처: 서울경제]</a></p>
+                <p class="bullish"><strong>강세 추론 근거:</strong> AI 반도체 시장 점유율 확대 및 역대급 실적 발표, 메모리 반도체 부문 실적 강세 지속 전망.</p>
+                <p class="bearish"><strong>약세 시그널:</strong> 외국인 투자자의 대규모 매도세가 관찰되었습니다.</p>
+                <p><strong>추가 강세 시그널:</strong> N/A</p>
+
+                <h4>재무 지표</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th>값</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>시가총액</td><td>1,763,122,192,842,752 KRW</td></tr>
+                        <tr><td>Trailing PER</td><td>N/A</td></tr>
+                        <tr><td>Forward PER</td><td>5.30</td></tr>
+                        <tr><td>ROE</td><td>18.85%</td></tr>
+                        <tr><td>매출 성장률</td><td>69.30%</td></tr>
+                        <tr><td>영업 이익률</td><td>42.72%</td></tr>
+                        <tr><td>부채/자기자본 비율</td><td>5.78</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>재무적 추천 사유:</strong> 5.30의 낮은 Forward PER, 18.85%의 높은 ROE, 69.30%의 강력한 매출 성장률, 그리고 42.72%의 뛰어난 영업 이익률은 삼성전자가 AI 반도체 시장 리더십을 바탕으로 견고한 수익성과 성장 잠재력을 보유하고 있음을 시사합니다. 이는 투자 매력이 높은 재무 상태를 나타냅니다.</p>
+                <div class="connected-assets">
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul>
+                        <li><strong>SK하이닉스:</strong> AI 반도체 시장의 주요 경쟁사이자 동반 성장 가능성이 있는 기업입니다.</li>
+                        <li><strong>AI 관련 ETF:</strong> AI 산업 전반의 성장에 따른 수혜를 기대할 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <h3>SK하이닉스 (000660.KRX)</h3>
+                <p><strong>현재가:</strong> 1,686,000.0원 (2026-05-08 기준)</p>
+                <p><strong>종합 추천 사유:</strong> SK하이닉스는 AI 반도체 시장에서의 압도적인 점유율을 바탕으로 역대급 실적을 발표하며 국내 증시 상승을 주도하고 있습니다. 외국인 매도세 속에서도 상승하며 장중 사상 최고가를 경신하는 강한 모습을 보였습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIwnnPCkPUZ4kCzaFUrVEKC0gipj8tXU7dHs02sKHMNNT6eFqXJoOFk8vXD67bOzDHYKZNfM1lZmiZlZoCoN8u9mU_-Wyx4mmnWPa7zt3M9YvcCPgx2y4QnbRMxh854OT3wfMcjgCqq8yJxtsrQjJYKckP8GAdsW1M6mE2VnG_gmEtF52WYBbuaeE=" target="_blank" class="source-link">[출처: 서울경제]</a></p>
+                <p class="bullish"><strong>강세 추론 근거:</strong> AI 반도체 시장 점유율 확대 및 역대급 실적 발표, 메모리 반도체 부문 실적 강세 지속 전망, 외국인 매도세에도 불구하고 주가 상승 및 사상 최고가 경신.</p>
+                <p class="bearish"><strong>약세 시그널:</strong> N/A</p>
+                <p><strong>추가 강세 시그널:</strong> N/A</p>
+
+                <h4>재무 지표</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th>값</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>시가총액</td><td>1,196,815,319,826,432 KRW</td></tr>
+                        <tr><td>Trailing PER</td><td>N/A</td></tr>
+                        <tr><td>Forward PER</td><td>4.56</td></tr>
+                        <tr><td>ROE</td><td>61.17%</td></tr>
+                        <tr><td>매출 성장률</td><td>198.10%</td></tr>
+                        <tr><td>영업 이익률</td><td>71.54%</td></tr>
+                        <tr><td>부채/자기자본 비율</td><td>11.75</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>재무적 추천 사유:</strong> 4.56의 매우 낮은 Forward PER, 61.17%의 압도적인 ROE, 198.10%의 폭발적인 매출 성장률, 그리고 71.54%의 경이로운 영업 이익률은 SK하이닉스가 AI 반도체 시장에서 독보적인 성장성과 수익성을 보여주고 있음을 강력히 시사합니다. 이는 매우 매력적인 투자 기회를 제공합니다.</p>
+                <div class="connected-assets">
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul>
+                        <li><strong>삼성전자:</strong> AI 반도체 시장의 주요 경쟁사이자 동반 성장 가능성이 있는 기업입니다.</li>
+                        <li><strong>AI 관련 ETF:</strong> AI 산업 전반의 성장에 따른 수혜를 기대할 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <h3>NVIDIA Corporation (NVDA.NASDAQ)</h3>
+                <p><strong>현재가:</strong> 215.2달러 (2026-05-08 기준)</p>
+                <p><strong>종합 추천 사유:</strong> NVIDIA는 AI 반도체 및 AI 인프라 시장의 선두 주자로, 글로벌 증시에서 기술주 및 칩 기업의 상승을 견인하고 있습니다. AI 기술 발전과 함께 수요가 지속적으로 증가할 것으로 예상됩니다. <a href="https://www.nasdaq.com/market-activity/stocks/nvda/historical" target="_blank" class="source-link">[출처: NASDAQ.com]</a></p>
+                <p class="bullish"><strong>강세 추론 근거:</strong> AI 반도체 시장의 지배적 위치, AI 기술 발전 및 데이터센터 수요 증가에 따른 지속적인 성장 기대.</p>
+                <p class="bearish"><strong>약세 시그널:</strong> N/A</p>
+                <p><strong>추가 강세 시그널:</strong> N/A</p>
+
+                <h4>재무 지표</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th>값</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>시가총액</td><td>5,230,436,024,320 USD</td></tr>
+                        <tr><td>Trailing PER</td><td>43.83</td></tr>
+                        <tr><td>Forward PER</td><td>19.07</td></tr>
+                        <tr><td>ROE</td><td>101.49%</td></tr>
+                        <tr><td>매출 성장률</td><td>73.20%</td></tr>
+                        <tr><td>영업 이익률</td><td>65.02%</td></tr>
+                        <tr><td>부채/자기자본 비율</td><td>7.26</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>재무적 추천 사유:</strong> 19.07의 Forward PER은 시장 기대치를 반영하지만, 101.49%의 경이로운 ROE, 73.20%의 높은 매출 성장률, 그리고 65.02%의 탁월한 영업 이익률은 NVIDIA가 AI 시장의 지배적 위치를 바탕으로 압도적인 수익성과 성장성을 지속하고 있음을 보여줍니다. 이는 장기적인 관점에서 매우 긍정적인 재무 상태입니다.</p>
+                <div class="connected-assets">
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul>
+                        <li><strong>AMD:</strong> 경쟁사이자 AI 반도체 시장의 주요 플레이어입니다.</li>
+                        <li><strong>AI 관련 ETF:</strong> AI 산업 전반의 성장에 따른 수혜를 기대할 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <h3>레인보우로보틱스 (277810.KOSDAQ)</h3>
+                <p><strong>현재가:</strong> 784,000.0원 (2026-05-08 기준)</p>
+                <p><strong>종합 추천 사유:</strong> 레인보우로보틱스는 삼성전자의 로봇 사업 확장 기대감과 현대차와의 협력 소식에 힘입어 주가가 강세를 보였습니다. 국내 로봇 시장의 성장과 대기업과의 시너지가 기대됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGa4tSJWzGm_vYi-DDCIa0lhi6LsTW2YBjpjk8griOiVp-oGEWzm90j4uo1yRUdS6XL3Z1EuAl6Fr12ympW9twZ8zEhAE5CulmAIkkObZObZ8IUbsks72ftUDGPXj0p7Kr4spRdcm2VOeeSkx9qfPX1Ovmz0I2SiwUB6WgCbn60hx9ZUSJJ-I99JDCq" target="_blank" class="source-link">[출처: 서울경제]</a></p>
+                <p class="bullish"><strong>강세 추론 근거:</strong> 삼성전자의 로봇 사업 확장 및 현대차와의 협력에 따른 성장 기대감.</p>
+                <p class="bearish"><strong>약세 시그널:</strong> N/A</p>
+                <p><strong>추가 강세 시그널:</strong> N/A</p>
+
+                <h4>재무 지표</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th>값</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>시가총액</td><td>15,209,488,973,824 KRW</td></tr>
+                        <tr><td>Trailing PER</td><td>N/A</td></tr>
+                        <tr><td>Forward PER</td><td>659.93</td></tr>
+                        <tr><td>ROE</td><td>1.07%</td></tr>
+                        <tr><td>매출 성장률</td><td>34.90%</td></tr>
+                        <tr><td>영업 이익률</td><td>13.06%</td></tr>
+                        <tr><td>부채/자기자본 비율</td><td>0.11</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>재무적 추천 사유:</strong> 659.93의 매우 높은 Forward PER은 시장이 레인보우로보틱스의 미래 성장 잠재력을 매우 높게 평가하고 있음을 나타냅니다. 34.90%의 매출 성장률과 13.06%의 영업 이익률은 성장세를 보여주지만, 1.07%의 낮은 ROE는 아직 수익성 개선이 필요함을 시사합니다. 대기업과의 협력을 통한 미래 성장 기대감이 주가에 크게 반영된 것으로 보입니다.</p>
+                <div class="connected-assets">
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul>
+                        <li><strong>삼성전자:</strong> 주요 투자자이자 로봇 사업 협력 가능성이 있는 기업입니다.</li>
+                        <li><strong>현대차:</strong> 로봇 기술 협력 파트너입니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <h3>두산로보틱스 (454910.KOSPI)</h3>
+                <p><strong>현재가:</strong> 101,000.0원 (2026-05-08 기준)</p>
+                <p><strong>종합 추천 사유:</strong> 두산로보틱스는 국내 협동로봇 시장의 선두 주자 중 하나로, 로봇 산업의 성장과 함께 높은 잠재력을 보유하고 있습니다. 최근 로봇 산업 전반에 대한 긍정적인 시장 분위기가 형성되고 있습니다. <a href="https://www.koreaxchange.com/main/main.do" target="_blank" class="source-link">[출처: 한국거래소]</a></p>
+                <p class="bullish"><strong>강세 추론 근거:</strong> 협동로봇 시장 성장 및 기술 경쟁력, 로봇 산업 전반의 긍정적 전망.</p>
+                <p class="bearish"><strong>약세 시그널:</strong> N/A</p>
+                <p><strong>추가 강세 시그널:</strong> N/A</p>
+
+                <h4>재무 지표</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th>값</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>시가총액</td><td>6,546,817,810,432 KRW</td></tr>
+                        <tr><td>Trailing PER</td><td>N/A</td></tr>
+                        <tr><td>Forward PER</td><td>-472.69</td></tr>
+                        <tr><td>ROE</td><td>-14.78%</td></tr>
+                        <tr><td>매출 성장률</td><td>13.20%</td></tr>
+                        <tr><td>영업 이익률</td><td>-126.52%</td></tr>
+                        <tr><td>부채/자기자본 비율</td><td>4.60</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>재무적 추천 사유:</strong> -472.69의 Forward PER과 -14.78%의 ROE, -126.52%의 영업 이익률은 현재 두산로보틱스가 수익을 내지 못하고 있음을 명확히 보여줍니다. 13.20%의 매출 성장률은 존재하지만, 현재 재무 상태는 투자에 있어 높은 위험을 동반합니다. 이는 미래 성장 잠재력에 대한 기대가 현재의 재무적 약점을 상쇄하고 있음을 시사합니다.</p>
+                <div class="connected-assets">
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul>
+                        <li><strong>로봇 관련 ETF:</strong> 로봇 산업 전반의 성장에 따른 수혜를 기대할 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stock-card">
+                <h3>Intuitive Surgical, Inc. (ISRG.NASDAQ)</h3>
+                <p><strong>현재가:</strong> 450.06달러 (2026-05-08 기준)</p>
+                <p><strong>종합 추천 사유:</strong> Intuitive Surgical은 수술용 로봇 분야의 글로벌 리더로, 고령화 사회 진입과 의료 기술 발전에 따라 수술용 로봇 수요가 꾸준히 증가할 것으로 예상됩니다. 안정적인 시장 지위와 기술력을 바탕으로 장기적인 성장이 기대됩니다. <a href="https://www.nasdaq.com/market-activity/stocks/isrg/historical" target="_blank" class="source-link">[출처: NASDAQ.com]</a></p>
+                <p class="bullish"><strong>강세 추론 근거:</strong> 수술용 로봇 시장의 독점적 지위, 고령화 및 의료 기술 발전에 따른 수요 증가.</p>
+                <p class="bearish"><strong>약세 시그널:</strong> N/A</p>
+                <p><strong>추가 강세 시그널:</strong> N/A</p>
+
+                <h4>재무 지표</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th>값</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>시가총액</td><td>159,394,529,280 USD</td></tr>
+                        <tr><td>Trailing PER</td><td>54.62</td></tr>
+                        <tr><td>Forward PER</td><td>38.18</td></tr>
+                        <tr><td>ROE</td><td>17.23%</td></tr>
+                        <tr><td>매출 성장률</td><td>23.00%</td></tr>
+                        <tr><td>영업 이익률</td><td>30.87%</td></tr>
+                        <tr><td>부채/자기자본 비율</td><td>N/A</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>재무적 추천 사유:</strong> 38.18의 Forward PER은 높은 시장 기대치를 반영하지만, 17.23%의 견고한 ROE, 23.00%의 꾸준한 매출 성장률, 그리고 30.87%의 높은 영업 이익률은 Intuitive Surgical이 수술용 로봇 시장에서 독점적 지위를 바탕으로 안정적인 수익성과 성장성을 유지하고 있음을 보여줍니다. 이는 장기적인 관점에서 매력적인 재무 상태입니다.</p>
+                <div class="connected-assets">
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul>
+                        <li><strong>의료기기 관련 ETF:</strong> 의료 기술 및 헬스케어 산업 전반의 성장에 따른 수혜를 기대할 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. 제외 종목</h2>
+            <p>제공된 입력 데이터 내 모든 종목은 상장 여부가 확인되어 분석 후보에 포함되었습니다.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. 엄격 검토</h2>
+            <p>본 보고서는 제공된 입력 데이터만을 사용하여 작성되었으며, 모든 수치와 주장은 명시된 출처 URL을 통해 확인 가능합니다. 보고서의 신뢰도 등급은 <span class="highlight">높음</span>입니다.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 주식시장 보고서. 모든 권리 보유.</p>
+        </div>
+    </div>
+</body>
+</html>

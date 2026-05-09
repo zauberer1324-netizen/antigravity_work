@@ -12,15 +12,15 @@
         "date": "2026-05-08"
     },
     "KOSPI": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
+        "price": 7498.0,
+        "change": 7.95,
+        "change_percent": 0.11,
         "date": "2026-05-08"
     },
     "KOSDAQ": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
+        "price": 1207.72,
+        "change": 8.54,
+        "change_percent": 0.71,
         "date": "2026-05-08"
     },
     "VIX": {
@@ -36,15 +36,15 @@
         "date": "2026-05-08"
     },
     "WTI_CRUDE_OIL": {
-        "price": 94.68,
-        "change": -0.13,
-        "change_percent": -0.14,
+        "price": 95.42,
+        "change": 0.61,
+        "change_percent": 0.64,
         "date": "2026-05-08"
     },
     "GOLD": {
-        "price": 4723.7,
-        "change": 23.9,
-        "change_percent": 0.51,
+        "price": 4720.4,
+        "change": 20.6,
+        "change_percent": 0.44,
         "date": "2026-05-08"
     },
     "US_10Y_TREASURY": {
