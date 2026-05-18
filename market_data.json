@@ -1,15 +1,15 @@
 {
     "S&P500": {
-        "price": 7408.5,
-        "change": -92.74,
-        "change_percent": -1.24,
-        "date": "2026-05-15"
+        "price": 7403.05,
+        "change": -5.45,
+        "change_percent": -0.07,
+        "date": "2026-05-18"
     },
     "NASDAQ": {
-        "price": 26225.14,
-        "change": -410.08,
-        "change_percent": -1.54,
-        "date": "2026-05-15"
+        "price": 26090.73,
+        "change": -134.41,
+        "change_percent": -0.51,
+        "date": "2026-05-18"
     },
     "KOSPI": {
         "price": 7493.18,
@@ -24,33 +24,33 @@
         "date": "2026-05-15"
     },
     "VIX": {
-        "price": 18.43,
-        "change": 1.17,
-        "change_percent": 6.78,
-        "date": "2026-05-15"
+        "price": 17.82,
+        "change": -0.61,
+        "change_percent": -3.31,
+        "date": "2026-05-18"
     },
     "USD_KRW": {
-        "price": 1497.76,
-        "change": 4.42,
-        "change_percent": 0.3,
-        "date": "2026-05-16"
+        "price": 1488.34,
+        "change": -5.0,
+        "change_percent": -0.33,
+        "date": "2026-05-18"
     },
     "WTI_CRUDE_OIL": {
-        "price": 105.42,
-        "change": 4.25,
-        "change_percent": 4.2,
-        "date": "2026-05-15"
+        "price": 102.44,
+        "change": -2.98,
+        "change_percent": -2.83,
+        "date": "2026-05-18"
     },
     "GOLD": {
-        "price": 4555.8,
-        "change": -122.3,
-        "change_percent": -2.61,
-        "date": "2026-05-15"
+        "price": 4580.8,
+        "change": 25.0,
+        "change_percent": 0.55,
+        "date": "2026-05-18"
     },
     "US_10Y_TREASURY": {
-        "price": 4.59,
-        "change": 0.13,
-        "change_percent": 3.0,
-        "date": "2026-05-15"
+        "price": 4.62,
+        "change": 0.03,
+        "change_percent": 0.61,
+        "date": "2026-05-18"
     }
 }
