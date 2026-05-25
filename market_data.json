@@ -24,28 +24,28 @@
         "date": "2026-05-22"
     },
     "VIX": {
-        "price": 16.7,
-        "change": -0.06,
-        "change_percent": -0.36,
-        "date": "2026-05-22"
+        "price": 16.59,
+        "change": -0.11,
+        "change_percent": -0.66,
+        "date": "2026-05-25"
     },
     "USD_KRW": {
-        "price": 1520.48,
-        "change": 16.08,
-        "change_percent": 1.07,
-        "date": "2026-05-24"
+        "price": 1517.23,
+        "change": 12.83,
+        "change_percent": 0.85,
+        "date": "2026-05-25"
     },
     "WTI_CRUDE_OIL": {
-        "price": 96.6,
-        "change": 0.0,
-        "change_percent": 0.0,
-        "date": "2026-05-24"
+        "price": 90.48,
+        "change": -6.12,
+        "change_percent": -6.34,
+        "date": "2026-05-25"
     },
     "GOLD": {
-        "price": 4523.2,
-        "change": 2.2,
-        "change_percent": 0.05,
-        "date": "2026-05-24"
+        "price": 4575.5,
+        "change": 54.5,
+        "change_percent": 1.21,
+        "date": "2026-05-25"
     },
     "US_10Y_TREASURY": {
         "price": 4.56,
