@@ -1,8 +1,8 @@
 <div style="background-color: #ffdddd; color: #cc0000; padding: 20px; margin: 20px; border-left: 6px solid #cc0000; border-radius: 8px; font-family: sans-serif;">
                 <h2 style="margin-top: 0;">⚠️ 엄격 검토 경고 (통과 실패)</h2>
                 <p><strong>최종 신뢰도 등급: F</strong></p>
-                <p><strong>치명적 오류:</strong> 분석 후보 종목이 제시되지 않아 재무 지표(PER, 시가총액 등)가 누락되었습니다., 분석 후보 종목이 제시되지 않아 강세 추론 근거, 약세 시그널, 연결 자산 추천이 누락되었습니다.</p>
-                <p><strong>권장 수정 사항:</strong> 보고서에 분석 후보 종목을 포함하고, 각 종목에 대한 상세 재무 지표(PER, 시가총액 등)를 추가해야 합니다., 각 분석 후보 종목에 대해 강세 추론 근거, 약세 시그널, 연결 자산 추천을 명확히 작성해야 합니다., 제시된 분석 후보 종목이 실제 상장사인지 확인해야 합니다.</p>
+                <p><strong>치명적 오류:</strong> 모든 뉴스 항목 및 추천 종목 분석 내 출처 URL 링크가 실제 원문 URL이 아닌 'vertexaisearch.cloud.google.com/grounding-api-redirect/' 형태의 리다이렉트 URL로 제공되어 있습니다. 이는 '실제 URL 링크' 요구사항을 충족하지 못합니다.</p>
+                <p><strong>권장 수정 사항:</strong> 모든 뉴스 항목 및 추천 종목 분석 내 출처 URL 링크를 실제 기사 원문으로 직접 연결되는 URL로 수정해야 합니다., 가능하다면 'YYYY-MM-DD 00:00'으로 표시된 뉴스 작성 시간을 실제 기사 발행 시간(HH:MM)으로 업데이트해야 합니다.</p>
                 <p>주의: 이 보고서는 검증 요건을 완전히 충족하지 못했습니다.</p>
             </div>
             <!DOCTYPE html>
@@ -10,66 +10,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주식시장 보고서</title>
+    <title>주식시장 보고서 (2026-06-11)</title>
     <style>
-        /* Basic Reset & Body Styling */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --text-color: #333;
+            --light-text-color: #666;
+            --background-light: #f4f7f6;
+            --card-background: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --positive-color: #28a745;
+            --negative-color: #dc3545;
+            --neutral-color: #6c757d;
+        }
+
         body {
-            font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
-            color: #333;
-            line-height: 1.6;
-            font-size: 16px;
+            background: linear-gradient(135deg, var(--background-light) 0%, #e0f2f1 100%);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            box-sizing: border-box;
         }
 
-        /* Headings */
-        h1 {
-            color: #2c3e50;
+        header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            margin-bottom: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
             font-weight: 700;
-            border-bottom: 3px solid #4a90e2;
-            padding-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        section {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px var(--shadow-color);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
         }
 
         h2 {
-            color: #34495e;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 600;
-            border-left: 6px solid #5cb85c;
-            padding-left: 15px;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
         }
 
         h3 {
-            color: #4a627a;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            font-weight: 600;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 8px;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
-        /* Card UI */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
         .card {
-            background-color: #f9f9f9;
+            background-color: #fdfdfd;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 20px;
-            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 1rem;
+            border: 1px solid #f0f0f0;
+            flex: 1 1 calc(33% - 1rem); /* Default for larger screens */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.2s ease-in-out;
         }
 
@@ -77,466 +123,882 @@
             transform: translateY(-5px);
         }
 
-        .card-header {
-            font-weight: bold;
-            color: #4a90e2;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .card-content {
-            font-size: 0.95em;
-            color: #555;
-        }
-
-        /* Market Data Specifics */
-        .market-data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .market-item {
-            background: linear-gradient(45deg, #e3f2fd 0%, #bbdefb 100%);
-            border-radius: 10px;
-            padding: 15px 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .market-item.negative {
-            background: linear-gradient(45deg, #ffebee 0%, #ffcdd2 100%);
-        }
-
-        .market-item.positive {
-            background: linear-gradient(45deg, #e8f5e9 0%, #c8e6c9 100%);
-        }
-
-        .market-item strong {
-            font-size: 1.2em;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .market-item .value {
-            font-size: 1.6em;
-            font-weight: 700;
-            color: #1a2a3a;
-            margin-bottom: 5px;
-        }
-
-        .market-item .change {
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-
-        .market-item .change.positive {
-            color: #28a745;
-        }
-
-        .market-item .change.negative {
-            color: #dc3545;
-        }
-
-        .market-item .date-source {
-            font-size: 0.85em;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        /* News Section */
-        .news-category {
-            margin-bottom: 30px;
-        }
-
-        .news-item {
-            background-color: #ffffff;
-            border-left: 5px solid #4a90e2;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-item h4 {
+        .card h4 {
+            color: var(--primary-color);
             margin-top: 0;
-            margin-bottom: 8px;
-            color: #2c3e50;
-            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
 
-        .news-item .published-at {
-            font-size: 0.85em;
-            color: #777;
-            margin-bottom: 10px;
+        .card p {
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
         }
 
-        .news-item .summary {
-            font-size: 0.95em;
-            color: #444;
-            margin-bottom: 10px;
+        .card .value {
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        /* Links & Buttons */
-        a {
-            color: #4a90e2;
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
+        .change-positive {
+            color: var(--positive-color);
+            font-weight: 700;
         }
 
-        a:hover {
-            color: #2a70c2;
-            text-decoration: underline;
+        .change-negative {
+            color: var(--negative-color);
+            font-weight: 700;
+        }
+
+        .change-neutral {
+            color: var(--neutral-color);
+            font-weight: 700;
         }
 
         .source-link {
             display: inline-block;
-            padding: 8px 15px;
-            background-color: #4a90e2;
-            color: #ffffff;
+            margin-top: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
             border-radius: 5px;
-            font-size: 0.9em;
-            margin-top: 10px;
-            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.85rem;
+            transition: background-color 0.2s ease;
         }
 
         .source-link:hover {
-            background-color: #2a70c2;
-            transform: translateY(-2px);
-            text-decoration: none;
+            background-color: #3a7bd5;
         }
 
-        /* Tables */
-        table {
+        .news-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .news-item .summary {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-meta {
+            font-size: 0.85rem;
+            color: var(--neutral-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .news-meta a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .news-meta a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .stock-card {
+            background-color: #fdfdfd;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 1.5rem;
+            flex: 1 1 100%; /* Full width on mobile, adjust for larger screens */
+            box-sizing: border-box;
+        }
+
+        .stock-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stock-card h3 span.ticker {
+            font-size: 1.1rem;
+            color: var(--light-text-color);
+            font-weight: 400;
+        }
+
+        .stock-info p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .stock-info strong {
+            color: var(--text-color);
+        }
+
+        .financials-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden; /* Ensures rounded corners apply to content */
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
         }
 
-        th, td {
-            padding: 12px 15px;
+        .financials-table th, .financials-table td {
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
             text-align: left;
-            border-bottom: 1px solid #eee;
         }
 
-        th {
-            background-color: #eef4f8;
-            color: #333;
-            font-weight: 600;
-            font-size: 0.95em;
+        .financials-table th {
+            background-color: #f0f8ff;
+            color: var(--primary-color);
+            font-weight: 700;
         }
 
-        tr:last-child td {
-            border-bottom: none;
+        .financials-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .financials-table td:first-child {
+            font-weight: 500;
+        }
+
+        .recommendation-box {
+            background-color: #e6f7ff;
+            border-left: 5px solid var(--primary-color);
+            padding: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .recommendation-box strong {
+            color: var(--primary-color);
+        }
+
+        .asset-list {
+            list-style-type: disc;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .asset-list li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .asset-list li strong {
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: var(--light-text-color);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                padding: 15px;
+            header h1 {
+                font-size: 2rem;
             }
-
-            h1 {
-                font-size: 2em;
-                margin-bottom: 20px;
+            header p {
+                font-size: 1rem;
             }
-
             h2 {
-                font-size: 1.5em;
-                margin-top: 30px;
+                font-size: 1.5rem;
             }
-
             h3 {
-                font-size: 1.2em;
-                margin-top: 25px;
+                font-size: 1.2rem;
             }
-
-            .market-data-grid {
-                grid-template-columns: 1fr; /* Stack items vertically */
+            .card {
+                flex: 1 1 100%; /* Full width on small screens */
             }
-
-            .card, .news-item {
-                padding: 15px;
+            .stock-card {
+                padding: 1rem;
             }
-
+            .stock-card h3 {
+                font-size: 1.4rem;
+            }
+            .stock-card h3 span.ticker {
+                font-size: 1rem;
+            }
+            .financials-table {
+                font-size: 0.85rem;
+            }
+            .financials-table th, .financials-table td {
+                padding: 0.6rem;
+            }
+            .news-item h4 {
+                font-size: 1.1rem;
+            }
+            .news-item .summary {
+                font-size: 0.9rem;
+            }
+            .news-meta {
+                font-size: 0.8rem;
+            }
             .source-link {
-                padding: 6px 12px;
-                font-size: 0.85em;
-            }
-
-            table, th, td {
-                font-size: 0.9em;
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
             }
         }
 
-        @media (max-width: 480px) {
-            body {
-                font-size: 14px;
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .card {
+                flex: 1 1 calc(50% - 0.5rem); /* Two cards per row */
             }
+        }
 
-            h1 {
-                font-size: 1.8em;
-            }
-
-            h2 {
-                font-size: 1.3em;
-            }
-
-            h3 {
-                font-size: 1.1em;
-            }
-
-            .market-item .value {
-                font-size: 1.4em;
-            }
-
-            .market-item .change {
-                font-size: 1em;
-            }
-
-            .source-link {
-                display: block; /* Make links block level for easier tapping */
-                width: fit-content;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
+        /* Specific styles for market data cards */
+        .market-data-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .market-data-card .value-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .market-data-card .value-section .value {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .market-data-card .value-section .change {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .market-data-card .date-source {
+            font-size: 0.8rem;
+            color: var(--neutral-color);
+            text-align: right;
+            margin-top: auto; /* Pushes to the bottom */
+        }
+        .market-data-card .date-source a {
+            color: var(--neutral-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .market-data-card .date-source a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>주식시장 보고서</h1>
+        <p>글로벌 및 국내 시장 동향 분석</p>
+    </header>
 
+    <div class="container">
         <section>
             <h2>1. 작성 기준</h2>
-            <div class="card">
-                <p><strong>작성일:</strong> 2026년 06월 10일</p>
-                <p><strong>시장 데이터 기준일:</strong> 대부분 2026년 06월 10일 (일부 KOSPI, KOSDAQ 데이터는 2026년 06월 09일 기준)</p>
-                <p><strong>뉴스 기준 기간:</strong> 2026년 06월 09일 ~ 2026년 06월 10일</p>
-                <p><strong>사용한 주요 출처 수:</strong> 12개 (Yahoo Finance API, 연합뉴스, 블루밍비트, 머니투데이, 뉴스핌, Báo Tin Tức, KB의 생각, 이코노미조선, 서울신문, 한국경제, EBN, 뉴데일리 경제)</p>
-            </div>
+            <p><strong>작성일:</strong> 2026-06-11</p>
+            <p><strong>시장 데이터 기준일:</strong> 최신 데이터는 2026-06-11 기준이며, 일부 국내 지수(KOSPI, KOSDAQ, VIX)는 2026-06-10 기준입니다.</p>
+            <p><strong>뉴스 기준 기간:</strong> 2026-05-20부터 2026-06-11까지</p>
+            <p><strong>사용한 주요 출처 수:</strong> 14개 (Yahoo Finance, 뉴스핌, 연합인포맥스, Investing.com, 연합뉴스, 머니투데이, 콩쓰의 화끈한 생각, 디지털투데이, 중앙이코노미뉴스, 마이민트, 토스증권 등)</p>
         </section>
 
         <section>
             <h2>2. 시장 요약</h2>
-            <div class="market-data-grid">
+            <h3>미국 주요 지수 (2026-06-11 기준)</h3>
+            <div class="card-grid">
                 <!-- S&P500 -->
-                <div class="market-item negative">
-                    <strong>S&P500</strong>
-                    <span class="value">7,266.99</span>
-                    <span class="change negative">-1.62%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>S&P500</h4>
+                    <div class="value-section">
+                        <span class="value">7,394.30</span>
+                        <span class="change change-positive">+1.75%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-11 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
                 <!-- NASDAQ -->
-                <div class="market-item negative">
-                    <strong>NASDAQ</strong>
-                    <span class="value">25,169.50</span>
-                    <span class="change negative">-1.98%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>NASDAQ</h4>
+                    <div class="value-section">
+                        <span class="value">25,809.66</span>
+                        <span class="change change-positive">+2.54%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-11 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
+            </div>
+
+            <h3>국내 주요 지수 (2026-06-10 기준)</h3>
+            <div class="card-grid">
                 <!-- KOSPI -->
-                <div class="market-item positive">
-                    <strong>KOSPI</strong>
-                    <span class="value">8,096.93</span>
-                    <span class="change positive">+8.18%</span>
-                    <span class="date-source">기준일: 2026-06-09 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>KOSPI</h4>
+                    <div class="value-section">
+                        <span class="value">7,730.82</span>
+                        <span class="change change-negative">-4.52%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-10 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
                 <!-- KOSDAQ -->
-                <div class="market-item positive">
-                    <strong>KOSDAQ</strong>
-                    <span class="value">967.81</span>
-                    <span class="change positive">+6.19%</span>
-                    <span class="date-source">기준일: 2026-06-09 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>KOSDAQ</h4>
+                    <div class="value-section">
+                        <span class="value">951.63</span>
+                        <span class="change change-negative">-1.67%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-10 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
                 <!-- VIX -->
-                <div class="market-item positive">
-                    <strong>VIX (변동성 지수)</strong>
-                    <span class="value">22.22</span>
-                    <span class="change positive">+11.83%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>VIX (변동성 지수)</h4>
+                    <div class="value-section">
+                        <span class="value">22.22</span>
+                        <span class="change change-positive">+11.83%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-10 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
+            </div>
+
+            <h3>환율, 원자재 및 국채 금리 (2026-06-11 기준)</h3>
+            <div class="card-grid">
                 <!-- USD_KRW -->
-                <div class="market-item negative">
-                    <strong>USD/KRW (원/달러 환율)</strong>
-                    <span class="value">1,525.81</span>
-                    <span class="change negative">-0.20%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>USD/KRW</h4>
+                    <div class="value-section">
+                        <span class="value">1,525.05</span>
+                        <span class="change change-negative">-0.05%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-11 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
                 <!-- WTI_CRUDE_OIL -->
-                <div class="market-item positive">
-                    <strong>WTI 원유</strong>
-                    <span class="value">$93.41</span>
-                    <span class="change positive">+5.91%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>WTI 원유</h4>
+                    <div class="value-section">
+                        <span class="value">$85.81</span>
+                        <span class="change change-negative">-4.69%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-11 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
                 <!-- GOLD -->
-                <div class="market-item negative">
-                    <strong>금 (GOLD)</strong>
-                    <span class="value">$4,062.60</span>
-                    <span class="change negative">-4.63%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>금 (GOLD)</h4>
+                    <div class="value-section">
+                        <span class="value">$4,248.30</span>
+                        <span class="change change-positive">+3.41%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-11 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
                 <!-- US_10Y_TREASURY -->
-                <div class="market-item positive">
-                    <strong>미국 10년물 국채 금리</strong>
-                    <span class="value">4.54%</span>
-                    <span class="change positive">+0.31%</span>
-                    <span class="date-source">기준일: 2026-06-10 | 출처: <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance API</a></span>
+                <div class="card market-data-card">
+                    <h4>미국 10년물 국채 금리</h4>
+                    <div class="value-section">
+                        <span class="value">4.46%</span>
+                        <span class="change change-negative">-1.74%</span>
+                    </div>
+                    <div class="date-source">
+                        2026-06-11 | <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>3. 카테고리별 핵심 뉴스</h2>
-            <div class="news-category">
-                <h3>거시경제 및 지정학적 리스크</h3>
-                <div class="news-item">
-                    <h4>미국-이란 충돌 재점화…호르무즈 해협 긴장 고조</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 10:46</p>
-                    <p class="summary">미국과 이란이 호르무즈 해협에서 미군 아파치 헬기 추락을 불씨로 보복에 재보복을 주고받으며 무력 충돌을 재개했다. 트럼프 대통령은 헬기 추락이 이란의 공격에 따른 것이라고 주장하며 보복 조치를 예고했고, 미 중부사령부는 이란에 대한 자위적 공격을 개시했다고 밝혔다. 이란 측은 미군 기지 공습으로 맞대응했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoUejYOAjp9uf92zE_GIdKxyHSgfExGY7Kf8Fp4vuv02ciPy0yNgtuaMUjHPYeLE2yNCWU1Y3QZAoU0o8BtU-kt0g79buDX-Igb9hANn_MdJzakBjXPRgNqBvFCxtbJ5Ov66c6LGxar4MT" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>트럼프 “이란, 협상 너무 오래 끌어…대가 치러야 할 것”</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 08:04</p>
-                    <p class="summary">도널드 트럼프 미국 대통령이 이란이 협상을 너무 오래 끌었다며 '이제 대가를 치러야 할 것'이라고 밝혔다. 미군은 호르무즈 해협 인근 이란 방공망 등을 타격했으며, 백악관은 합의 진행 상황에 변화가 없다고 전했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYGc3we-y49fkgicu0Td1bkaQc2cMI6U1NIKFL-XRp-66qYoGLd3owFtyTrD9TELk6dYOAYBulVs83BuhNWelwlugRQHwDjH4o_zQqrQSvPGXP45CvahmElotaBCQDugn5Nz3ZeRzeblQ==" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>국제유가 급락…중동 긴장 완화 기대·중국 원유 수요 감소</h4>
-                    <p class="published-at">게시 시간: 2026-06-09 17:00</p>
-                    <p class="summary">국제유가가 6월 9일(현지시간) 중동 긴장 완화 기대와 중국의 원유 수요 둔화 신호에 힘입어 급락했다. 브렌트유 선물은 배럴당 91.45달러, WTI 선물은 배럴당 88.20달러로 하락했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGt-yHKJHr_9u6wqL2wXH3wau5S89KfhQdkqNOsd7FX5SQieQcpvFO6OTB-5gDujlhujxKTnqVLYGN23W9n1mO6yMraDvGCDixzYPav1cVXs3dA2OpnRXzSPuqghG5rO93MuPSGd__rcTf7Os8jIpRuEcRKnA==" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>유가 1% 가까이 반등…미·이란 충돌 재점화</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 09:00</p>
-                    <p class="summary">미국의 대이란 보복 공습과 이란의 미사일·드론 반격으로 중동 지정학적 긴장이 재차 고조되면서 국제유가가 반등했다. 브렌트유 선물은 배럴당 92.29달러, WTI 선물은 88.97달러로 상승했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQETXNSUqNQ4Gr_1IU5-u-zjWQhiXgLuqAmV3MjlpM_kPTJMF_DHXUI-hXEcQb7_gUvo2j9x6MkTxKxcjoFDxOUVu0B0JGPiNSEYGvTmM04uv4rQvxJZo7uGNMiTLQ4NdQyLCB8OGdEfNLceZw==" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>미국 소비자 물가 상승률, 3년 만에 최고치 경신</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 08:00</p>
-                    <p class="summary">2026년 5월 미국 소비자 물가 상승률은 중동 분쟁으로 휘발유 및 기타 에너지 제품 가격이 급등하면서 3년 만에 가장 큰 폭으로 상승했다. 이는 연방준비제도(Fed)가 현재 금리를 최소 2027년까지 유지할 근거를 강화한다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHb23jYBoW5BmdXWc-RYekdf7vSWaU-DHygxiMcJ1eoavB_hoUifqJk3LklxjyhaCn9UeoNi39kuGNsSFBBVUf0sm3Af_rfwfni7JwH5q55wgSwzzbdctpRXXXvXoK-0LfwTc5ZqiX5cXe7makg-iBAx_NE8eLesUKFEfpXVXcQnDe1xo91" target="_blank" class="source-link">기사 원문</a>
+            <!-- 거시경제 및 지정학적 리스크 -->
+            <h3>거시경제 및 지정학적 리스크</h3>
+            <div class="news-item">
+                <h4>미국과 이란의 갈등 증폭, 트럼프 대통령 '매우 강하게 재공격' 언급</h4>
+                <p class="summary">미국과 이란의 갈등이 증폭되었으며, 도널드 트럼프 미국 대통령은 중동 전쟁 휴전 이후 가장 심각한 수준의 야간 교전이 벌어진 후 미국이 이란을 '매우 강하게' 다시 공격할 것이라고 밝혔다. 이는 시장에 우려를 더했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 뉴스핌</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">기사 원문</a>
                 </div>
             </div>
-            <div class="news-category">
-                <h3>글로벌 증시 동향</h3>
-                <div class="news-item">
-                    <h4>뉴욕증시, 기술주 변동성에 롤러코스터…나스닥 1%↓</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 05:16</p>
-                    <p class="summary">6월 9일(현지시간) 미국 뉴욕증시가 국제유가 급락에 따른 인플레이션 완화 기대감에도 인공지능(AI) 관련 기술주의 극심한 변동성 속에 장중 크게 출렁이다 혼조 마감했다. 다우존스30산업평균지수는 0.17% 상승했으나, S&P 500지수는 0.26%, 나스닥 종합지수는 0.97% 하락했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFbWTPm6p4mkjbc5vqNmffX3dKWTVsAOnQRIMkwQe-rRZarljgTmaF8p9iE_8AOA0gIoAvNExnhRnG7UGbTI5cqx-xHBsk9p7iRKeM0WsJS3tzj5KpXH9LDe_Dl89LoEzXhGyfwgZo9q13c" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>반도체 급변동 속 미 증시 혼조세</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 00:00</p>
-                    <p class="summary">6월 9일 기준, 글로벌 위험 심리가 안정화를 시도하고 있으며, 중동 긴장 완화의 신호와 반도체 기업들의 반등이 주식 하락분 회복을 돕고 있다. 다만 높은 유가, 견고한 달러, 높은 실질 금리로 인해 투자자들은 신중한 태도를 유지하고 있다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFS27lVCDmtYobRpZMRJ9HApYQBKyyxrJZrO3_NoAdo3xXuWYqm6NT2Mr0t5gykMcJm9BURvfjbYUpOzSTdrl8o2vTCoQt2XQQT2Q28uvfE1BGN2xf14-CcHfFbZ2J9zj-Lyv7zWLcjgW2tmvUf41rCX_jAvdVcDg==" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>뉴욕증시, 3대 지수 급락 마감… 중동 긴장 고조·기술주 투매 심화</h4>
-                    <p class="published-at">게시 시간: 2026-06-11 00:00</p>
-                    <p class="summary">6월 10일 뉴욕증시에서 S&P500 지수는 1.62% 하락한 7266.99, 나스닥종합지수는 1.98% 급락한 25169.50으로 마감했다. 이는 미국과 이란의 무력 충돌 재개와 기술주 투매 심화가 영향을 미쳤다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1E37X7JiMWRC9ujVjEJTm8s1UpIpOyhItN_rQ3kUVuZd18mfxwBTLvwmAsbjW4y9qid3WvyhR11bK-nLoSscCuJGIRBoYtsWbERy9anFeq_IcKNv9Nb5Qxe0Dv3QxHFqeaMzqFSDzX21IpG4IfNYkABi6Ja0Npu917_dIT3LBog3itbusQ5XL5Twypwc376UW6iSZcRk2D4ySdb0" target="_blank" class="source-link">기사 원문</a>
+            <div class="news-item">
+                <h4>이란, 호르무즈 해협 완전 폐쇄 선언</h4>
+                <p class="summary">이란 반관영 타스님 통신은 이란이 호르무즈 해협을 완전히 폐쇄했다고 11일(현지시간) 보도했다. 페르시아만해협청(PGSA)은 미군이 역내에 조성한 긴장 상황과 이란 군대의 공지에 따라 해협이 추후 공지가 있을 때까지 폐쇄될 것이라고 밝혔다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 22:23</span>
+                    <span>출처: 연합인포맥스</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHaBmKM1YdCMJ8Xy2aeAZRSkkIn9F7QN7EyjfAM5QOAqm2bvBOD5zkBmdOoH5Ss0OX37f2Jsv5n9TIARHw4064xJr49fLJnyilDIyx62upLdNa3fhe736w_53UQT9LoAohswoiij-w4msxmT5PBnEkHhZHb9D6-PMQyAQ=" target="_blank">기사 원문</a>
                 </div>
             </div>
-            <div class="news-category">
-                <h3>국내 증시 동향</h3>
-                <div class="news-item">
-                    <h4>코스피, 하루 만에 8.18% 급반등…8096.93 마감</h4>
-                    <p class="published-at">게시 시간: 2026-06-09 16:03</p>
-                    <p class="summary">코스피가 전날 급락 뒤 하루 만에 8.18% 급반등해 8096.93에 마감했다. 기관이 2조원 넘게 순매수하며 지수 상승을 이끌었고, 삼성전자, SK하이닉스 등 대형 기술주가 반등을 주도했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_yJK6HveqzcgOdg90KPp1GRPCcFJ4AZ4j5iLjE-xo8KT6ewWc8QLvudJrK7JB_RIvltgHPhwpV7m446HnZNpaYzEcTM3U1jTzOS8tbwFZ8Al-FgXh8zEr8kxEPTk1yNN8Ap4LF9O3kFWFp-m6qlhIPVHywgQNLoMM1xjmXsdD-tAjD-w" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>코스닥 6%대 상승... 967.81 마감</h4>
-                    <p class="published-at">게시 시간: 2026-06-09 15:48</p>
-                    <p class="summary">코스닥은 전장 종가보다 56.42포인트(6.19%) 상승하며 967.81로 거래를 마감했다. 외국인과 기관이 순매수했고, 바이오·반도체·로봇 테마가 강세를 보였다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgnID6rGNwEOHkqI-vslCp5iHXyTOmvkZP6djT3WaJVwA8QGJxHWtVmekVOxo3ZWjSP5gZhL91XR-jiDAM2W-cBc0862dqI8dUJLqJYT-IJ3Gr3E80KExlTH-U2YdBjJD2NBfqDDNNbo1pcQ==" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>코스피, 미 기술주 약세·중동 리스크에 4.5% 급락…7700선 후퇴</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 16:16</p>
-                    <p class="summary">6월 10일 코스피는 전일 대비 366.11포인트(4.52%) 내린 7730.82에 거래를 마쳤다. 중동 지역 지정학적 긴장 고조와 미국 물가 지표 발표를 앞둔 경계심리가 확산되며 외국인과 기관의 순매도가 지수 하락을 주도했다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlLPsO9eN6WF1REPEljioU0Jw99PCTjsv3EjGWvyqdcNrloGmqczT562r4aqbsPxy-OMRpa0DOR5-oTjWWZ6NGqyM01ckB09OBCCq9OkwXlU3D4UIh39Db0Qm90ttctYM14n0OOtOKdAU==" target="_blank" class="source-link">기사 원문</a>
-                </div>
-                <div class="news-item">
-                    <h4>사흘 연속 사이드카…극단적인 널뛰기에 코스피 '변동성 쇼크'</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 17:00</p>
-                    <p class="summary">올해 들어 6월 10일까지 유가증권시장 사이드카는 총 24차례 발동되었으며, 매수와 매도가 각각 12회씩이다. 코스피200 변동성지수(VKOSPI)는 91.23까지 치솟아 2009년 지수 공식 산출 이후 역대 최고 수준을 기록하며 시장 불안이 심화되었다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlLPsO9eN6WF1REPEljioU0Jw99PCTjsv3EjGWvyqdcNrloGmqczT562r4aqbsPxy-OMRpa0DOR5-oTjWWZ6NGqyM01ckB09OBCCq9OkwXlU3D4UIh39Db0Qm90ttctYM14n0OOtOKdAU==" target="_blank" class="source-link">기사 원문</a>
+            <div class="news-item">
+                <h4>미국 5월 소비자 물가지수(CPI) 전년 대비 4.2% 상승, 2023년 4월 이후 최대 상승률 기록</h4>
+                <p class="summary">5월까지 12개월간 미국 소비자 물가지수(CPI)는 전년 대비 4.2% 올라 2023년 4월 이후 최대 상승률을 기록했다. 이는 중동 분쟁이 휘발유를 비롯한 에너지 제품 가격을 끌어올린 영향으로, 연방준비제도(Fed)의 금리 인상 가능성에 무게를 더했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 뉴스핌</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">기사 원문</a>
                 </div>
             </div>
-            <div class="news-category">
-                <h3>주요 산업 및 섹터 동향</h3>
-                <div class="news-item">
-                    <h4>반도체·전자주 강세…SK하이닉스, 삼성전자 등 상승</h4>
-                    <p class="published-at">게시 시간: 2026-06-09 17:00</p>
-                    <p class="summary">6월 9일 국내 증시에서 반도체 중심의 전기·전자업종이 11.12% 급등하며 최대 상승폭을 보였다. 삼성전자 8.97%, SK하이닉스 15.91% 상승하며 시장을 주도했다. 이는 간밤 미국 증시의 기술주 및 반도체주 강세와 중동 긴장 완화 기대감이 복합적으로 작용한 결과로 풀이된다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJW-G5wkZksEorYVPqT3wtvjma0NkziYVcGGcTuzeMCDHxT-gZasATaUJBRr1ERl_sWPcHRyrhYrbsaDDlsEFqaKMmuXeOBGg6c0_0Tq84onK1Ki_raAKjS3MzKI4gaSYAo0FRESnkEzorGlpDUEB6ikuGjQ==" target="_blank" class="source-link">기사 원문</a>
+            <div class="news-item">
+                <h4>WTI 유가, 미-이란 갈등 고조에도 협상 지속 보도에 상승분 반납</h4>
+                <p class="summary">유가는 목요일(현지시각) 하락하며 초기 상승분을 반납했다. 미국과 이란이 새로운 공습 교환에도 불구하고 평화 회담을 계속하고 있다는 보도가 나왔기 때문이다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: Investing.com</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSlvVhMDubixMC5oOSks_H7FoOyQ90irXyVDn38nt59TuUgiJd-0wLik2OqHWjjPI-p56A4xrSC7A2AoK8Yro5mzCObjNHPjER0bxTPYC_igsxJT0L99Yylt5NT_kQ0XvfzaXbfi7CAt3M2-oKK3QaL4xhMtUGli0w=" target="_blank">기사 원문</a>
                 </div>
-                <div class="news-item">
-                    <h4>美 개미도 '2000조 빚투' 광풍 … '美증시발 레버리지 폭탄' 변동성 주의보</h4>
-                    <p class="published-at">게시 시간: 2026-06-10 08:00</p>
-                    <p class="summary">미국 증시의 마진부채(신용융자 잔고)가 사상 최대치인 1조 3040억 달러(약 1982조 원)를 기록하며 글로벌 금융시장의 잠재적 리스크로 부상했다. 이는 GDP 대비 4.10%로 역사상 최고 수준이며, 매크로 충격 시 역대급 반대매매가 발생할 수 있다는 우려가 제기된다.</p>
-                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyutvSZw4LEe9vqhg74aH-441GHYZ2AKON1ElQlVu-We9OzeJcfxCJnjcZRkYX6pfAFBe9D1CGjSLnCS3jjrJ-YlMgHNJqUMnEZ3M53N3Jbsedew2G3h6Esk_gYQXhyMzxYAcMM3siaDx-ZX3dCjAu3tDS6SKVQRjZFltbSxwNcaEb" target="_blank" class="source-link">기사 원문</a>
+            </div>
+
+            <!-- 글로벌 증시 동향 -->
+            <h3>글로벌 증시 동향</h3>
+            <div class="news-item">
+                <h4>뉴욕증시, 미-이란 갈등·CPI 소화하며 하락 출발</h4>
+                <p class="summary">10일(현지시간) 뉴욕증시의 3대 주가지수는 미국과 이란 간의 갈등과 소비자물가지수(CPI) 결과를 소화하며 하락 출발했다. 다우존스 산업평균지수는 0.66%, S&P 500지수는 0.39%, 나스닥 종합지수는 0.49% 하락했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-10 22:53</span>
+                    <span>출처: 연합뉴스</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF5pHVJTEdWcdnu6If96OrBhqdQ0BWntjoldpRO3h65t0_1ZssWugHCmcsSPFr3o9Kf2KAaoQ09gdAytwdA3khNsI9QB1iNqwJJ8YAVkqAI3Xrs2vINJ46_7lgVDEqKWM3OLTcmFiKhy88=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>뉴욕증시, 반도체주 약세에 하락 마감…트럼프 '이란 재공격'도 부담</h4>
+                <p class="summary">10일(현지시간) 미국 뉴욕증시 주요 지수가 일제히 큰 폭으로 하락 마감했다. 다우존스 산업평균지수는 1.87% 급락하며 5만 선을 내줬고, S&P500 지수는 1.62%, 나스닥 종합지수는 1.98% 밀렸다. 반도체 관련주가 약세를 지속했으며, 필라델피아 반도체 지수도 큰 폭으로 하락했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 뉴스핌</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>스페이스X 1조 7500억 달러 규모 상장, 미국 증시에 압박</h4>
+                <p class="summary">오는 12일로 예정된 스페이스X의 1조 7500억 달러 규모 상장도 미국 증시에 압박이 될 수 있다는 분석이 나왔다. 사상 최대인 750억 달러 조달을 목표로 하는 가운데 기술 부문의 과도한 낙관론에 대한 우려가 커지고 있다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 뉴스핌</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>뉴욕증시, 기술주 '저가매수'에 상승 출발</h4>
+                <p class="summary">미국 증시는 5월 소비자물가지수가 예상치를 소폭 하회했음에도 미국의 대이란 군사 공격 발언에 하락하는 등 글로벌 금융시장 동향에 대해 알아봐요. 하지만 시장은 지난 며칠간 과매도된 상태였기 때문에 반등 움직임이 나타나는 것으로 분석된다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 23:03</span>
+                    <span>출처: 연합뉴스</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEyEh9JyVYEkzoebCAaXPSUaIFB1YLPjZg0ioqFb18TL9nCs-CYnwSsKe2QyPTsC1CHwvVUC01iC0en23lZbdJqGnDmNtQtiwLdKZlGpCuSJDDx34QTq8_od5rWCPs_y7ui4fgUizIDJ8W=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+
+            <!-- 국내 증시 동향 -->
+            <h3>국내 증시 동향</h3>
+            <div class="news-item">
+                <h4>코스피, '네 마녀의 날' 널뛰기 장세 끝에 강보합 마감</h4>
+                <p class="summary">11일 코스피는 전 거래일 대비 3.13포인트(0.43%) 오른 7763.95로 거래를 마쳤다. 이란발 악재 속에 나타난 반도체주 저가매수 시도가 지수를 떠받쳤다. 개인은 2조812억원어치를 순매수하고 외국인과 기관은 각각 1조4804억원, 7580억원어치를 순매도했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 머니투데이</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>코스피 4.5%대 폭락, 8000선 하루 만에 반납…매도 사이드카 발동</h4>
+                <p class="summary">10일 코스피는 전 거래일 대비 366.11포인트(4.52%) 하락한 7,730.82로 장을 마감했다. 개장 초반부터 매도 압력이 가중되며 장중 한때 6.86% 폭락한 7,541.11까지 하락했고, 급격한 낙폭에 매도 사이드카가 긴급 발동되기도 했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-10 00:00</span>
+                    <span>출처: 콩쓰의 화끈한 생각</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGIdlisYvKjPq0OFCn5UTzZJbCsrptBqLFJQsjrip3vCQGMMeEDuXDLSu8JDxBBUGRRAsHXJhTDvgJhpZZVw20rKBSrTHrhWj4JakAePnTkIfhZR74MrnHChmer=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>외국인 23거래일 연속 순매도, 개인 4.8조 원 순매수</h4>
+                <p class="summary">10일 코스피 시장에서 외국인이 2조 8,042억 원, 기관이 2조 2,673억 원을 순매도하며 지수 하락을 주도했다. 외국인 투자자들은 지난달 7일부터 23거래일 연속 순매도 행진을 펼쳤다. 반면 개인 투자자는 4조 8,611억 원을 순매수하며 지탱을 모색했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-10 00:00</span>
+                    <span>출처: 콩쓰의 화끈한 생각</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGIdlisYvKjPq0OFCn5UTzZJbCsrptBqLFJQsjrip3vCQGMMeEDuXDLSu8JDxBBUGRRAsHXJhTDvgJhpZZVw20rKBSrTHrhWj4JakAePnTkIfhZR74MrnHChmer=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+
+            <!-- 주요 산업 및 섹터 동향 -->
+            <h3>주요 산업 및 섹터 동향</h3>
+            <div class="news-item">
+                <h4>필라델피아 반도체 지수 큰 폭 하락, 엔비디아·브로드컴 급락</h4>
+                <p class="summary">10일(현지시간) 필라델피아 반도체 지수는 큰 폭으로 하락했으며, 엔비디아와 브로드컴은 각각 3.73%, 5.12% 급락했다. 투자자들은 반도체 부문의 과도한 밸류에이션을 우려하고 있다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 뉴스핌</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>슈퍼마이크로컴퓨터, 70억 달러 자금 조달 계획 발표 후 27.98% 급락</h4>
+                <p class="summary">슈퍼마이크로컴퓨터는 증가하는 인공지능(AI) 서버 수요에 대응한 부품 구매 자금 조달을 위해 일련의 주식 및 주식 연계 금융 거래를 통해 70억 달러를 조달할 계획이라고 발표한 후 27.98% 급락했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 뉴스핌</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>포스코·현대차, 고효율 전기강판 개발 착수…전기차 전비 향상 나서</h4>
+                <p class="summary">포스코와 현대차가 고효율 전기강판 개발에 착수하며 전기차 전비 향상에 나선다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: Investing.com</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEddxmj9CjSJ-vrmLi9lg7-WF8pZB8x8mI-ZftwegCaZ7qr6S4AqvCKPeMWE_5lCknLPuSJxu6CE1wWLnCEeCiUEohMduFOh-gyWaciGHNKrRB1K005etrPiimf-lU_g5Bp5R-xxKvgNCgJc5zqiGg77wEM00H3pkpbuU" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>IEA, 2026년 글로벌 전기차 판매 2300만대 예상…신차 판매의 약 30% 차지</h4>
+                <p class="summary">국제에너지기구(IEA)는 최신 보고서 '글로벌 EV 아웃룩'에서 2026년 전 세계 전기차 판매가 약 2300만대에 이를 것으로 내다봤다. 이는 전 세계 신차 판매의 약 30%에 해당하는 수준이다.</p>
+                <div class="news-meta">
+                    <span>2026-05-20 00:00</span>
+                    <span>출처: 디지털투데이</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdadmYxxVpdT2DJRiHKvHPKu-M1PnMCEDm-0NFL9S-j0ldRQV5nezo_URz55cIch8gPBD7aNR6qoMC_3oPWivtcIoOgSbzRwBFf-9fh7ZlpiuI6feam4CZkbGqKoO4CTUhW7YtiOLHKPusyQWoSKsVeyQCQ2hMGmd-6ezC" target="_blank">기사 원문</a>
+                </div>
+            </div>
+            <div class="news-item">
+                <h4>관세청 6월 초순 수출통계, 반도체 수출 전년 동기 대비 205.8% 증가</h4>
+                <p class="summary">11일 관세청 6월 초순(1~10일) 수출통계에서 반도체 수출이 전년 동기 대비 205.8% 증가한 것으로 나타나며 펀더멘털을 확인했다.</p>
+                <div class="news-meta">
+                    <span>2026-06-11 00:00</span>
+                    <span>출처: 머니투데이</span>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">기사 원문</a>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>4. 수급 및 섹터 분석</h2>
-            <div class="card">
-                <h3>수급 동향</h3>
-                <ul>
-                    <li><strong>국내 증시 (2026-06-09):</strong> 코스피 급반등 시 기관이 2조원 넘게 순매수하며 지수 상승을 이끌었습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH_yJK6HveqzcgOdg90KPp1GRPCcFJ4AZ4j5iLjE-xo8KT6ewWc8QLvudJrK7JB_RIvltgHPhwpV7m446HnZNpaYzEcTM3U1jTzOS8tbwFZ8Al-FgXh8zEr8kxEPTk1yNN8Ap4LF9O3kFWFp-m6qlhIPVHywgQNLoMM1xjmXsdD-tAjD-w" target="_blank" class="source-link">서울신문</a></li>
-                    <li><strong>국내 증시 (2026-06-09):</strong> 코스닥 상승 시 외국인과 기관이 순매수했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgnID6rGNwEOHkqI-vslCp5iHXyTOmvkZP6djT3WaJVwA8QGJxHWtVmekVOxo3ZWjSP5gZhL91XR-jiDAM2W-cBc0862dqI8dUJLqJYT-IJ3Gr3E80KExlTH-U2YdBjJD2NBfqDDNNbo1pcQ==" target="_blank" class="source-link">뉴스핌</a></li>
-                    <li><strong>국내 증시 (2026-06-10):</strong> 코스피 급락 시 외국인과 기관의 순매도가 지수 하락을 주도했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlLPsO9eN6WF1REPEljioU0Jw99PCTjsv3EjGWvyqdcNrloGmqczT562r4aqbsPxy-OMRpa0DOR5-oTjWWZ6NGqyM01ckB09OBCCq9OkwXlU3D4UIh39Db0Qm90ttctYM14n0OOtOKdAU==" target="_blank" class="source-link">한국경제</a></li>
-                    <li><strong>미국 증시:</strong> 미국 증시의 마진부채(신용융자 잔고)가 사상 최대치인 1조 3040억 달러(약 1982조 원)를 기록하며 '빚투' 광풍에 따른 잠재적 리스크가 우려됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyutvSZw4LEe9vqhg74aH-441GHYZ2AKON1ElQlVu-We9OzeJcfxCJnjcZRkYX6pfAFBe9D1CGjSLnCS3jjrJ-YlMgHNJqUMnEZ3M53N3Jbsedew2G3h6Esk_gYQXhyMzxYAcMM3siaDx-ZX3dCjAu3tDS6SKVQRjZFltbSxwNcaEb" target="_blank" class="source-link">뉴데일리 경제</a></li>
-                </ul>
+            <h3>수급 동향</h3>
+            <ul>
+                <li><strong>국내 증시 (2026-06-10):</strong> 외국인과 기관은 각각 2조 8,042억 원, 2조 2,673억 원을 순매도하며 지수 하락을 주도했습니다. 외국인 투자자들은 지난달 7일부터 23거래일 연속 순매도 행진을 펼쳤습니다. 반면 개인 투자자는 4조 8,611억 원을 순매수하며 지탱을 모색했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGIdlisYvKjPq0OFCn5UTzZJbCsrptBqLFJQsjrip3vCQGMMeEDuXDLSu8JDxBBUGRRAsHXJhTDvgJhpZZVw20rKBSrTHrhWj4JakAePnTkIfhZR74MrnHChmer=" target="_blank">[출처: 콩쓰의 화끈한 생각]</a></li>
+                <li><strong>국내 증시 (2026-06-11):</strong> 개인은 2조812억원어치를 순매수하고 외국인과 기관은 각각 1조4804억원, 7580억원어치를 순매도했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">[출처: 머니투데이]</a></li>
+            </ul>
 
-                <h3>강세/약세 섹터</h3>
-                <ul>
-                    <li><strong>강세 섹터 (2026-06-09 국내):</strong> 반도체 중심의 전기·전자업종이 11.12% 급등하며 최대 상승폭을 보였습니다. 삼성전자, SK하이닉스 등 대형 기술주가 반등을 주도했습니다. 코스닥에서는 바이오·반도체·로봇 테마가 강세를 보였습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJW-G5wkZksEorYVPqT3wtvjma0NkziYVcGGcTuzeMCDHxT-gZasATaUJBRr1ERl_sWPcHRyrhYrbsaDDlsEFqaKMmuXeOBGg6c0_0Tq84onK1Ki_raAKjS3MzKI4gaSYAo0FRESnkEzorGlpDUEB6ikuGjQ==" target="_blank" class="source-link">EBN</a>, <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgnID6rGNwEOHkqI-vslCp5iHXyTOmvkZP6djT3WaJVwA8QGJxHWtVmekVOxo3ZWjSP5gZhL91XR-jiDAM2W-cBc0862dqI8dUJLqJYT-IJ3Gr3E80KExlTH-U2YdBjJD2NBfqDDNNbo1pcQ==" target="_blank" class="source-link">뉴스핌</a></li>
-                    <li><strong>약세 섹터 (2026-06-10 미국/국내):</strong> 미국 뉴욕증시에서 기술주 변동성이 심화되며 S&P 500과 나스닥이 하락했습니다. 국내 증시에서도 미 기술주 약세가 코스피 하락에 영향을 미쳤습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFbWTPm6p4mkjbc5vqNmffX3dKWTVsAOnQRIMkwQe-rRZarljgTmaF8p9iE_8AOA0gIoAvNExnhRnG7UGbTI5cqx-xHBsk9p7iRKeM0WsJS3tzj5KpXH9LDe_Dl89LoEzXhGyfwgZo9q13c" target="_blank" class="source-link">연합뉴스</a>, <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1E37X7JiMWRC9ujVjEJTm8s1UpIpOyhItN_rQ3kUVuZd18mfxwBTLvwmAsbjW4y9qid3WvyhR11bK-nLoSscCuJGIRBoYtsWbERy9anFeq_IcKNv9Nb5Qxe0Dv3QxHFqeaMzqFSDzX21IpG4IfNYkABi6Ja0Npu917_dIT3LBog3itbusQ5XL5Twypwc376UW6iSZcRk2D4ySdb0" target="_blank" class="source-link">이코노미조선</a>, <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGlLPsO9eN6WF1REPEljioU0Jw99PCTjsv3EjGWvyqdcNrloGmqczT562r4aqbsPxy-OMRpa0DOR5-oTjWWZ6NGqyM01ckB09OBCCq9OkwXlU3D4UIh39Db0Qm90ttctYM14n0OOtOKdAU==" target="_blank" class="source-link">한국경제</a></li>
-                </ul>
-            </div>
+            <h3>강세/약세 섹터</h3>
+            <ul>
+                <li><strong>약세 섹터 (반도체):</strong> 뉴욕증시에서 반도체 관련주가 약세를 지속했으며, 필라델피아 반도체 지수도 큰 폭으로 하락했습니다. 엔비디아와 브로드컴은 각각 3.73%, 5.12% 급락했으며, 슈퍼마이크로컴퓨터는 70억 달러 자금 조달 계획 발표 후 27.98% 급락했습니다. 투자자들은 반도체 부문의 과도한 밸류에이션을 우려하고 있습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0E6-UY5OsOf6LGGy79DZMk5j0uKbUoklawcT8tlt6d6QqtWO3nk6L10xrXtu2VP_keuJ1Rwhyg2ul_NRKAOmLdtsEzXO9zHxHn7A3Nq3RXmU0C338TbCZYmLquiMHX3w9Az1-IJZdfwQ=" target="_blank">[출처: 뉴스핌]</a></li>
+                <li><strong>강세/긍정적 섹터 (반도체):</strong> 6월 초순 관세청 수출통계에서 반도체 수출이 전년 동기 대비 205.8% 증가한 것으로 나타나며 펀더멘털을 확인했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">[출처: 머니투데이]</a></li>
+                <li><strong>긍정적 섹터 (전기차):</strong> 국제에너지기구(IEA)는 2026년 전 세계 전기차 판매가 약 2300만대에 이를 것으로 예상하며, 이는 전 세계 신차 판매의 약 30%에 해당합니다. 포스코와 현대차는 고효율 전기강판 개발에 착수하며 전기차 전비 향상에 나서는 등 전기차 경쟁력 강화를 위한 노력을 지속하고 있습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdadmYxxVpdT2DJRiHKvHPKu-M1PnMCEDm-0NFL9S-j0ldRQV5nezo_URz55cIch8gPBD7aNR6qoMC_3oPWivtcIoOgSbzRwBFf-9fh7ZlpiuI6feam4CZkbGqKoO4CTUhW7YtiOLHKPusyQWoSKsVeyQCQ2hMGmd-6ezC" target="_blank">[출처: 디지털투데이]</a>, <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEddxmj9CjSJ-vrmLi9lg7-WF8pZB8x8mI-ZftwegCaZ7qr6S4AqvCKPeMWE_5lCknLPuSJxu6CE1wWLnCEeCiUEohMduFOh-gyWaciGHNKrRB1K005etrPiimf-lU_g5Bp5R-xxKvgNCgJc5zqiGg77wEM00H3pkpbuU" target="_blank">[출처: Investing.com]</a></li>
+            </ul>
         </section>
 
         <section>
             <h2>5. 분석 후보 종목</h2>
-            <div class="card">
-                <p>제공된 입력 데이터에 분석할 주식 종목 정보가 없습니다. 따라서 분석 후보 종목을 제시할 수 없습니다.</p>
+            <div class="card-grid">
+                <!-- 삼성전자 -->
+                <div class="stock-card">
+                    <h3>삼성전자 <span class="ticker">(005930.KRX)</span></h3>
+                    <div class="stock-info">
+                        <p><strong>현재가:</strong> 299,000.0 KRW (2026-06-11 기준)</p>
+                        <p><strong>거래소:</strong> KRX</p>
+                        <p><strong>종합 추천 사유:</strong> 글로벌 D램 시장의 기술 경쟁력과 시장 지배력을 바탕으로 한 긍정적인 전망과 반도체 수출 증가세가 확인되어 분석 후보로 선정되었습니다.</p>
+                    </div>
+                    <h4>재무 지표</h4>
+                    <table class="financials-table">
+                        <thead>
+                            <tr>
+                                <th>지표</th>
+                                <th>값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>시가총액</td><td>1,963.40조 KRW</td></tr>
+                            <tr><td>Trailing P/E</td><td>N/A</td></tr>
+                            <tr><td>Forward P/E</td><td>5.22배</td></tr>
+                            <tr><td>ROE</td><td>18.86%</td></tr>
+                            <tr><td>매출 성장률</td><td>69.20%</td></tr>
+                            <tr><td>영업 이익률</td><td>42.75%</td></tr>
+                            <tr><td>부채/자본 비율</td><td>5.78</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>강세 추론 근거</h4>
+                    <ul>
+                        <li>KB증권은 삼성전자를 비롯한 글로벌 D램 3사의 기술 경쟁력과 시장 지배력 재조명 계기로 목표주가 530,000원을 유지하며 'Buy' 의견을 제시했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENJoCVu1Wm_uWY3-nzau8dysKiCIVs8PHFU0CXH9kiBifWU2jxub4UdKlsl4wiidfY5eQ2iR-BSwb62-6A2ZN7ejwLaGi0s-KjIv6Ks8E7bJ0PQ7KyLWIRSGmIgcn8V3TaPs4GYi5Q36MNGgjeDgt1qlvUZ_fPIWMnpkk=" target="_blank">[출처: 중앙이코노미뉴스]</a></li>
+                        <li>6월 초순 관세청 수출통계에서 반도체 수출이 전년 동기 대비 205.8% 증가하며 펀더멘털이 확인되었습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">[출처: 머니투데이]</a></li>
+                    </ul>
+                    <h4>약세 시그널</h4>
+                    <ul>
+                        <li>동일 업종 PER(21.04배) 대비 높은 PER(24.73배)을 기록하고 있으며, 동일 업종 등락률(2.87% 상승) 대비 낮은 상승률(1.16%)을 보였습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENJoCVu1Wm_uWY3-nzau8dysKiCIVs8PHFU0CXH9kiBifWU2jxub4UdKlsl4wiidfY5eQ2iR-BSwb62-6A2ZN7ejwLaGi0s-KjIv6Ks8E7bJ0PQ7KyLWIRSGmIgcn8V3TaPs4GYi5Q36MNGgjeDgt1qlvUZ_fPIWMnpkk=" target="_blank">[출처: 중앙이코노미뉴스]</a></li>
+                    </ul>
+                    <h4>추가 강세 시그널</h4>
+                    <p>자료 부족</p>
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul class="asset-list">
+                        <li><strong>글로벌 D램 시장:</strong> 삼성전자의 핵심 사업 분야로, 시장 지배력과 기술 경쟁력이 주가에 직접적인 영향을 미칩니다.</li>
+                        <li><strong>반도체 관련 ETF:</strong> 반도체 산업 전반의 투자 심리 및 자금 흐름과 연동될 수 있습니다.</li>
+                    </ul>
+                </div>
+
+                <!-- SK하이닉스 -->
+                <div class="stock-card">
+                    <h3>SK하이닉스 <span class="ticker">(000660.KRX)</span></h3>
+                    <div class="stock-info">
+                        <p><strong>현재가:</strong> 2,101,000.0 KRW (2026-06-10 기준)</p>
+                        <p><strong>거래소:</strong> KRX</p>
+                        <p><strong>종합 추천 사유:</strong> 미국 ADR 상장을 통한 글로벌 투자자 기반 확장 및 코리아 디스카운트 해소 기대감, 그리고 하반기 메모리 공급 부족 심화 전망에 따라 분석 후보로 선정되었습니다.</p>
+                    </div>
+                    <h4>재무 지표</h4>
+                    <table class="financials-table">
+                        <thead>
+                            <tr>
+                                <th>지표</th>
+                                <th>값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>시가총액</td><td>1,491.41조 KRW</td></tr>
+                            <tr><td>Trailing P/E</td><td>N/A</td></tr>
+                            <tr><td>Forward P/E</td><td>5.17배</td></tr>
+                            <tr><td>ROE</td><td>61.17%</td></tr>
+                            <tr><td>매출 성장률</td><td>198.10%</td></tr>
+                            <tr><td>영업 이익률</td><td>71.54%</td></tr>
+                            <tr><td>부채/자본 비율</td><td>13.28</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>강세 추론 근거</h4>
+                    <ul>
+                        <li>SK하이닉스는 이르면 8월 미국 증시 ADR 상장을 추진하며, 이는 글로벌 투자자 기반 확장 및 코리아 디스카운트 해소에 기여할 것으로 기대됩니다. ADR 상장 시 미국 현지 지수 편입으로 ETF발 매수세가 유입될 수 있으며, 주가 재평가가 이뤄질 경우 주주환원 정책 확대 가능성도 있습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">[출처: 머니투데이]</a></li>
+                        <li>KB증권은 올 하반기 메모리 공급 부족이 상반기보다 심화될 것으로 전망했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">[출처: 머니투데이]</a></li>
+                    </ul>
+                    <h4>약세 시그널</h4>
+                    <ul>
+                        <li>ADR 상장이 신주 발행 방식으로 추진될 경우 기존 주주의 지분 가치 희석 우려가 제기됩니다. 6월 10일 국내 증시에서 SK하이닉스는 7.54% 하락했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5qnQrerX53qob9DaixJg4gv6jMtS66_sRe-sMHS8J5uT0kmz6JCskyrz3Sg7VWxpoLAm5VsW0diBYAhY67nVJxNZoYFHG7H5zx1mpsbmjsyyCS2cF5T7doochpRJCoewUz8o1HRLCBjyZMTrKEMb17Co5-w=" target="_blank">[출처: 머니투데이]</a></li>
+                    </ul>
+                    <h4>추가 강세 시그널</h4>
+                    <p>자료 부족</p>
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul class="asset-list">
+                        <li><strong>HBM (고대역폭 메모리):</strong> SK하이닉스의 핵심 경쟁력으로, AI 반도체 시장 성장에 따른 수요 증가가 예상됩니다.</li>
+                        <li><strong>마이크론 테크놀로지 (MU):</strong> 글로벌 메모리 반도체 경쟁사로, SK하이닉스의 밸류에이션 비교 대상이 됩니다.</li>
+                    </ul>
+                </div>
+
+                <!-- NVIDIA -->
+                <div class="stock-card">
+                    <h3>NVIDIA Corporation <span class="ticker">(NVDA.NASDAQ)</span></h3>
+                    <div class="stock-info">
+                        <p><strong>현재가:</strong> 204.87 USD (2026-06-11 기준)</p>
+                        <p><strong>거래소:</strong> NASDAQ</p>
+                        <p><strong>종합 추천 사유:</strong> AI 인프라 구축 가속화에 따른 데이터센터 매출의 강력한 성장세와 높은 시장 지배력을 바탕으로 분석 후보로 선정되었습니다.</p>
+                    </div>
+                    <h4>재무 지표</h4>
+                    <table class="financials-table">
+                        <thead>
+                            <tr>
+                                <th>지표</th>
+                                <th>값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>시가총액</td><td>4.96조 USD</td></tr>
+                            <tr><td>Trailing P/E</td><td>31.37배</td></tr>
+                            <tr><td>Forward P/E</td><td>16.10배</td></tr>
+                            <tr><td>ROE</td><td>114.29%</td></tr>
+                            <tr><td>매출 성장률</td><td>85.20%</td></tr>
+                            <tr><td>영업 이익률</td><td>65.60%</td></tr>
+                            <tr><td>부채/자본 비율</td><td>6.56</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>강세 추론 근거</h4>
+                    <ul>
+                        <li>NVIDIA는 2026년 1분기(회계연도 2027년 1분기)에 816억 달러의 기록적인 매출을 달성했으며(전년 대비 85% 증가), 데이터센터 매출은 391억 달러로 69% 성장했습니다. 젠슨 황 CEO는 'AI 공장 구축이 전례 없는 속도로 가속화되고 있다'고 언급하며 AI 시장의 강력한 성장세를 강조했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRYFQSGqDlNq_73qA3rO3NnnT_oVWsLsQf3N_3ZoxvZfEa2vDh3Oi4dekiL5m8DSYayZmhRm0u563x7Cn7j7WaVshsng3FfkINHduHxl0G9fpUcp4nurvLCJnRtpJ9kpJlHBmzHyGo2G8=" target="_blank">[출처: Investing.com]</a></li>
+                        <li>애널리스트들은 평균 305.67달러의 목표주가를 제시하며 대체로 낙관적인 전망을 유지하고 있습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRYFQSGqDlNq_73qA3rO3NnnT_oVWsLsQf3N_3ZoxvZfEa2vDh3Oi4dekiL5m8DSYayZmhRm0u563x7Cn7j7WaVshsng3FfkINHduHxl0G9fpUcp4nurvLCJnRtpJ9kpJlHBmzHyGo2G8=" target="_blank">[출처: Investing.com]</a></li>
+                    </ul>
+                    <h4>약세 시그널</h4>
+                    <ul>
+                        <li>최근 반도체 부문의 과도한 밸류에이션 우려와 차익 실현 매물 출회로 주가가 하락했습니다. 중국 수출 규제와 규제 불확실성도 주가에 부담으로 작용하고 있습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRYFQSGqDlNq_73qA3rO3NnnT_oVWsLsQf3N_3ZoxvZfEa2vDh3Oi4dekiL5m8DSYayZmhRm0u563x7Cn7j7WaVshsng3FfkINHduHxl0G9fpUcp4nurvLCJnRtpJ9kpJlHBmzHyGo2G8=" target="_blank">[출처: Investing.com]</a></li>
+                    </ul>
+                    <h4>추가 강세 시그널</h4>
+                    <p>자료 부족</p>
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul class="asset-list">
+                        <li><strong>AI 데이터센터 인프라:</strong> NVIDIA의 핵심 성장 동력으로, AI 기술 발전에 따른 수요 증가가 예상됩니다.</li>
+                        <li><strong>반도체 ETF:</strong> 반도체 산업 전반의 투자 심리 및 자금 흐름과 연동될 수 있습니다.</li>
+                    </ul>
+                </div>
+
+                <!-- 현대자동차 -->
+                <div class="stock-card">
+                    <h3>현대자동차 <span class="ticker">(005380.KRX)</span></h3>
+                    <div class="stock-info">
+                        <p><strong>현재가:</strong> 597,000.0 KRW (2026-06-11 기준)</p>
+                        <p><strong>거래소:</strong> KRX</p>
+                        <p><strong>종합 추천 사유:</strong> 전기차 시장의 성장세와 고효율 전기강판 개발을 통한 경쟁력 강화 노력, 그리고 견조한 재무 지표를 바탕으로 분석 후보로 선정되었습니다.</p>
+                    </div>
+                    <h4>재무 지표</h4>
+                    <table class="financials-table">
+                        <thead>
+                            <tr>
+                                <th>지표</th>
+                                <th>값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>시가총액</td><td>156.31조 KRW</td></tr>
+                            <tr><td>Trailing P/E</td><td>N/A</td></tr>
+                            <tr><td>Forward P/E</td><td>12.07배</td></tr>
+                            <tr><td>ROE</td><td>7.54%</td></tr>
+                            <tr><td>매출 성장률</td><td>3.40%</td></tr>
+                            <tr><td>영업 이익률</td><td>5.47%</td></tr>
+                            <tr><td>부채/자본 비율</td><td>139.51</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>강세 추론 근거</h4>
+                    <ul>
+                        <li>현대차는 포스코와 고효율 전기강판 개발에 착수하여 전기차 전비 향상에 나서는 등 전기차 경쟁력 강화를 위한 노력을 지속하고 있습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEddxmj9CjSJ-vrmLi9lg7-WF8pZB8x8mI-ZftwegCaZ7qr6S4AqvCKPeMWE_5lCknLPuSJxu6CE1wWLnCEeCiUEohMduFOh-gyWaciGHNKrRB1K005etrPiimf-lU_g5Bp5R-xxKvgNCgJc5zqiGg77wEM00H3pkpbuU" target="_blank">[출처: Investing.com]</a></li>
+                        <li>2026년 3월 예상 매출액 459,389백만 원, 예상 영업이익 25,147백만 원, 예상 순이익 25,849백만 원을 기록할 것으로 전망됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQETPQgt_KjGf0sOGsIq-WEvSuGoNwmryyRlmVHVAjlkoexy3rd6IRi8V9n6IV_tdK3ZRx6DJAtxrc9i8jc6Qc53jUyx_-uxSiyDAqS98JYY2hZVfD-1Nw8MPAEGefrwJ07zF45XKXfKFvlzKrh-gjIa" target="_blank">[출처: 마이민트]</a></li>
+                    </ul>
+                    <h4>약세 시그널</h4>
+                    <ul>
+                        <li>6월 11일 주가는 전일 대비 0.83% 하락 마감했으며, 외국인과 기관은 6월 10일 순매도했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQETPQgt_KjGf0sOGsIq-WEvSuGoNwmryyRlmVHVAjlkoexy3rd6IRi8V9n6IV_tdK3ZRx6DJAtxrc9i8jc6Qc53jUyx_-uxSiyDAqS98JYY2hZVfD-1Nw8MPAEGefrwJ07zF45XKXfKFvlzKrh-gjIa" target="_blank">[출처: 마이민트]</a></li>
+                    </ul>
+                    <h4>추가 강세 시그널</h4>
+                    <p>자료 부족</p>
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul class="asset-list">
+                        <li><strong>전기차 시장:</strong> 글로벌 전기차 판매 증가 추세에 따라 현대차의 성장 동력이 될 수 있습니다.</li>
+                        <li><strong>2차전지 소재 기업:</strong> 전기차 배터리 성능 향상 및 비용 절감에 기여하는 소재 기업들과의 협력이 중요합니다.</li>
+                    </ul>
+                </div>
+
+                <!-- POSCO FUTURE M -->
+                <div class="stock-card">
+                    <h3>POSCO FUTURE M <span class="ticker">(003670.KRX)</span></h3>
+                    <div class="stock-info">
+                        <p><strong>현재가:</strong> 184,700.0 KRW (2026-06-11 기준)</p>
+                        <p><strong>거래소:</strong> KRX</p>
+                        <p><strong>종합 추천 사유:</strong> 전기차 시장 성장에 따른 2차전지 소재 수요 증가와 포스코 그룹 내 시너지 효과를 기대하며 분석 후보로 선정되었습니다.</p>
+                    </div>
+                    <h4>재무 지표</h4>
+                    <table class="financials-table">
+                        <thead>
+                            <tr>
+                                <th>지표</th>
+                                <th>값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>시가총액</td><td>16.43조 KRW</td></tr>
+                            <tr><td>Trailing P/E</td><td>N/A</td></tr>
+                            <tr><td>Forward P/E</td><td>160.34배</td></tr>
+                            <tr><td>ROE</td><td>-0.15%</td></tr>
+                            <tr><td>매출 성장률</td><td>-10.40%</td></tr>
+                            <tr><td>영업 이익률</td><td>2.34%</td></tr>
+                            <tr><td>부채/자본 비율</td><td>90.67</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>강세 추론 근거</h4>
+                    <ul>
+                        <li>포스코퓨처엠은 2차전지 소재 사업을 영위하며, 전기차 시장의 지속적인 성장에 따른 양극재 및 음극재 수요 증가의 수혜를 받을 것으로 예상됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEddxmj9CjSJ-vrmLi9lg7-WF8pZB8x8mI-ZftwegCaZ7qr6S4AqvCKPeMWE_5lCknLPuSJxu6CE1wWLnCEeCiUEohMduFOh-gyWaciGHNKrRB1K005etrPiimf-lU_g5Bp5R-xxKvgNCgJc5zqiGg77wEM00H3pkpbuU" target="_blank">[출처: Investing.com]</a></li>
+                        <li>2026년 6월 11일 기준 EBITDA는 229.51B KRW를 기록했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFy9OAVsKu7eGuT-RR_040_AXv7o3XIdJjBusI6-qBDyQrwq2t7iKEhwxZ4_5zQDxbvWqdyX1N5ftQAJweqoGZeDDoyuG2eIv7fOfaMzElncLBmWd1Fpi9E3rYuzaKRkUgPmfZbd7KRJ2gh" target="_blank">[출처: 토스증권]</a></li>
+                    </ul>
+                    <h4>약세 시그널</h4>
+                    <ul>
+                        <li>6월 11일 주가는 전일 대비 1.55% 하락 마감했습니다. 2026년 6월 11일 기준 주가는 184,700원으로, 6월 10일 종가 193,000원 대비 하락했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFy9OAVsKu7eGuT-RR_040_AXv7o3XIdJjBusI6-qBDyQrwq2t7iKEhwxZ4_5zQDxbvWqdyX1N5ftQAJweqoGZeDDoyuG2eIv7fOfaMzElncLBmWd1Fpi9E3rYuzaKRkUgPmfZbd7KRJ2gh" target="_blank">[출처: 토스증권]</a></li>
+                    </ul>
+                    <h4>추가 강세 시그널</h4>
+                    <p>자료 부족</p>
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul class="asset-list">
+                        <li><strong>리튬, 니켈 등 2차전지 핵심 광물:</strong> 2차전지 소재 생산의 필수 원자재로, 가격 변동이 기업 수익성에 영향을 미칩니다.</li>
+                        <li><strong>전기차 제조업체:</strong> 주요 고객사로, 전기차 판매량 및 생산 계획이 포스코퓨처엠의 실적에 직접적인 영향을 미칩니다.</li>
+                    </ul>
+                </div>
+
+                <!-- Tesla, Inc. -->
+                <div class="stock-card">
+                    <h3>Tesla, Inc. <span class="ticker">(TSLA.NASDAQ)</span></h3>
+                    <div class="stock-info">
+                        <p><strong>현재가:</strong> 399.15 USD (2026-06-11 기준)</p>
+                        <p><strong>거래소:</strong> NASDAQ</p>
+                        <p><strong>종합 추천 사유:</strong> 자율주행 소프트웨어의 유럽 시장 확장과 로보택시, 사이버캡 등 미래 사업에 대한 투자 및 성장 잠재력을 바탕으로 분석 후보로 선정되었습니다.</p>
+                    </div>
+                    <h4>재무 지표</h4>
+                    <table class="financials-table">
+                        <thead>
+                            <tr>
+                                <th>지표</th>
+                                <th>값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>시가총액</td><td>1.50조 USD</td></tr>
+                            <tr><td>Trailing P/E</td><td>359.59배</td></tr>
+                            <tr><td>Forward P/E</td><td>159.54배</td></tr>
+                            <tr><td>ROE</td><td>4.90%</td></tr>
+                            <tr><td>매출 성장률</td><td>15.80%</td></tr>
+                            <tr><td>영업 이익률</td><td>4.20%</td></tr>
+                            <tr><td>부채/자본 비율</td><td>18.74</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>강세 추론 근거</h4>
+                    <ul>
+                        <li>벨기에에서 FSD(Full Self-Driving) Supervised 소프트웨어 승인을 받으며 유럽 시장 확장에 대한 낙관론이 커지고 있습니다. FSD는 Tesla의 중요한 장기 성장 동력이며, 로보택시 및 사이버캡 프로그램이 사업의 큰 부분을 차지할 것으로 예상됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEmF6HNApsVeoPbH1C7x3v5ooGHZgh9fsdDhL_zujyEF8I8OmIyPdn3QDQL8aaMSUYk9_hnq76R3tOeVyyMVB7w4Fk_gJUY1-QTUSUjstgXnr9RdoQAlley-iu0Q_eA0OkbSINFmhkg0G-X9y_r0R6gpqVruPoNXKOGPA=" target="_blank">[출처: Investing.com]</a></li>
+                        <li>2026년 1분기 EPS는 0.41달러로 애널리스트 예상치를 상회했습니다. 사이버캡과 테슬라 세미의 양산이 올해 예상됩니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEmF6HNApsVeoPbH1C7x3v5ooGHZgh9fsdDhL_zujyEF8I8OmIyPdn3QDQL8aaMSUYk9_hnq76R3tOeVyyMVB7w4Fk_gJUY1-QTUSUjstgXnr9RdoQAlley-iu0Q_eA0OkbSINFmhkg0G-X9y_r0R6gpqVruPoNXKOGPA=" target="_blank">[출처: Investing.com]</a></li>
+                    </ul>
+                    <h4>약세 시그널</h4>
+                    <ul>
+                        <li>지난 12개월간 매출 성장률이 2.3%로 둔화되어 주식 스토리를 복잡하게 만들고 있습니다. 2026년 1분기 매출은 223.9억 달러로 애널리스트 예상치(229.6억 달러)를 하회했습니다. Q1 2026 판매량은 2022년 이후 두 번째로 저조한 실적을 기록했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEmF6HNApsVeoPbH1C7x3v5ooGHZgh9fsdDhL_zujyEF8I8OmIyPdn3QDQL8aaMSUYk9_hnq76R3tOeVyyMVB7w4Fk_gJUY1-QTUSUjstgXnr9RdoQAlley-iu0Q_eA0OkbSINFmhkg0G-X9y_r0R6gpqVruPoNXKOGPA=" target="_blank">[출처: Investing.com]</a></li>
+                    </ul>
+                    <h4>추가 강세 시그널</h4>
+                    <p>자료 부족</p>
+                    <h4>연결 자산 추천 내역</h4>
+                    <ul class="asset-list">
+                        <li><strong>전기차 배터리 기술:</strong> 전기차 성능 및 주행거리 향상에 필수적인 요소로, 기술 혁신이 경쟁 우위를 결정합니다.</li>
+                        <li><strong>자율주행 기술 관련 기업:</strong> 자율주행 기술 개발 경쟁이 심화됨에 따라 관련 기술 기업들과의 협력 및 경쟁 구도가 중요합니다.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section>
             <h2>6. 제외 종목</h2>
-            <div class="card">
-                <p>제공된 입력 데이터에 분석할 주식 종목 정보가 없으므로, 제외된 종목 또한 없습니다.</p>
-            </div>
+            <p>제공된 입력 데이터 내 모든 종목은 상장 여부가 확인되어 분석 후보에 포함되었습니다. 제외된 종목은 없습니다.</p>
         </section>
 
         <section>
             <h2>7. 엄격 검토</h2>
-            <div class="card">
-                <p>본 보고서는 2026년 06월 10일 기준 제공된 시장 데이터 및 뉴스 기사를 기반으로 작성되었습니다. 모든 정보는 제공된 출처에 명시된 내용을 바탕으로 하며, 추가적인 사실이나 추론은 포함되지 않았습니다. 시장 상황은 급변할 수 있으므로, 투자 결정 시에는 반드시 추가적인 정보 확인과 전문가의 조언을 구하시기 바랍니다.</p>
-                <p><strong>최종 신뢰도 등급:</strong> 높음 (제공된 데이터에 대한 충실도)</p>
-            </div>
+            <p>본 보고서는 2026년 6월 11일 기준 제공된 입력 데이터만을 사용하여 작성되었습니다. 모든 수치와 주장은 명시된 출처 URL을 기반으로 하며, 입력 데이터에 없는 사실은 생성되지 않았습니다. 보고서의 신뢰도는 제공된 데이터의 정확성과 범위에 전적으로 의존합니다.</p>
         </section>
     </div>
+
+    <footer>
+        <p>&copy; 2026 주식시장 보고서. 모든 권리 보유.</p>
+    </footer>
 </body>
 </html>
