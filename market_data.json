@@ -1,33 +1,33 @@
 {
     "S&P500": {
-        "price": 7500.58,
-        "change": 80.48,
-        "change_percent": 1.08,
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
         "date": "2026-06-18"
     },
     "NASDAQ": {
-        "price": 26517.93,
-        "change": 496.27,
-        "change_percent": 1.91,
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
         "date": "2026-06-18"
     },
     "KOSPI": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
+        "price": 9052.42,
+        "change": 188.18,
+        "change_percent": 2.12,
         "date": "2026-06-19"
     },
     "KOSDAQ": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
+        "price": 966.59,
+        "change": -65.37,
+        "change_percent": -6.33,
         "date": "2026-06-19"
     },
     "VIX": {
-        "price": 16.78,
-        "change": 0.38,
-        "change_percent": 2.32,
-        "date": "2026-06-19"
+        "price": 18.44,
+        "change": 2.03,
+        "change_percent": 12.37,
+        "date": "2026-06-17"
     },
     "USD_KRW": {
         "price": 1529.89,
