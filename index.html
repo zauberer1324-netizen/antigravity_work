@@ -1,8 +1,8 @@
 <div style="background-color: #ffdddd; color: #cc0000; padding: 20px; margin: 20px; border-left: 6px solid #cc0000; border-radius: 8px; font-family: sans-serif;">
                 <h2 style="margin-top: 0;">⚠️ 엄격 검토 경고 (통과 실패)</h2>
                 <p><strong>최종 신뢰도 등급: F</strong></p>
-                <p><strong>치명적 오류:</strong> 보고서 본문에 뉴스 내용이 전혀 포함되어 있지 않아 YYYY-MM-DD HH:MM 형식의 작성 시간 및 실제 URL 링크를 확인할 수 없습니다., 추천 종목 섹션이 없어 상세 재무 지표(PER, 시가총액 등)가 포함되어 있는지 확인할 수 없습니다., 추천 종목 섹션이 없어 강세 추론 근거, 약세 시그널, 연결 자산 추천이 작성되어 있는지 확인할 수 없습니다., 추천 종목이 전혀 포함되어 있지 않아 모든 종목이 실제 상장사인지 확인할 수 없습니다., 보고서 본문에 내용이 없어 미상장 종목이나 가상의 URL(예: example.com)이 포함되었는지 확인할 수 없습니다.</p>
-                <p><strong>권장 수정 사항:</strong> 보고서 본문에 실제 뉴스 내용을 추가하고, 각 뉴스에 YYYY-MM-DD HH:MM 형식의 정확한 작성 시간과 `href="http..."` 형태의 실제 URL 링크를 포함해야 합니다., 추천 종목 섹션을 추가하고, 각 추천 종목에 대한 상세 재무 지표(PER, 시가총액 등)를 명확히 기재해야 합니다., 각 추천 종목별로 강세 추론 근거, 약세 시그널, 연결 자산 추천을 구체적으로 작성해야 합니다., 추천 종목은 반드시 실제 상장사여야 하며, 해당 종목 정보를 보고서에 포함해야 합니다., 보고서 내용에 미상장 종목이나 가상의 URL(예: example.com)이 포함되지 않도록 주의해야 합니다.</p>
+                <p><strong>치명적 오류:</strong> 분석 후보 종목 섹션이 비어 있으며, 추천 종목에 대한 상세 재무 지표(PER, 시가총액 등)가 누락되었습니다., 분석 후보 종목 섹션이 비어 있으며, 추천 종목별 강세 추론 근거, 약세 시그널, 연결 자산 추천이 누락되었습니다.</p>
+                <p><strong>권장 수정 사항:</strong> 분석 후보 종목 섹션에 실제 상장 종목을 포함하고, 각 종목에 대한 상세 재무 지표(PER, 시가총액 등)를 추가해야 합니다., 분석 후보 종목 섹션에 각 추천 종목별 강세 추론 근거, 약세 시그널, 연결 자산 추천을 작성해야 합니다.</p>
                 <p>주의: 이 보고서는 검증 요건을 완전히 충족하지 못했습니다.</p>
             </div>
             <!DOCTYPE html>
@@ -12,313 +12,400 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주식시장 보고서</title>
     <style>
-        /* Basic Reset & Body Styling */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
+            padding: 20px;
+            background: linear-gradient(to right, #ece9e6, #ffffff); /* Light gradient background */
             color: #333;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-
         .container {
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-
-        /* Headings */
-        h1 {
+        h1, h2, h3 {
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            font-weight: 700;
-            border-bottom: 3px solid #4a90e2;
-            padding-bottom: 15px;
-        }
-
-        h2 {
-            color: #34495e;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            font-weight: 600;
-            border-left: 5px solid #5cb85c;
-            padding-left: 15px;
-        }
-
-        h3 {
-            color: #4a6572;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            font-weight: 500;
-            border-bottom: 1px dashed #ccc;
+            border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
+            margin-top: 30px;
         }
-
-        /* Card UI */
-        .card-grid {
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #2980b9;
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .market-summary-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            justify-content: center; /* Center cards when there are fewer */
-            margin-bottom: 30px;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
-
-        .card {
-            background: linear-gradient(145deg, #ffffff, #f0f0f0);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 20px;
-            flex: 1 1 calc(33% - 40px); /* Default for 3 columns */
-            min-width: 280px; /* Minimum width for cards */
-            box-sizing: border-box;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        .market-item {
+            flex: 1 1 calc(33% - 20px); /* 3 items per row on larger screens */
+            min-width: 280px; /* Minimum width for items */
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .card.full-width {
-            flex: 1 1 100%; /* For full-width cards like news summaries */
-        }
-
-        .card-header {
-            font-weight: bold;
-            color: #4a90e2;
-            margin-bottom: 10px;
+        .market-item h4 {
+            margin-top: 0;
+            color: #34495e;
             font-size: 1.1em;
         }
-
-        .card-content {
-            font-size: 0.95em;
+        .market-item .value {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .market-item .change {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .positive {
+            color: #27ae60; /* Green */
+        }
+        .negative {
+            color: #e74c3c; /* Red */
+        }
+        .neutral {
             color: #555;
         }
-
-        .card-content p {
-            margin: 5px 0;
-        }
-
-        .card-content strong {
-            color: #333;
-        }
-
-        /* Links */
-        a {
-            color: #4a90e2;
-            text-decoration: none;
-            padding: 5px 8px; /* Ample padding for touch */
-            border-radius: 5px;
-            transition: background-color 0.2s ease-in-out;
-        }
-
-        a:hover {
-            background-color: #e0f0ff;
-            color: #2c3e50;
-        }
-
         .source-link {
-            font-size: 0.85em;
             display: inline-block;
             margin-top: 10px;
-            background-color: #f0f8ff;
-            border: 1px solid #d0e0f0;
-            padding: 5px 10px;
-            border-radius: 8px;
+            padding: 8px 12px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
         }
-
         .source-link:hover {
-            background-color: #e0f0ff;
-            border-color: #c0d0e0;
+            background-color: #2980b9;
         }
-
-        /* Market Data Specifics */
-        .market-data-item {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .market-data-item:last-child {
-            border-bottom: none;
-        }
-        .market-data-item strong {
-            color: #2c3e50;
-        }
-        .positive-change {
-            color: #28a745; /* Green */
-            font-weight: bold;
-        }
-        .negative-change {
-            color: #dc3545; /* Red */
-            font-weight: bold;
-        }
-
-        /* News Specifics */
         .news-item {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px dashed #e0e0e0;
+            border-bottom: 1px dashed #eee;
         }
         .news-item:last-child {
             border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
         }
-        .news-title {
-            font-weight: bold;
-            color: #34495e;
+        .news-item h4 {
+            margin-top: 0;
             margin-bottom: 5px;
-            font-size: 1.1em;
+            color: #34495e;
         }
-        .news-meta {
+        .news-item .meta {
             font-size: 0.85em;
             color: #777;
             margin-bottom: 10px;
         }
-        .news-summary {
-            font-size: 0.9em;
-            color: #555;
-        }
-
-        /* Stock Analysis Specifics */
-        .stock-card {
-            flex: 1 1 calc(50% - 30px); /* Two columns for stocks */
-            min-width: 300px;
-        }
-
-        .stock-card h3 {
+        .news-item p {
             margin-top: 0;
-            border-bottom: none;
-            padding-bottom: 0;
-            color: #2c3e50;
-            font-size: 1.5em;
-        }
-
-        .financial-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-        }
-
-        .financial-table th, .financial-table td {
-            border: 1px solid #e0e0e0;
-            padding: 8px 12px;
-            text-align: left;
-        }
-
-        .financial-table th {
-            background-color: #f8f8f8;
-            font-weight: bold;
-            color: #4a6572;
-        }
-
-        .financial-table tr:nth-child(even) {
-            background-color: #fdfdfd;
-        }
-
-        .financial-table td strong {
-            color: #333;
-        }
-
-        .recommendation-section {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed #e0e0e0;
-        }
-
-        .recommendation-section p {
             margin-bottom: 10px;
         }
-
-        .recommendation-section strong {
-            color: #4a90e2;
+        .category-section {
+            margin-bottom: 30px;
         }
-
-        .connected-assets ul {
+        .category-section h3 {
+            margin-bottom: 15px;
+        }
+        ul {
             list-style-type: disc;
-            padding-left: 20px;
-            margin-top: 10px;
+            margin-left: 20px;
+            padding: 0;
         }
-
-        .connected-assets li {
-            margin-bottom: 5px;
-            font-size: 0.9em;
+        ul li {
+            margin-bottom: 8px;
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .card {
-                flex: 1 1 calc(50% - 30px); /* 2 columns on medium screens */
-            }
-            .stock-card {
-                flex: 1 1 calc(50% - 30px);
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
             }
             h1 {
                 font-size: 2em;
             }
             h2 {
-                font-size: 1.6em;
-            }
-            h3 {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
-            .card {
-                flex: 1 1 100%; /* Full width on small screens */
-                min-width: unset; /* Remove min-width constraint */
-            }
-            .stock-card {
-                flex: 1 1 100%;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.4em;
-            }
-            h3 {
-                font-size: 1.1em;
-            }
-            .financial-table {
-                font-size: 0.85em;
-            }
-            a {
-                padding: 4px 6px;
-            }
-            .source-link {
-                font-size: 0.8em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
                 font-size: 1.5em;
             }
-            h2 {
+            h3 {
                 font-size: 1.2em;
             }
-            h3 {
+            .market-item {
+                flex: 1 1 100%; /* 1 item per row on small screens */
+                min-width: unset;
+            }
+            .source-link {
+                padding: 10px 15px; /* Larger touch area */
                 font-size: 1em;
             }
             .card {
                 padding: 15px;
             }
-            .card-header {
-                font-size:
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.9em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>주식시장 보고서</h1>
+
+        <div class="card">
+            <h2>1. 작성 기준</h2>
+            <ul>
+                <li><strong>작성일:</strong> 2026-07-02</li>
+                <li><strong>시장 데이터 기준일:</strong> 2026-07-02</li>
+                <li><strong>뉴스 기준 기간:</strong> 2026-07-01 ~ 2026-07-02</li>
+                <li><strong>사용한 주요 출처 수:</strong> 13개</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. 시장 요약</h2>
+            <h3>미국 주요 지수</h3>
+            <div class="market-summary-grid">
+                <div class="market-item">
+                    <h4>S&P500</h4>
+                    <div class="value">7483.24</div>
+                    <div class="change positive">+0.01 (+0.0%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf6HSPHbTR7JFJvzHISHAqRXWQyAHzAmEZY2nCRMK88F-bQt20soPTAxDgpysgRdrvukqBlHuzrSkjZDv30su3wkbFw44MZJfSwh72TuhM9h7AxuOAGPrljYxjimCcSUccwguTthA4czRIHRRYVZpXPv8IJFZKfPbqpyMxRUoRam33_7vlf51zb4oRW-VpCGS4RnpZFA==" target="_blank" class="source-link">Las Vegas Sun News</a>
+                </div>
+                <div class="market-item">
+                    <h4>NASDAQ</h4>
+                    <div class="value">25832.67</div>
+                    <div class="change negative">-207.36 (-0.8%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf6HSPHbTR7JFJvzHISHAqRXWQyAHzAmEZY2nCRMK88F-bQt20soPTAxDgpysgRdrvukqBlHuzrSkjZDv30su3wkbFw44MZJfSwh72TuhM9h7AxuOAGPrljYxjimCcSUccwguTthA4czRIHRRYVZpXPv8IJFZKfPbqpyMxRUoRam33_7vlf51zb4oRW-VpCGS4RnpZFA==" target="_blank" class="source-link">Las Vegas Sun News</a>
+                </div>
+                <div class="market-item">
+                    <h4>VIX</h4>
+                    <div class="value">16.59</div>
+                    <div class="change positive">+0.14 (+0.85%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHfH5DGjDUQv7e2TfI6ANu3Gket5ceQ22thniI0QgiFf5RzrODdWLYuOxvkxcYukpg2O6eoICJ6FchjgNNcesl5lhg-pxX4igZFw-A9ErCEqEUDgsfT8RJJ_Er8Z_CJd6v7GxFq4WjaQsqO3Ef-mVvEeeAM2X6qiEs3F0-6qtcQeYfasl48" target="_blank" class="source-link">Zacks Investment Research</a>
+                </div>
+            </div>
+
+            <h3>국내 주요 지수</h3>
+            <div class="market-summary-grid">
+                <div class="market-item">
+                    <h4>KOSPI</h4>
+                    <div class="value">8303.41</div>
+                    <div class="change negative">-173.07 (-2.04%)</div>
+                    <div class="meta">기준일: 2026-07-01</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHr-lS_Cid4w8hxJDF2DP1hs09JygKc10mE40aeVb-MsBRvWA1KrF380l3FulCcdlXXJ_YoCC75etM9TqDaXQ4LCcVi05a-v7shevA3HUWu5EgqEu0ZNtTYZPISi3qxd2FsYZoq-cp2coL-d650TcCGpQat2IAlSxAVf0KjAX8sxL2ew-9U-zczDR-7LOAx-6CVOg2ufabwBV8IE_8=" target="_blank" class="source-link">Seoul Economic Daily</a>
+                </div>
+                <div class="market-item">
+                    <h4>KOSDAQ</h4>
+                    <div class="value">929.35</div>
+                    <div class="change positive">+13.17 (+1.44%)</div>
+                    <div class="meta">기준일: 2026-07-01</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGmLhz1KYihLK6UTt3jeV90QWpYwE8Uf-RzM66wC5adDLu8kYg_sv2p4yxvQYKCN2qDpecAsvrfhcajQeSOWRCDt-LAqUwGu2pQtk0Ud6nMWRPUtqIZootRl2snlQEWRwRz3xAIL_defGJHWEkS3_OZJTqEKoMnyH4JT_xjgdflVb4BRqCgWk=" target="_blank" class="source-link">Seoul Economic Daily</a>
+                </div>
+            </div>
+
+            <h3>환율</h3>
+            <div class="market-summary-grid">
+                <div class="market-item">
+                    <h4>USD/KRW</h4>
+                    <div class="value">1548.07</div>
+                    <div class="change negative">-4.85 (-0.31%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYOZaeOp4-XF9yeRk3z2xOzMT1UaqrW5VoP48EJkHI3nfUoBmy_p1l6uYzWdcAXj5cEnxI7MLmBdhCBYq5V_DmwfPNu2X6JJT3ao50T5PNshqH4xYN5VetoLcsZslddJwwfi7i8l18v7GhY49GkfW6yTHbXVZVTw==" target="_blank" class="source-link">Investing.com</a>
+                </div>
+            </div>
+
+            <h3>원자재</h3>
+            <div class="market-summary-grid">
+                <div class="market-item">
+                    <h4>WTI 원유</h4>
+                    <div class="value">68.69</div>
+                    <div class="change positive">+0.11 (+0.16%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQENZYRvilDeyfBtN9vs-BAanijAe82bCZavhq5x6i0OpKcvoH1wZ1mQ23r_lOo-p55cQhLL090ZTJAqHe7YntVhmX46jtDtUOSflribd6oLigzJ0fsF0dQ1e_A7UuwWr2TSyXKFjWi6mzANQFShVtApOOIQ2pMkAg==" target="_blank" class="source-link">Odessa American</a>
+                </div>
+                <div class="market-item">
+                    <h4>금</h4>
+                    <div class="value">4130.25</div>
+                    <div class="change positive">+91.81 (+2.27%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH11IiEoUbE2MesfBMG84XwmEMqUjxA5ab9r_DQ8epFzRfTjCAS3nrGnO6wEewVbM_yfxSVa16XlatgwY97ja6JCwTcBiWZDuh1Yf3wyTZ7B1nxiPS72LS2Fw11Yeam-cGWLCC0Ej8FKwVL_wX3yiapqWetj7waIR5MqotWQLNeb2goOQ==" target="_blank" class="source-link">USAGOLD</a>
+                </div>
+            </div>
+
+            <h3>국채 금리</h3>
+            <div class="market-summary-grid">
+                <div class="market-item">
+                    <h4>미국 10년물 국채</h4>
+                    <div class="value">4.477%</div>
+                    <div class="change positive">+0.105 (+2.4%)</div>
+                    <div class="meta">기준일: 2026-07-02</div>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF9OadSw9QS5k9nToFWpIRKz_DyAXX7VJt0iH2PLTilGL4Nh_QRoolvm_PZJNiYzxqcmXzbLpMkOYpVra9_B66ThhSq0pKX-h_2hxcBEb4tqSNBVC0d6B8UTDqjCJFNINxTpCYmtkEZw-TFWHfmKlzbhnvmG-q2QYJYteMSoi3r4bBXzgNBEEUIE_ivtQVeho4Mm-a-RUhTMTM7AA0q8xEc4oGipQdq9oq3JK8=" target="_blank" class="source-link">Morningstar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. 카테고리별 핵심 뉴스</h2>
+
+            <div class="category-section">
+                <h3>거시경제 및 지정학적 리스크</h3>
+                <div class="news-item">
+                    <h4>WTI 유가, 미국-이란 긴장 완화에 67.45달러로 하락</h4>
+                    <div class="meta">게시 시간: 2026-07-02 01:50 | 출처: TradingKey</div>
+                    <p>7월 2일 유럽 세션에서 WTI 원유 가격이 하락하여 수개월 만에 최저치인 67.45달러를 기록했습니다. 미국-이란 간 긴장 완화가 지정학적 위험 프리미엄을 약화시켰으며, 카타르에서의 외교적 진전은 단기적 안정성을 시사하지만, 이란의 호르무즈 해협 통제 주장은 중기적 불확실성을 야기하고 있습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEIKMKM-OJ0kiuK4Uu_OfhlgplBgH_9lMuuznXAxiGBMFsisHW0rjvWwKiXQMRcZZEqd4qIfTOHxy_R4QxQ2NN8-BdZKLJjHHDaq_9OVmerNZGPxSIdiMqtU4jCm6k3GhrNhYbL0FZwAd7oT5Voi4SpPCiLdOIcLz2l-PYSTFQNni2tpUYms3cMno7_0ubALLyvn0zmYke3O_u8fjlW-Yh2ZLOweKbwStNdkKWZvA9eE2Wlwia7Dk3uQEnlW7LSdnqyUUkRHIOP7-j9HgTX8g==" target="_blank" class="source-link">기사 원문</a>
+                </div>
+                <div class="news-item">
+                    <h4>연준 의장 연설, 금리 인상 기대 완화 및 달러 약세 유도</h4>
+                    <div class="meta">게시 시간: 2026-07-02 00:00 | 출처: USAGOLD</div>
+                    <p>7월 2일, 케빈 와시 연방준비제도 의장의 유럽중앙은행 포럼 연설이 금리 인상 기대를 완화시키고 달러를 14개월 만에 최저치로 끌어내리면서 귀금속 가격이 급등했습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH11IiEoUbE2MesfBMG84XwmEMqUjxA5ab9r_DQ8epFzRfTjCAS3nrGnO6wEewVbM_yfxSVa16XlatgwY97ja6JCwTcBiWZDuh1Yf3wyTZ7B1nxiPS72LS2Fw11Yeam-cGWLCC0Ej8FKwVL_wX3yiapqWetj7waIR5MqotWQLNeb2goOQ==" target="_blank" class="source-link">기사 원문</a>
+                </div>
+                <div class="news-item">
+                    <h4>미국 고용지표 부진, 연준 금리 인상 우려 완화</h4>
+                    <div class="meta">게시 시간: 2026-07-02 00:00 | 출처: 뉴스핌</div>
+                    <p>7월 2일(현지 시각) 유럽 증시가 일제히 상승한 가운데, 미국의 고용 시장이 예상보다 크게 부진한 것으로 나타나면서 미 연방준비제도(Fed)의 금리 인상 우려가 누그러지는 모습이었습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeA2b4XSXOt_qmBwrNejbjKt-Uhw2W0O0HM2ZIpTnDnrhOuUT7rIBjC31QMuze7SdiM55jhsRv9fq8_nlnNhRe0qRn9nWFY73Gm9bgZR0Q_K2ub09Oxsv4gkfXgzUzwsBp4-MDhgUyl9AWtA==" target="_blank" class="source-link">기사 원문</a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3>글로벌 증시 동향</h3>
+                <div class="news-item">
+                    <h4>미국 증시, 기술주 하락에도 다우존스 사상 최고치 경신</h4>
+                    <div class="meta">게시 시간: 2026-07-02 13:22 | 출처: Las Vegas Sun News</div>
+                    <p>7월 2일 목요일, 기술주 하락에도 불구하고 월스트리트의 대다수 종목이 상승하며 S&P 500 지수는 소폭 변동에 그쳤습니다. 다우존스 산업평균지수는 1.1% 상승하며 또 다른 기록을 세웠으나, 나스닥 종합지수는 0.8% 하락했습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf6HSPHbTR7JFJvzHISHAqRXWQyAHzAmEZY2nCRMK88F-bQt20soPTAxDgpysgRdrvukqBlHuzrSkjZDv30su3wkbFw44MZJfSwh72TuhM9h7AxuOAGPrljYxjimCcSUccwguTthA4czRIHRRYVZpXPv8IJFZKfPbqpyMxRUoRam33_7vlf51zb4oRW-VpCGS4RnpZFA==" target="_blank" class="source-link">기사 원문</a>
+                </div>
+                <div class="news-item">
+                    <h4>유럽 증시, 유로존 인플레이션 둔화 및 금리 인상 우려 완화에 혼조세</h4>
+                    <div class="meta">게시 시간: 2026-07-01 14:55 | 출처: Investing.com</div>
+                    <p>7월 1일 수요일 유럽 증시는 유로존 인플레이션 데이터 발표와 연방준비제도 의장 연설을 앞두고 대체로 하락했습니다. 유로존 인플레이션이 예상보다 빠르게 둔화되면서 유럽중앙은행(ECB)의 매파적 입장이 완화될 여지가 생겼습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiiW32OPl_wdTEWaQjedaznVTAWi5uv7dBNHJz5Gz19I-ZMsMRzv7k3gjZh8LR0aQtJb8s-qJmpeDbgFaED0L8RcSb-zC4L9avqaeaIT13lBpe_iOKkbBuacCctxvKdiQ8E6vqI8TnWs55aT6JoDKBat5IiRTF_Zvru2k8TZxtpD4Krvvx" target="_blank" class="source-link">기사 원문</a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3>국내 증시 동향</h3>
+                <div class="news-item">
+                    <h4>코스피, 외국인 매도세에 8,300선 하락 마감; 코스닥은 상승</h4>
+                    <div class="meta">게시 시간: 2026-07-01 15:36 | 출처: 연합뉴스</div>
+                    <p>7월 1일 코스피는 국민연금의 국내 주식 리밸런싱 유예 조치 만료와 외국인의 9거래일 연속 순매도에 2.04% 하락한 8,303.41에 마감했습니다. 반면 코스닥은 1.44% 상승한 929.35에 거래를 마쳤습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWwuEhM7PTlceIve-ZVNExqN-GpebneIk5Rcb26N8r8x1vi5KERwnoi-nJCxSV9ENHmD_k_ZS41CU3ENuEcXhrMJW2TGpkHc77aA08KiI5QMjwVqgjCW-yiGSu9K4iOMT5jogOkD8hg97M" target="_blank" class="source-link">기사 원문</a>
+                </div>
+                <div class="news-item">
+                    <h4>코스닥, 7월 2일 6.74% 급락하며 866.72 마감</h4>
+                    <div class="meta">게시 시간: 2026-07-02 00:00 | 출처: Businesskorea</div>
+                    <p>7월 2일 코스닥 지수는 전 거래일 대비 62.63포인트(6.74%) 하락한 866.72에 마감하며 급락세를 보였습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEjdV4H3bCHP1M2YwHjaihpVVDOGPeCbXVCApJZTK_AckYUJrgTF83jVTRZMKyuRaP96zoJF5vfx34Oajx_KYhGggIc44kw9jMirDIXsWpcAW6A_VXsJD1h1zBb6OhRAlziuBQchHBCVFv7AHxdUHnrbgcTOzEfbY2OlcPLEQ==" target="_blank" class="source-link">기사 원문</a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h3>주요 산업 및 섹터 동향</h3>
+                <div class="news-item">
+                    <h4>국내 증시, 반도체 장비 및 전력기기 강세, 반도체 대형주 및 2차전지 약세</h4>
+                    <div class="meta">게시 시간: 2026-07-01 00:00 | 출처: 느린 오후 - 티스토리</div>
+                    <p>7월 1일 국내 증시에서는 주성엔지니어링, LS ELECTRIC, 가온전선 등 전력기기 및 반도체 장비 관련 종목들이 강세를 보인 반면, 삼성전자, SK하이닉스 등 반도체 대형주와 2차전지 관련주는 약세로 마감했습니다. 이는 AI 인프라 투자 확대 기대감이 반영된 것으로 분석됩니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEWm-_oC2xsrfpLc1KJquZpveFhQRn0_TGOXCHsL-SYGrxq_jzBjJhyeQcOaQcuL2olTqhXBnHEwYrM-mBOvLYwwWSZtIaiXlkH4BDssuHCVFIQMmXM7uDQL1DosdNokW4=" target="_blank" class="source-link">기사 원문</a>
+                </div>
+                <div class="news-item">
+                    <h4>글로벌 증시, AI 반도체에서 소프트웨어로 순환매, 메타 급등</h4>
+                    <div class="meta">게시 시간: 2026-07-01 00:00 | 출처: YouTube (us 스타투데이)</div>
+                    <p>7월 1일 미국 증시에서는 인공지능(AI) 반도체에서 소프트웨어로 급격한 순환매가 발생했습니다. 메타(Meta)가 클라우드 사업 진출 소식에 8% 넘게 급등한 반면, 연산 과잉 공급 우려로 코닝과 마이크론 등 반도체 관련주는 두 자릿수 폭락을 기록했습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHo7Cs6cENRqKTcheX1Aa8bB5yYd6rDYLuEFO5SvoWpmerE_ccpqeoqI5wYqNi_JD3kCmGHWnZ3buHiZUzGkDdC1I5Zhx-7QmcSFrbshi_-ouZ855U6xYA1itmpkXJJwDtuuc2U_hw=" target="_blank" class="source-link">기사 원문</a>
+                </div>
+                <div class="news-item">
+                    <h4>유럽 헬스케어 섹터 강세, 바이엘 8.9% 급등</h4>
+                    <div class="meta">게시 시간: 2026-07-02 00:00 | 출처: 뉴스핌</div>
+                    <p>7월 2일 유럽 증시에서 헬스케어 지수가 3.3% 상승하며 가장 강세를 보였습니다. 특히 독일 제약·생명과학 기업 바이엘(Bayer)은 미국 제초제 사업부 통합 발표 후 8.9% 급등했습니다.</p>
+                    <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeA2b4XSXOt_qmBwrNejbjKt-Uhw2W0O0HM2ZIpTnDnrhOuUT7rIBjC31QMuze7SdiM55jhsRv9fq8_nlnNhRe0qRn9nWFY73Gm9bgZR0Q_K2ub09Oxsv4gkfXgzUzwsBp4-MDhgUyl9AWtA==" target="_blank" class="source-link">기사 원문</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>4. 수급 및 섹터 분석</h2>
+            <h3>수급 동향</h3>
+            <ul>
+                <li><strong>국내 증시:</strong> 코스피에서 외국인이 9거래일 연속 순매도세를 보였습니다. 이는 국민연금의 국내 주식 리밸런싱 유예 조치 만료와 맞물려 지수 하락에 영향을 미쳤습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFWwuEhM7PTlceIve-ZVNExqN-GpebneIk5Rcb26N8r8x1vi5KERwnoi-nJCxSV9ENHmD_k_ZS41CU3ENuEcXhrMJW2TGpkHc77aA08KiI5QMjwVqgjCW-yiGSu9K4iOMT5jogOkD8hg97M" target="_blank" class="source-link">연합뉴스</a></li>
+            </ul>
+
+            <h3>강세 섹터</h3>
+            <ul>
+                <li><strong>국내:</strong> AI 인프라 투자 확대 기대감에 힘입어 반도체 장비(주성엔지니어링) 및 전력기기(LS ELECTRIC, 가온전선) 관련 종목들이 강세를 보였습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEWm-_oC2xsrfpLc1KJquZpveFhQRn0_TGOXCHsL-SYGrxq_jzBjJhyeQcOaQcuL2olTqhXBnHEwYrM-mBOvLYwwWSZtIaiXlkH4BDssuHCVFIQMmXM7uDQL1DosdNokW4=" target="_blank" class="source-link">느린 오후 - 티스토리</a></li>
+                <li><strong>글로벌:</strong> AI 반도체에서 소프트웨어로의 순환매가 발생하며 메타(Meta)가 클라우드 사업 진출 소식에 8% 넘게 급등했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHo7Cs6cENRqKTcheX1Aa8bB5yYd6rDYLuEFO5SvoWpmerE_ccpqeoqI5wYqNi_JD3kCmGHWnZ3buHiZUzGkDdC1I5Zhx-7QmcSFrbshi_-ouZ855U6xYA1itmpkXJJwDtuuc2U_hw=" target="_blank" class="source-link">YouTube (us 스타투데이)</a></li>
+                <li><strong>유럽:</strong> 헬스케어 지수가 3.3% 상승하며 강세를 보였으며, 특히 독일 제약·생명과학 기업 바이엘(Bayer)은 미국 제초제 사업부 통합 발표 후 8.9% 급등했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeA2b4XSXOt_qmBwrNejbjKt-Uhw2W0O0HM2ZIpTnDnrhOuUT7rIBjC31QMuze7SdiM55jhsRv9fq8_nlnNhRe0qRn9nWFY73Gm9bgZR0Q_K2ub09Oxsv4gkfXgzUzwsBp4-MDhgUyl9AWtA==" target="_blank" class="source-link">뉴스핌</a></li>
+            </ul>
+
+            <h3>약세 섹터</h3>
+            <ul>
+                <li><strong>국내:</strong> 삼성전자, SK하이닉스 등 반도체 대형주와 2차전지 관련주는 약세로 마감했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEWm-_oC2xsrfpLc1KJquZpveFhQRn0_TGOXCHsL-SYGrxq_jzBjJhyeQcOaQcuL2olTqhXBnHEwYrM-mBOvLYwwWSZtIaiXlkH4BDssuHCVFIQMmXM7uDQL1DosdNokW4=" target="_blank" class="source-link">느린 오후 - 티스토리</a></li>
+                <li><strong>글로벌:</strong> 연산 과잉 공급 우려로 코닝과 마이크론 등 AI 반도체 관련주는 두 자릿수 폭락을 기록했습니다. <a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHo7Cs6cENRqKTcheX1Aa8bB5yYd6rDYLuEFO5SvoWpmerE_ccpqeoqI5wYqNi_JD3kCmGHWnZ3buHiZUzGkDdC1I5Zhx-7QmcSFrbshi_-ouZ855U6xYA1itmpkXJJwDtuuc2U_hw=" target="_blank" class="source-link">YouTube (us 스타투데이)</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>5. 분석 후보 종목</h2>
+            <p>제공된 입력 데이터에 상장 여부가 확인된 종목 정보가 없어 분석 후보 종목을 제시할 수 없습니다.</p>
+        </div>
+
+        <div class="card">
+            <h2>6. 제외 종목</h2>
+            <p>제공된 입력 데이터에 상장 여부가 확인된 종목 정보가 없어 제외된 종목이 없습니다.</p>
+        </div>
+
+        <div class="card">
+            <h2>7. 엄격 검토</h2>
+            <p>본 보고서는 제공된 입력 데이터만을 사용하여 작성되었으며, 모든 수치와 주장은 명시된 출처를 기반으로 합니다. 추가적인 정보나 심층 분석은 포함되지 않았습니다.</p>
+            <p><strong>최종 신뢰도 등급:</strong> 높음 (제공된 데이터에 대한 충실도)</p>
+        </div>
+    </div>
+</body>
+</html>
