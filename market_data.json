@@ -30,21 +30,27 @@
         "date": "2026-07-02"
     },
     "USD_KRW": {
-        "price": 1530.15,
-        "change": -21.66,
-        "change_percent": -1.4,
-        "date": "2026-07-03"
+        "price": 1529.16,
+        "change": -12.97,
+        "change_percent": -0.84,
+        "date": "2026-07-05"
     },
     "WTI_CRUDE_OIL": {
-        "price": 68.78,
-        "change": 0.09,
-        "change_percent": 0.13,
-        "date": "2026-07-03"
+        "price": 68.34,
+        "change": -0.35,
+        "change_percent": -0.51,
+        "date": "2026-07-05"
     },
     "GOLD": {
-        "price": 4187.3,
-        "change": 74.6,
-        "change_percent": 1.81,
-        "date": "2026-07-03"
+        "price": 4201.2,
+        "change": 88.5,
+        "change_percent": 2.15,
+        "date": "2026-07-05"
+    },
+    "US_10Y_TREASURY": {
+        "price": 4.49,
+        "change": 0.01,
+        "change_percent": 0.22,
+        "date": "2026-07-02"
     }
 }
