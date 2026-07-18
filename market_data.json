@@ -36,15 +36,15 @@
         "date": "2026-07-17"
     },
     "WTI_CRUDE_OIL": {
-        "price": 81.77,
-        "change": 2.82,
-        "change_percent": 3.57,
+        "price": 82.49,
+        "change": 3.54,
+        "change_percent": 4.48,
         "date": "2026-07-17"
     },
     "GOLD": {
-        "price": 4023.0,
-        "change": 37.4,
-        "change_percent": 0.94,
+        "price": 4012.7,
+        "change": 27.1,
+        "change_percent": 0.68,
         "date": "2026-07-17"
     },
     "US_10Y_TREASURY": {
