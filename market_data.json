@@ -1,56 +1,56 @@
 {
     "S&P500": {
-        "price": 7411.98,
-        "change": 3.68,
-        "change_percent": 0.05,
-        "date": "2026-07-24"
+        "price": 7413.18,
+        "change": 4.88,
+        "change_percent": 0.07,
+        "date": "2026-07-27"
     },
     "NASDAQ": {
-        "price": 24975.82,
-        "change": -161.87,
-        "change_percent": -0.64,
-        "date": "2026-07-24"
+        "price": 24932.08,
+        "change": -205.61,
+        "change_percent": -0.82,
+        "date": "2026-07-27"
     },
     "KOSPI": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
-        "date": "2026-07-24"
+        "price": 7096.89,
+        "change": 299.19,
+        "change_percent": 4.4,
+        "date": "2026-07-23"
     },
     "KOSDAQ": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
+        "price": 748.22,
+        "change": -42.06,
+        "change_percent": -5.32,
         "date": "2026-07-24"
     },
     "VIX": {
-        "price": 18.58,
-        "change": -0.12,
-        "change_percent": -0.64,
-        "date": "2026-07-24"
+        "price": 18.67,
+        "change": -0.03,
+        "change_percent": -0.16,
+        "date": "2026-07-27"
     },
     "USD_KRW": {
-        "price": 1459.42,
-        "change": -16.21,
-        "change_percent": -1.1,
-        "date": "2026-07-24"
+        "price": 1464.92,
+        "change": -9.12,
+        "change_percent": -0.62,
+        "date": "2026-07-27"
     },
     "WTI_CRUDE_OIL": {
-        "price": 90.47,
-        "change": -1.72,
-        "change_percent": -1.87,
-        "date": "2026-07-24"
+        "price": 81.92,
+        "change": -7.39,
+        "change_percent": -8.27,
+        "date": "2026-07-27"
     },
     "GOLD": {
-        "price": 4055.7,
-        "change": 9.1,
-        "change_percent": 0.22,
-        "date": "2026-07-24"
+        "price": 4075.5,
+        "change": 7.9,
+        "change_percent": 0.19,
+        "date": "2026-07-27"
     },
     "US_10Y_TREASURY": {
-        "price": 4.68,
-        "change": -0.02,
-        "change_percent": -0.51,
-        "date": "2026-07-24"
+        "price": 4.64,
+        "change": -0.06,
+        "change_percent": -1.32,
+        "date": "2026-07-27"
     }
 }
