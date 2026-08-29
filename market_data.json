@@ -1,56 +1,56 @@
 {
     "S&P500": {
-        "price": 7730.99,
-        "change": 55.29,
-        "change_percent": 0.72,
-        "date": "2026-08-27"
+        "price": 7711.76,
+        "change": -19.23,
+        "change_percent": -0.25,
+        "date": "2026-08-28"
     },
     "NASDAQ": {
-        "price": 26541.35,
-        "change": 411.15,
-        "change_percent": 1.57,
-        "date": "2026-08-27"
+        "price": 26402.42,
+        "change": -138.93,
+        "change_percent": -0.52,
+        "date": "2026-08-28"
     },
     "KOSPI": {
-        "price": 6805.7,
-        "change": -106.67,
-        "change_percent": -1.54,
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
         "date": "2026-08-28"
     },
     "KOSDAQ": {
-        "price": 837.32,
-        "change": -0.33,
-        "change_percent": -0.04,
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
         "date": "2026-08-28"
     },
     "VIX": {
-        "price": 14.51,
-        "change": -0.7,
-        "change_percent": -4.6,
-        "date": "2026-08-27"
+        "price": 14.43,
+        "change": -0.08,
+        "change_percent": -0.55,
+        "date": "2026-08-28"
     },
     "USD_KRW": {
-        "price": 1375.38,
-        "change": -8.11,
-        "change_percent": -0.59,
+        "price": 1375.67,
+        "change": -7.82,
+        "change_percent": -0.57,
         "date": "2026-08-28"
     },
     "WTI_CRUDE_OIL": {
-        "price": 83.2,
-        "change": -0.33,
-        "change_percent": -0.4,
+        "price": 83.44,
+        "change": -0.09,
+        "change_percent": -0.11,
         "date": "2026-08-28"
     },
     "GOLD": {
-        "price": 4624.8,
-        "change": 15.1,
-        "change_percent": 0.33,
+        "price": 4504.1,
+        "change": -105.6,
+        "change_percent": -2.29,
         "date": "2026-08-28"
     },
     "US_10Y_TREASURY": {
-        "price": 4.67,
-        "change": 0.01,
-        "change_percent": 0.17,
-        "date": "2026-08-27"
+        "price": 4.72,
+        "change": 0.05,
+        "change_percent": 1.03,
+        "date": "2026-08-28"
     }
 }
