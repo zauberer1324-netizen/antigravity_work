@@ -1,56 +1,56 @@
 {
     "S&P500": {
-        "price": 7591.7,
-        "change": -44.66,
-        "change_percent": -0.58,
-        "date": "2026-09-10"
+        "price": 7656.98,
+        "change": 65.28,
+        "change_percent": 0.86,
+        "date": "2026-09-11"
     },
     "NASDAQ": {
-        "price": 26081.72,
-        "change": -171.62,
-        "change_percent": -0.65,
-        "date": "2026-09-10"
+        "price": 26333.04,
+        "change": 251.31,
+        "change_percent": 0.96,
+        "date": "2026-09-11"
     },
     "KOSPI": {
-        "price": 7051.64,
-        "change": 97.12,
-        "change_percent": 1.4,
-        "date": "2026-09-09"
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
+        "date": "2026-09-11"
     },
     "KOSDAQ": {
-        "price": 830.37,
-        "change": 18.49,
-        "change_percent": 2.28,
-        "date": "2026-09-09"
+        "price": NaN,
+        "change": NaN,
+        "change_percent": NaN,
+        "date": "2026-09-11"
     },
     "VIX": {
-        "price": 17.84,
-        "change": 1.38,
-        "change_percent": 8.38,
-        "date": "2026-09-10"
+        "price": 15.84,
+        "change": -2.0,
+        "change_percent": -11.21,
+        "date": "2026-09-11"
     },
     "USD_KRW": {
-        "price": 1348.95,
-        "change": 9.78,
-        "change_percent": 0.73,
+        "price": 1341.05,
+        "change": 1.88,
+        "change_percent": 0.14,
         "date": "2026-09-11"
     },
     "WTI_CRUDE_OIL": {
-        "price": 103.81,
-        "change": 7.76,
-        "change_percent": 8.08,
-        "date": "2026-09-10"
+        "price": 99.99,
+        "change": -2.49,
+        "change_percent": -2.43,
+        "date": "2026-09-11"
     },
     "GOLD": {
-        "price": 4359.3,
-        "change": -56.7,
-        "change_percent": -1.28,
-        "date": "2026-09-10"
+        "price": 4390.0,
+        "change": 25.5,
+        "change_percent": 0.58,
+        "date": "2026-09-11"
     },
     "US_10Y_TREASURY": {
-        "price": 4.94,
-        "change": 0.11,
-        "change_percent": 2.21,
-        "date": "2026-09-10"
+        "price": 4.97,
+        "change": 0.03,
+        "change_percent": 0.63,
+        "date": "2026-09-11"
     }
 }
