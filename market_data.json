@@ -1,56 +1,56 @@
 {
     "S&P500": {
-        "price": 7805.45,
-        "change": -1.79,
-        "change_percent": -0.02,
-        "date": "2026-10-13"
+        "price": 7718.94,
+        "change": -86.51,
+        "change_percent": -1.11,
+        "date": "2026-10-14"
     },
     "NASDAQ": {
-        "price": 27204.38,
-        "change": -41.52,
-        "change_percent": -0.15,
-        "date": "2026-10-13"
+        "price": 26692.87,
+        "change": -511.51,
+        "change_percent": -1.88,
+        "date": "2026-10-14"
     },
     "KOSPI": {
-        "price": 6158.26,
-        "change": -225.98,
-        "change_percent": -3.54,
-        "date": "2026-10-14"
+        "price": 6035.35,
+        "change": -348.89,
+        "change_percent": -5.46,
+        "date": "2026-10-13"
     },
     "KOSDAQ": {
-        "price": 834.84,
-        "change": -14.35,
-        "change_percent": -1.69,
-        "date": "2026-10-14"
+        "price": 837.03,
+        "change": -12.16,
+        "change_percent": -1.43,
+        "date": "2026-10-13"
     },
     "VIX": {
-        "price": 15.27,
-        "change": 0.06,
-        "change_percent": 0.39,
-        "date": "2026-10-13"
-    },
-    "USD_KRW": {
-        "price": 1339.18,
-        "change": 5.05,
-        "change_percent": 0.38,
+        "price": 16.87,
+        "change": 1.6,
+        "change_percent": 10.48,
         "date": "2026-10-14"
     },
+    "USD_KRW": {
+        "price": 1342.68,
+        "change": 2.37,
+        "change_percent": 0.18,
+        "date": "2026-10-15"
+    },
     "WTI_CRUDE_OIL": {
-        "price": 94.92,
-        "change": 1.18,
-        "change_percent": 1.26,
-        "date": "2026-10-13"
+        "price": 94.77,
+        "change": 0.63,
+        "change_percent": 0.67,
+        "date": "2026-10-14"
     },
     "GOLD": {
-        "price": 4183.1,
-        "change": -7.5,
-        "change_percent": -0.18,
-        "date": "2026-10-13"
+        "price": 4136.7,
+        "change": -40.6,
+        "change_percent": -0.97,
+        "date": "2026-10-14"
     },
     "US_10Y_TREASURY": {
-        "price": 5.22,
-        "change": -0.02,
-        "change_percent": -0.44,
-        "date": "2026-10-13"
+        "price": 5.19,
+        "change": -0.03,
+        "change_percent": -0.52,
+        "date": "2026-10-14"
     }
 }
