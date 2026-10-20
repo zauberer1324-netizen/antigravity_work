@@ -1,8 +1,8 @@
 <div style="background-color: #ffdddd; color: #cc0000; padding: 20px; margin: 20px; border-left: 6px solid #cc0000; border-radius: 8px; font-family: sans-serif;">
                 <h2 style="margin-top: 0;">⚠️ 엄격 검토 경고 (통과 실패)</h2>
                 <p><strong>최종 신뢰도 등급: F</strong></p>
-                <p><strong>치명적 오류:</strong> 추천 종목에 대한 상세 재무 지표(PER, 시가총액 등)가 누락되었습니다. (섹션 5, 7), 추천 종목별 강세 추론 근거, 약세 시그널, 연결 자산 추천이 누락되었습니다. (섹션 5, 7), 수급 및 섹터 분석 정보가 누락되었습니다. (섹션 4)</p>
-                <p><strong>권장 수정 사항:</strong> 섹션 '4. 수급 및 섹터 분석'에 외국인/기관/개인 수급 정보 및 강세/약세 섹터에 대한 구체적인 정보를 추가해야 합니다., 섹션 '5. 분석 후보 종목'에 실제 상장사의 상세 재무 지표(PER, 시가총액 등)를 포함한 추천 종목 정보를 추가해야 합니다., 섹션 '5. 분석 후보 종목'의 각 추천 종목에 대해 강세 추론 근거, 약세 시그널, 연결 자산 추천을 구체적으로 작성해야 합니다., 섹션 '6. 제외 종목'에 제외할 주식 종목 정보와 그 사유를 추가해야 합니다., 섹션 '7. 엄격 검토'에서 최종 신뢰도 등급을 부여할 수 있도록 개별 종목에 대한 상세 데이터(재무제표, 추천 사유 등)를 보완해야 합니다.</p>
+                <p><strong>치명적 오류:</strong> 보고서 내용이 불완전합니다. '시장 요약' 섹션 이후의 내용(뉴스, 추천 종목 등)이 누락되어 있습니다., KOSPI 지수의 출처 URL 링크가 불완전하게 작성되었습니다., 뉴스 섹션이 보고서에 포함되어 있지 않아 뉴스 관련 검증을 수행할 수 없습니다. (뉴스 시간 및 URL 누락), 추천 종목 섹션이 보고서에 포함되어 있지 않아 재무 지표, 강세/약세 시그널, 연결 자산 추천 검증을 수행할 수 없습니다.</p>
+                <p><strong>권장 수정 사항:</strong> 보고서의 HTML 구조를 완성하고, 누락된 섹션(뉴스, 추천 종목 등)을 추가해야 합니다., KOSPI 지수의 출처 URL 링크를 올바르게 작성해야 합니다., 뉴스 섹션을 추가하고, 각 뉴스 항목에 YYYY-MM-DD HH:MM 형식의 정확한 작성 시간과 `href='http...'` 형태의 실제 URL 링크를 포함해야 합니다., 추천 종목 섹션을 추가하고, 각 추천 종목에 상세 재무 지표(PER, 시가총액 등), 강세 추론 근거, 약세 시그널, 연결 자산 추천을 포함해야 합니다., 모든 추천 종목이 실제 상장사인지 확인해야 합니다.</p>
                 <p>주의: 이 보고서는 검증 요건을 완전히 충족하지 못했습니다.</p>
             </div>
             <!DOCTYPE html>
@@ -12,282 +12,250 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주식시장 보고서</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
-
+        /* Basic Reset & Body Styling */
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
             background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
             color: #333;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Container for overall layout */
         .container {
             max-width: 1200px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
+        /* Header Styling */
         h1 {
             color: #2c3e50;
             text-align: center;
             margin-bottom: 40px;
-            font-weight: 700;
             font-size: 2.5em;
-        }
-
-        h2 {
-            color: #34495e;
-            border-bottom: 3px solid #4a90e2;
-            padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 25px;
             font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Section Styling */
+        .section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            color: #34495e;
             font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e5ec;
+            padding-bottom: 15px;
         }
 
-        h3 {
-            color: #555;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 600;
+        .section h3 {
+            color: #2980b9;
             font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
 
-        .card-section {
+        /* Card UI for market data and news */
+        .card-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 30px;
+            justify-content: center; /* Center cards when they don't fill a row */
         }
 
         .card {
-            background-color: #f9f9f9;
+            background: linear-gradient(45deg, #ecf0f1 0%, #ffffff 100%);
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 25px;
-            flex: 1;
+            padding: 20px;
+            flex: 1 1 calc(33% - 40px); /* Default for 3 columns */
             min-width: 280px; /* Minimum width for cards */
             box-sizing: border-box;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e5ec;
         }
 
         .card.full-width {
-            flex: 1 1 100%;
+            flex: 1 1 100%; /* For news items that take full width */
         }
 
-        .card-title {
-            font-weight: 700;
-            color: #4a90e2;
-            margin-bottom: 15px;
-            font-size: 1.2em;
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
-        .card-content p {
-            margin: 8px 0;
-            font-size: 0.95em;
-        }
-
-        .card-content strong {
-            color: #333;
-        }
-
-        .market-data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .market-item {
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 20px;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .market-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .market-item h4 {
-            margin-top: 0;
-            color: #4a90e2;
+        .card h4 {
+            color: #2c3e50;
             font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .market-item p {
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-
-        .change-positive {
-            color: #28a745;
-            font-weight: 700;
-        }
-
-        .change-negative {
-            color: #dc3545;
-            font-weight: 700;
-        }
-
-        .change-neutral {
-            color: #6c757d;
-            font-weight: 700;
-        }
-
-        .news-category {
-            margin-bottom: 40px;
-        }
-
-        .news-item {
-            background-color: #fefefe;
-            border-left: 5px solid #4a90e2;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: box-shadow 0.2s ease-in-out;
-        }
-
-        .news-item:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .news-item h4 {
             margin-top: 0;
-            color: #34495e;
-            font-size: 1.2em;
             margin-bottom: 10px;
         }
 
-        .news-item p {
-            font-size: 0.9em;
+        .card p {
+            margin: 5px 0;
+            font-size: 0.95em;
             color: #555;
-            margin-bottom: 10px;
         }
 
-        .news-meta {
-            font-size: 0.85em;
-            color: #777;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        .card .value {
+            font-weight: bold;
+            color: #34495e;
+            font-size: 1.1em;
         }
 
-        .news-meta span {
-            white-space: nowrap;
+        .card .change-positive {
+            color: #27ae60; /* Green for positive change */
+            font-weight: bold;
         }
 
+        .card .change-negative {
+            color: #e74c3c; /* Red for negative change */
+            font-weight: bold;
+        }
+
+        /* Link Styling */
         a {
-            color: #4a90e2;
+            color: #3498db;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease-in-out;
-            padding: 5px 0; /* Make clickable area larger */
-            display: inline-block;
+            transition: color 0.3s ease;
+            padding: 5px 0; /* Make links easier to touch */
+            display: inline-block; /* Allow padding */
         }
 
         a:hover {
-            color: #357ABD;
+            color: #2980b9;
             text-decoration: underline;
         }
 
         .source-link {
             font-size: 0.85em;
+            color: #7f8c8d;
             margin-top: 10px;
             display: block;
         }
 
-        .no-data {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeeba;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-size: 1em;
-            text-align: center;
+        .source-link a {
+            color: #7f8c8d;
+            font-weight: 500;
         }
 
-        /* Responsive adjustments */
+        .source-link a:hover {
+            color: #555;
+        }
+
+        /* List Styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '•';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .card {
+                flex: 1 1 calc(50% - 30px); /* 2 columns on medium screens */
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .section h2 {
+                font-size: 1.6em;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 15px;
             }
-
-            .container {
-                margin: 10px auto;
-                padding: 20px;
+            .card {
+                flex: 1 1 100%; /* 1 column on small screens */
+                min-width: unset; /* Remove min-width constraint */
             }
-
             h1 {
-                font-size: 2em;
+                font-size: 1.8em;
                 margin-bottom: 30px;
             }
-
-            h2 {
-                font-size: 1.5em;
-                margin-top: 30px;
+            .section {
+                padding: 20px;
                 margin-bottom: 20px;
             }
-
-            h3 {
+            .section h2 {
+                font-size: 1.4em;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .section h3 {
                 font-size: 1.2em;
-                margin-top: 25px;
+                margin-top: 20px;
                 margin-bottom: 10px;
             }
-
-            .card, .market-item, .news-item {
-                padding: 18px;
-                min-width: unset; /* Allow cards to shrink further */
-                flex-basis: 100%; /* Stack cards on small screens */
+            .card h4 {
+                font-size: 1em;
             }
-
-            .card-title {
-                font-size: 1.1em;
-            }
-
-            .card-content p, .market-item p, .news-item p {
+            .card p {
                 font-size: 0.9em;
             }
-
-            .news-meta {
-                flex-direction: column;
-                align-items: flex-start;
+            a {
+                padding: 3px 0;
             }
         }
 
         @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
             h1 {
-                font-size: 1.8em;
+                font-size: 1.5em;
+                margin-bottom: 20px;
             }
-            h2 {
-                font-size: 1.3em;
+            .section {
+                padding: 15px;
+                margin-bottom: 15px;
             }
-            h3 {
+            .section h2 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+                padding-bottom: 8px;
+            }
+            .section h3 {
                 font-size: 1.1em;
+                margin-top: 15px;
+                margin-bottom: 8px;
             }
-            .card, .market-item, .news-item {
+            .card {
                 padding: 15px;
             }
-            .card-content p, .market-item p, .news-item p {
+            .card p {
                 font-size: 0.85em;
-            }
-            .news-meta span, .source-link {
-                font-size: 0.8em;
             }
         }
     </style>
@@ -296,270 +264,38 @@
     <div class="container">
         <h1>주식시장 보고서</h1>
 
-        <section>
+        <!-- 1. 작성 기준 -->
+        <div class="section">
             <h2>1. 작성 기준</h2>
-            <div class="card-section">
-                <div class="card">
-                    <div class="card-title">작성일</div>
-                    <div class="card-content">
-                        <p><strong>2026-10-18</strong></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">시장 데이터 기준일</div>
-                    <div class="card-content">
-                        <p><strong>2026-10-16 ~ 2026-10-19</strong> (데이터별 상이)</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">뉴스 기준 기간</div>
-                    <div class="card-content">
-                        <p><strong>2026-10-16 05:33 ~ 2026-10-19 06:58</strong></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">사용한 주요 출처 수</div>
-                    <div class="card-content">
-                        <p><strong>12개</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <ul>
+                <li><strong>작성일:</strong> 2026-10-19</li>
+                <li><strong>시장 데이터 기준일:</strong> 2026-10-19, 2026-10-20</li>
+                <li><strong>뉴스 기준 기간:</strong> 2026-10-12 00:00 ~ 2026-10-20 07:41</li>
+                <li><strong>사용한 주요 출처 수:</strong> 9개</li>
+            </ul>
+        </div>
 
-        <section>
+        <!-- 2. 시장 요약 -->
+        <div class="section">
             <h2>2. 시장 요약</h2>
-            <div class="market-data-grid">
-                <h3>국내 지수</h3>
-                <!-- KOSPI -->
-                <div class="market-item">
-                    <h4>KOSPI</h4>
-                    <p><strong>현재가:</strong> 5668.05</p>
-                    <p><strong>변동률:</strong> <span class="change-positive">+2.05%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-16</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVZ33KwbXR6YNqAdeKffSVMu4cV560mPSgs2I7gWHWnaSJdSLnT3jeeSvWaTTDToxBmYXoAdJPrR7ohPqSMxF-Kxp1Aql5m_DE8rYtiyE8MG2r24YpSRTmQ-MkW3dJ6S4GWgn6bWC-TNo6HoTy56lBry5kTAs6jw==" target="_blank">[출처: 한경매거진&북]</a></p>
-                </div>
-                <!-- KOSDAQ -->
-                <div class="market-item">
-                    <h4>KOSDAQ</h4>
-                    <p><strong>현재가:</strong> 794.78</p>
-                    <p><strong>변동률:</strong> <span class="change-positive">+4.46%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-16</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVZ33KwbXR6YNqAdeKffSVMu4cV560mPSgs2I7gWHWnaSJdSLnT3jeeSvWaTTDToxBmYXoAdJPrR7ohPqSMxF-Kxp1Aql5m_DE8rYtiyE8MG2r24YpSRTmQ-MkW3dJ6S4GWgn6bWC-TNo6HoTy56lBry5kTAs6jw==" target="_blank">[출처: 한경매거진&북]</a></p>
-                </div>
-
-                <h3>미국 지수</h3>
-                <!-- S&P500 -->
-                <div class="market-item">
+            <h3>주요 지수</h3>
+            <div class="card-grid">
+                <div class="card">
                     <h4>S&P500</h4>
-                    <p><strong>현재가:</strong> 7659.44</p>
-                    <p><strong>변동률:</strong> <span class="change-negative">-1.09%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-16</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZvGASb8j_wy0u7UYWiwUxX9ItGcJP1AWolIPOAojrWqOkSfpx2vAK5eHFli-RyblyUi_b0EOKVNn0QEASXboHqAiM2IaeouHbm30s3g_nW1dUeJheENSOpxLKVN3EvrfDtchwcaIZeVcEg_iLV2Dz75K1R3lwIzLd" target="_blank">[출처: 뉴스웍스]</a></p>
+                    <p class="value">7690.73</p>
+                    <p class="change-positive">+0.41%</p>
+                    <p>기준일: 2026-10-19</p>
+                    <p class="source-link">출처: <a href="https://finance.yahoo.com/quote/%5EGSPC" target="_blank">Yahoo Finance</a></p>
                 </div>
-                <!-- NASDAQ -->
-                <div class="market-item">
+                <div class="card">
                     <h4>NASDAQ</h4>
-                    <p><strong>현재가:</strong> 26140.03</p>
-                    <p><strong>변동률:</strong> <span class="change-negative">-2.15%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-16</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZvGASb8j_wy0u7UYWiwUxX9ItGcJP1AWolIPOAojrWqOkSfpx2vAK5eHFli-RyblyUi_b0EOKVNn0QEASXboHqAiM2IaeouHbm30s3g_nW1dUeJheENSOpxLKVN3EvrfDtchwcaIZeVcEg_iLV2Dz75K1R3lwIzLd" target="_blank">[출처: 뉴스웍스]</a></p>
+                    <p class="value">26430.89</p>
+                    <p class="change-positive">+1.11%</p>
+                    <p>기준일: 2026-10-19</p>
+                    <p class="source-link">출처: <a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">Yahoo Finance</a></p>
                 </div>
-                <!-- VIX -->
-                <div class="market-item">
-                    <h4>VIX</h4>
-                    <p><strong>현재가:</strong> 19.99</p>
-                    <p><strong>변동률:</strong> <span class="change-positive">+21.45%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-16</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZvGASb8j_wy0u7UYWiwUxX9ItGcJP1AWolIPOAojrWqOkSfpx2vAK5eHFli-RyblyUi_b0EOKVNn0QEASXboHqAiM2IaeouHbm30s3g_nW1dUeJheENSOpxLKVN3EvrfDtchwcaIZeVcEg_iLV2Dz75K1R3lwIzLd" target="_blank">[출처: 뉴스웍스]</a></p>
-                </div>
-
-                <h3>환율</h3>
-                <!-- USD_KRW -->
-                <div class="market-item">
-                    <h4>USD/KRW</h4>
-                    <p><strong>현재가:</strong> 1334.33</p>
-                    <p><strong>변동률:</strong> <span class="change-negative">-0.49%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-19</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr3rCBvc4ULzJ5skp8h5FQidgItP4S1Q8dqCXcEgRB1WufiWSogekYJhgydAweakQOgyU_8pSwe7lBcIZRRhazVdSEM7G8f-8BhYxRoN1eKZQIhPupgXZkTRInrftx217zgEpW9KLZ" target="_blank">[출처: Investing.com]</a></p>
-                </div>
-
-                <h3>원자재 및 국채 금리</h3>
-                <!-- WTI_CRUDE_OIL -->
-                <div class="market-item">
-                    <h4>WTI 원유</h4>
-                    <p><strong>현재가:</strong> 101.18</p>
-                    <p><strong>변동률:</strong> <span class="change-neutral">확인 불가</span></p>
-                    <p><strong>기준일:</strong> 2026-10-18</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2DbV_SOyRJgWcyVd5Jliz83YPL3B55lTYatp3CGEYIQdBakXzejBf7o3d-xUE0B4ejhlfSrRdToNZAnBW0CQgliNK7g83A16P2EIWcvVbskGeZ4dWnCkbTHS9MlDUvbcoh8XVY0uhQqQ72eiTGV2rBrbO9NpFiY4m2iLshGG-P57f5HI=" target="_blank">[출처: FT.com - Markets data]</a></p>
-                </div>
-                <!-- GOLD -->
-                <div class="market-item">
-                    <h4>금</h4>
-                    <p><strong>현재가:</strong> 4174.2</p>
-                    <p><strong>변동률:</strong> <span class="change-positive">+0.24%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-18</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEg2Sj3UCs9kUhJualTzN3CQXAyIM51K1vxgEPht0AUQFIX-CciTXcJJG_I34h3OougrvBsbisUG-oCRQ8VGXw3dGCya5DQUH9gLlJopHJLaJo=" target="_blank">[출처: KITCO]</a></p>
-                </div>
-                <!-- US_10Y_TREASURY -->
-                <div class="market-item">
-                    <h4>미국 10년물 국채</h4>
-                    <p><strong>현재가:</strong> 5.1</p>
-                    <p><strong>변동률:</strong> <span class="change-positive">+0.18%</span></p>
-                    <p><strong>기준일:</strong> 2026-10-16</p>
-                    <p class="source-link"><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYYmP6vfpn5P95jc0DPXjrnp88bGNiCgsbaqkx955oXqlQ7tD3t8mMG9tNf8irGbuZR2TE2iriL8EmVghieuYQHeNMowU5_pmLRpEEYbxSrTUDXNmHgqyIdT4f2W9VOT1JSi96VRfE9lUqLBC52lJZp0CvnsE=" target="_blank">[출처: Investing.com]</a></p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>3. 카테고리별 핵심 뉴스</h2>
-
-            <div class="news-category">
-                <h3>거시경제 및 지정학적 리스크</h3>
-                <!-- News 1 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHzmIKYZN7mHS8Yrbiuub30Pfk8rLOIQaLvv290ML6tcnr7Cg5vIXCyrWqaVUW_ZkSKfxVK2FW4UmJVeBPmjVeMX8OsX9ibd_mQEdXrvKeAx5EA9XTt7J-rxjgKYX2R1ZM3O4WuLjyliI7lxeUWijb_SbXaNA==" target="_blank">중동·우크라이나 지정학적 리스크 심화…국제유가 급등</a></h4>
-                    <p>10월 16일(현지시간) 중동과 우크라이나 등지의 지정학적 리스크 고조로 원유 공급 차질 우려가 확산하며 국제유가가 상승했다. 런던 ICE 선물거래소에서 12월 인도분 브렌트유는 전장 대비 3.72% 상승한 배럴당 109.86달러에 마감했으며, 뉴욕상업거래소에서 11월 인도분 서부텍사스산원유(WTI)는 3.51% 오른 배럴당 101.41달러에 거래를 마쳤다. 이란의 호르무즈 해협 원유 수출 통제 조치 이후 최소 9척의 선박이 피격되었고, 예멘 친이란 반군 후티는 사우디아라비아 서부 석유화학 시설 밀집 지역인 얀부를 향한 공격을 지속하고 있다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-17 09:13</span>
-                        <span>출처: 이비엔(EBN)뉴스센터</span>
-                    </div>
-                </div>
-                <!-- News 2 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoYUR9tn-po6vhiiWa9lhO4lzXtM-MFkx6mz-p3nWhPNvpjWmpjjqWChB5i_vp8k03dEmzXhQ0zVE6W37Ax-sjlBGrfiBxoDVtom6jSD75Momjm2kivSaCZtBM0Q1T7UZ61tB2nhFXq12lX8b1dA==" target="_blank">이란 “호르무즈 해협 재개방, 미국 선택에 달려”</a></h4>
-                    <p>이란 외무장관은 10월 17일(현지시간) 호르무즈 해협의 재개방 여부가 미국의 선택에 달려 있다고 주장하며, 군사적 압박을 계속하면서 항행 안전이 정상화되기를 기대할 수는 없다고 밝혔다. 이란은 카타르를 통해 구체적인 '7일 계획'을 전달했으며, 필요한 조건이 충족될 경우 7일 이내에 호르무즈 해협을 다시 열고 정상적인 선박 통항을 복원할 수 있다고 언급했다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-18 13:44</span>
-                        <span>출처: 메트로신문</span>
-                    </div>
-                </div>
-                <!-- News 3 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-gjVSpLY0VTQvzRQDqFFF8OO2zpyDg_6T-KzDO6hls0b_IzUKSFOLV9Hc23Gpx-uBh-bBaT9SrKBOhuKLrlrq9glmoZS7MdeWOBADf_W7GAB7OkGFacpAt3tgxsvHBSwiO62XtpzOdnFqZA==" target="_blank">이란 "美 공격 재개 땐 더 파괴적 대응"…호르무즈 해협서 유조선 폭발</a></h4>
-                    <p>이란 이슬람혁명수비대(IRGC) 해군은 10월 18일 호르무즈 해협 남부에서 유조선 한 척이 기뢰에 부딪힌 뒤 폭발과 함께 화재가 발생했다고 밝혔다. 영국 해사무역기구(UKMTO)에 따르면 최근 아라비아반도 주변 해역에서 상업용 선박을 겨냥한 공격이 잇따라 보고되었으며, 사우디아라비아도 미사일 위협에 대응하여 미사일 여러 발을 요격했다고 전했다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-19 06:58</span>
-                        <span>출처: 뉴스핌</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-category">
-                <h3>글로벌 증시 동향</h3>
-                <!-- News 1 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF31iTGfunkG60Rkb5FZ4nwbJEwOFGTVQZYVG0XMK1sRH-m3k28G9Cw5o1iuaR9aE5klb9WdRWiZo3-T_Ob1l6Ug-Z41B2sFUqDkmdnOFTDS47K0sSAHyKAiPlbKA5gcVw=" target="_blank">미국 증시 2026-10-17 주요 지수 동반 하락</a></h4>
-                    <p>2026년 10월 17일 미국 증시는 주요 지수가 일제히 하락하며 투자 심리에 영향을 미쳤다. S&P 500은 1.07% 하락했고 나스닥은 2.14% 급락했으며 다우존스는 0.34% 내렸다. 반도체 지수는 3.83% 급락했으며, 인공지능 투자 둔화 우려와 업종 내 경쟁 심화, 자금 조달 비용 상승이 시장 전반에 부정적인 영향을 미쳤다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-16 05:33</span>
-                        <span>출처: 머니터링</span>
-                    </div>
-                </div>
-                <!-- News 2 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZvGASb8j_wy0u7UYWiwUxX9ItGcJP1AWolIPOAojrWqOkSfpx2vAK5eHFli-RyblyUi_b0EOKVNn0QEASXboHqAiM2IaeouHbm30s3g_nW1dUeJheENSOpxLKVN3EvrfDtchwcaIZeVcEg_iLV2Dz75K1R3lwIzLd" target="_blank">'AI 거품론'에 유가 폭등 중복 악재…뉴욕증시·반도체 급락</a></h4>
-                    <p>10월 16일(현지시간) 뉴욕증시가 인공지능(AI) 관련 기업들의 과도한 부채 리스크와 지정학적 위기에 따른 국제유가 폭등이라는 이중고를 맞으며 일제히 급락했다. 나스닥 지수는 2.15% 하락한 2만6140.03에, S&P 500 지수는 1.09% 내린 7659.44를 기록했다. 필라델피아 반도체 지수는 3.83% 하락하며 8거래일 연속 내림세를 기록, 2008년 글로벌 금융위기 이후 최장기 연속 하락 기록을 세웠다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-17 09:00</span>
-                        <span>출처: 뉴스웍스</span>
-                    </div>
-                </div>
-                <!-- News 3 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGYYmP6vfpn5P95jc0DPXjrnp88bGNiCgsbaqkx955oXqlQ7tD3t8mMG9tNf8irGbuZR2TE2iriL8EmVghieuYQHeNMowU5_pmLRpEEYbxSrTUDXNmHgqyIdT4f2W9VOT1JSi96VRfE9lUqLBC52lJZp0CvnsE=" target="_blank">시티, 금리가 주가 밸류에이션보다 경제에 더 큰 영향 미칠 수 있어</a></h4>
-                    <p>시티 애널리스트들은 10월 17일(현지시간) 인공지능(AI) 성장 동력과 투자자 행동의 구조적 변화로 인해 채권 수익률과 주식 간의 전통적인 상관관계가 약화되면서, 금리가 주식시장 밸류에이션보다 경제 성장 전망에 더 큰 영향을 미칠 수 있다고 분석했다. 높은 차입 비용이 경제 전망에 여전히 중요한 요소로 작용하고 있지만, 주식시장 밸류에이션과 자산 간 자금 흐름에 미치는 영향은 시간이 지남에 따라 줄어들었다는 설명이다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-18 04:54</span>
-                        <span>출처: Investing.com</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-category">
-                <h3>국내 증시 동향</h3>
-                <!-- News 1 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDFSrYv81I1pECiNAk_S4J4moRXnOhhi2gem0OIphn-w1wfFlJ7FByBnuH8DT_htbTDv0Lo1MZRRY7j-98yKXlSSYV0ymURyLRb9Da_CHP1hSO2Y8-kzSCJJonWrflPEPDXkb21tTla5ump9EimFZPYSwR" target="_blank">국내 기름값 22주 연속 하락…휘발유·경유 1천800원대 지속</a></h4>
-                    <p>10월 17일 한국석유공사 유가정보시스템 오피넷에 따르면 10월 둘째 주 전국 주유소 휘발유 평균 판매가격은 리터당 1,856.6원으로 전주보다 0.9원 내렸고, 경유 가격도 리터당 1,842.8원으로 전주 대비 0.5원 하락했다. 반면 국제유가는 중동 지역의 긴장 고조로 상승세를 보였으며, 수입 원유 가격 기준인 두바이유는 배럴당 108.6달러로 한 주 전보다 0.5달러 올랐다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-17 09:45</span>
-                        <span>출처: 연합뉴스TV</span>
-                    </div>
-                </div>
-                <!-- News 2 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH2HqoiItYni3cBhX1OZP6-7HemgX-tOV0N65ciEPxU_1lTbTUBPbeU86kjG4QtP_lvNq-H6JzG3u7Qfmek2nuFJ--19h0V-3rZYYDeoEybGROBJSksTjnfhZLqRpFrpWIJv8FW5bE0eSqp" target="_blank">한국 잠재성장률 '대반전'…40년 만에 연속 반등 전망</a></h4>
-                    <p>10월 18일 국제통화기금(IMF)의 10월 세계경제전망에 따르면, 한국의 잠재성장률은 지난해 1.94%에서 올해 2.14%, 내년 2.20%로 높아지는 것으로 추산됐다. 이는 40년 만에 처음으로 2년 연속 상승할 것이라는 전망으로, 반도체 특수로 한국 경제의 기초 체력인 성장 잠재력까지 회복되는 흐름으로 분석된다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-17 09:00</span>
-                        <span>출처: 연합뉴스</span>
-                    </div>
-                </div>
-                <!-- News 3 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVZ33KwbXR6YNqAdeKffSVMu4cV560mPSgs2I7gWHWnaSJdSLnT3jeeSvWaTTDToxBmYXoAdJPrR7ohPqSMxF-Kxp1Aql5m_DE8rYtiyE8MG2r24YpSRTmQ-MkW3dJ6S4GWgn6bWC-TNo6HoTy56lBry5kTAs6jw==" target="_blank">증시 하락에 개미들은 '지옥'인데···정부는 낙관, 왜?</a></h4>
-                    <p>정부가 최근 국내 증시 급락에도 경제 기초여건은 견조하다고 평가했다. 코스피는 10월 15일 5554.22까지 떨어졌다가 16일 5668.05로 반등했으나, 한 주 전보다 14.46% 낮은 수준이다. IMF는 한국의 올해 경제성장률 전망치를 3.3%로 상향했으며, 코스피 상장사의 올해 영업이익 전망치는 969조원으로 지난해 실적 312조원을 크게 웃돈다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-17 09:17</span>
-                        <span>출처: 한경매거진&북</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-category">
-                <h3>주요 산업 및 섹터 동향</h3>
-                <!-- News 1 -->
-                <div class="news-item">
-                    <h4><a href="https://www.mt.co.kr/amp/industry/2026/10/16/2026101613003653678" target="_blank">반도체 증설 경쟁…TSMC 2나노 생산능력 2배 확대</a></h4>
-                    <p>TSMC가 2나노 생산능력을 2배 확대할 계획이며, 삼성전자도 양산 준비에 박차를 가하고 있다. 이는 AI 투자 수요 증가에 따른 반도체 산업의 증설 경쟁을 보여준다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-16 13:00</span>
-                        <span>출처: 머니투데이</span>
-                    </div>
-                </div>
-                <!-- News 2 -->
-                <div class="news-item">
-                    <h4><a href="https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsLqUoCnhhncN7iC0YoIcXCBSftvITLh7GsJz32GXs4oCKscifqGPrI_UycrZx282iWEJv7y7OI7g4TY003nAwSxy27iGKnrmucTyKz_yp9YL1l-4FxURP_nx4au-7I9mEPC0P_KBpJk_G4" target="_blank">[마켓인사이트] 폭락장세 뒤 반등했지만 악재는 여전…이번주 코스피 향배는</a></h4>
-                    <p>지난주 미국 뉴욕증시에서 AI·반도체 관련주가 재차 급락하며 3대 주가지수가 동반 하락했다. 필라델피아 반도체 지수는 8거래일 연속 하락해 2008년 미국발 금융위기 이후 최장기 연속 하락을 기록했다. 하지만 한국의 10월 1~10일 수출 증가와 TSMC의 3분기 호실적 등을 감안하면 펀더멘털은 여전히 긍정적이라는 분석도 있다.</p>
-                    <div class="news-meta">
-                        <span>게시 시간: 2026-10-18 08:00</span>
-                        <span>출처: 연합뉴스</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>4. 수급 및 섹터 분석</h2>
-            <div class="no-data">
-                제공된 입력 데이터에 외국인/기관/개인 수급 정보 및 강세/약세 섹터에 대한 구체적인 정보가 없습니다.
-            </div>
-        </section>
-
-        <section>
-            <h2>5. 분석 후보 종목</h2>
-            <div class="no-data">
-                제공된 입력 데이터에 분석할 주식 종목 정보가 없습니다.
-            </div>
-        </section>
-
-        <section>
-            <h2>6. 제외 종목</h2>
-            <div class="no-data">
-                제공된 입력 데이터에 제외할 주식 종목 정보가 없습니다.
-            </div>
-        </section>
-
-        <section>
-            <h2>7. 엄격 검토</h2>
-            <div class="card full-width">
-                <div class="card-title">최종 신뢰도 등급</div>
-                <div class="card-content">
-                    <p>제공된 입력 데이터에 개별 종목에 대한 재무제표 정보 및 추천 사유를 도출할 수 있는 상세 데이터가 포함되어 있지 않아, 최종 신뢰도 등급을 부여하기 어렵습니다. 시장 동향 및 거시경제 뉴스에 대한 정보는 제공된 출처를 기반으로 작성되었습니다.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
+                <div class="card">
+                    <h4>KOSPI</h4>
+                    <p class="value">5649.06</p>
+                    <p class="change-negative">-0.34%</p>
+                    <p>기준일: 2026-10-20</p>
