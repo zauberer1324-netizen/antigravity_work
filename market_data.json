@@ -30,22 +30,22 @@
         "date": "2026-10-23"
     },
     "USD_KRW": {
-        "price": 1325.4,
-        "change": -0.59,
-        "change_percent": -0.04,
-        "date": "2026-10-24"
+        "price": 1323.49,
+        "change": -2.5,
+        "change_percent": -0.19,
+        "date": "2026-10-25"
     },
     "WTI_CRUDE_OIL": {
-        "price": 103.27,
-        "change": 3.8,
-        "change_percent": 3.82,
-        "date": "2026-10-23"
+        "price": 102.13,
+        "change": -1.14,
+        "change_percent": -1.1,
+        "date": "2026-10-25"
     },
     "GOLD": {
-        "price": 4007.9,
-        "change": -52.5,
-        "change_percent": -1.29,
-        "date": "2026-10-23"
+        "price": 4012.2,
+        "change": 4.3,
+        "change_percent": 0.11,
+        "date": "2026-10-25"
     },
     "US_10Y_TREASURY": {
         "price": 4.99,
