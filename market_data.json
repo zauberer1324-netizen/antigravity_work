@@ -12,16 +12,16 @@
         "date": "2026-10-30"
     },
     "KOSPI": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
-        "date": "2026-10-30"
+        "price": 5769.74,
+        "change": 39.0,
+        "change_percent": 0.68,
+        "date": "2026-11-02"
     },
     "KOSDAQ": {
-        "price": NaN,
-        "change": NaN,
-        "change_percent": NaN,
-        "date": "2026-10-30"
+        "price": 726.15,
+        "change": 1.77,
+        "change_percent": 0.24,
+        "date": "2026-11-02"
     },
     "VIX": {
         "price": 19.42,
@@ -30,22 +30,22 @@
         "date": "2026-10-30"
     },
     "USD_KRW": {
-        "price": 1337.98,
-        "change": -2.36,
-        "change_percent": -0.18,
-        "date": "2026-10-30"
+        "price": 1338.38,
+        "change": 0.4,
+        "change_percent": 0.03,
+        "date": "2026-11-02"
     },
     "WTI_CRUDE_OIL": {
-        "price": 102.95,
-        "change": 0.95,
-        "change_percent": 0.93,
-        "date": "2026-10-30"
+        "price": 101.86,
+        "change": -2.26,
+        "change_percent": -2.17,
+        "date": "2026-11-01"
     },
     "GOLD": {
-        "price": 3884.9,
-        "change": -146.5,
-        "change_percent": -3.63,
-        "date": "2026-10-30"
+        "price": 3909.6,
+        "change": 10.7,
+        "change_percent": 0.27,
+        "date": "2026-11-01"
     },
     "US_10Y_TREASURY": {
         "price": 4.93,
